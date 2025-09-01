@@ -29,6 +29,8 @@ import org.koin.androidx.compose.koinViewModel
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.ButtonDefaults
@@ -94,6 +96,7 @@ fun LoginScreen(
                 value = state.username,
                 onValueChange = { viewModel.onEvent(LoginEvent.UsernameChanged(it)) },
                 label = { Text("Usuario") },
+                leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Usuario") },
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -103,6 +106,7 @@ fun LoginScreen(
                 value = state.password,
                 onValueChange = { viewModel.onEvent(LoginEvent.PasswordChanged(it)) },
                 label = { Text("Contraseña") },
+                leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Contraseña") },
                 modifier = Modifier.fillMaxWidth(),
                 visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                 trailingIcon = {
@@ -119,7 +123,9 @@ fun LoginScreen(
 
             Button(
                 onClick = { viewModel.onEvent(LoginEvent.Login) },
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp),
                 enabled = !state.isLoading,
                 colors = ButtonDefaults.buttonColors(
                     containerColor = ButtonOrange,          // color de fondo del botón
