@@ -1,5 +1,6 @@
 package com.softwama.goplan.features.login.presentation
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -36,6 +37,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import com.softwama.goplan.R
 import com.softwama.goplan.ui.theme.ButtonOrange
 
@@ -58,6 +61,15 @@ fun LoginScreen(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
+        Column {
+            Image(
+                painter = painterResource(id = R.drawable.logo),
+                contentDescription = "Imagen de inicio de sesión",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(300.dp),
+                contentScale = ContentScale.Crop
+            )
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -65,10 +77,17 @@ fun LoginScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+
             Text(
                 text = stringResource(R.string.inicio_sesion),
                 style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(bottom = 35.dp)
+                modifier = Modifier.padding(bottom = 20.dp)
+            )
+            Text(
+                text = "Inicia Sesión con tu cuenta",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(bottom = 20.dp)
             )
 
             OutlinedTextField(
@@ -134,6 +153,7 @@ fun LoginScreen(
                     color = MaterialTheme.colorScheme.primary
                 )
             }
+        }
         }
     }
 }
