@@ -29,5 +29,5 @@ val appModule=module{
     //ViewModels
     viewModel { LoginViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
-    viewModel { SuscribeViewModel(get()) }
+    viewModel { SuscribeViewModel() }
 }
