@@ -41,11 +41,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.navigation.NavController
 import com.softwama.goplan.R
 import com.softwama.goplan.ui.theme.ButtonOrange
 
@@ -54,6 +58,7 @@ import com.softwama.goplan.ui.theme.ButtonOrange
 @Composable
 fun LoginScreen(
     onLoginSuccess: () -> Unit,
+    onNavigateToSuscribe: () -> Unit,
     viewModel: LoginViewModel = koinViewModel()
 ) {
     val state by viewModel.state.collectAsState()
@@ -154,17 +159,31 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(16.dp))
             val annotatedString = buildAnnotatedString {
                 append("¿No tienes cuenta? ")
-                withStyle(style = SpanStyle(color = ButtonOrange)) {
+
+                // Agregar annotation para la parte clickeable
+                pushStringAnnotation(
+                    tag = "SUSCRIBE",
+                    annotation = "navigate_to_suscribe"
+                )
+                withStyle(style = SpanStyle(color = ButtonOrange, fontWeight = FontWeight.Bold)) {
                     append("Suscríbete")
                 }
+                pop() // Importante: cerrar la annotation
             }
 
             ClickableText(
                 text = annotatedString,
                 style = MaterialTheme.typography.bodyMedium.copy(color = Color.Black),
-                onClick = {
-                    // Aquí puedes agregar la navegación a la pantalla de suscripción
-                }
+                onClick = { offset ->
+                    annotatedString.getStringAnnotations(
+                        tag = "SUSCRIBE",
+                        start = offset,
+                        end = offset
+                    ).firstOrNull()?.let {
+                        onNavigateToSuscribe()
+                    }
+                },
+                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand) // Para que muestre la manito al pasar el mouse
             )
             // Corrección para el error
             state.error?.let { error ->

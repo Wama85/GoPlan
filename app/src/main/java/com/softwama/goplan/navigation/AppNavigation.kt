@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.softwama.goplan.features.login.presentation.LoginScreen
 import com.softwama.goplan.features.profile.presentation.ProfileScreen
+import com.softwama.goplan.features.suscribe.presentation.SuscribeScreen
 
 
 @Composable
@@ -24,6 +25,9 @@ fun AppNavigation() {
                         // Limpiamos el back stack para que no se pueda volver al login con back button
                         popUpTo(Screen.Login.route) { inclusive = true }
                     }
+                },
+                onNavigateToSuscribe = {
+                    navController.navigate(Screen.Suscribe.route)
                 }
             )
         }
@@ -31,6 +35,10 @@ fun AppNavigation() {
         composable(Screen.Profile.route) {
             ProfileScreen(navController = navController)
         }
+        composable(Screen.Suscribe.route) {
+            SuscribeScreen(navController= navController)
+        }
+
 
     }
 }
