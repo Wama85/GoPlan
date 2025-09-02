@@ -1,6 +1,7 @@
 package com.softwama.goplan.features.login.presentation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -41,6 +43,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
 import com.softwama.goplan.R
 import com.softwama.goplan.ui.theme.ButtonOrange
 
@@ -131,7 +136,10 @@ fun LoginScreen(
                     containerColor = ButtonOrange,          // color de fondo del botón
                     contentColor = Color.Black               // color del texto
             )
-            ) {
+
+            )
+
+            {
                 if (state.isLoading) {
                     CircularProgressIndicator(
                         modifier = Modifier.size(20.dp),
@@ -142,6 +150,22 @@ fun LoginScreen(
                 }
             }
 
+            // Texto de "¿No tienes cuenta? Suscríbete" debajo del botón
+            Spacer(modifier = Modifier.height(16.dp))
+            val annotatedString = buildAnnotatedString {
+                append("¿No tienes cuenta? ")
+                withStyle(style = SpanStyle(color = ButtonOrange)) {
+                    append("Suscríbete")
+                }
+            }
+
+            ClickableText(
+                text = annotatedString,
+                style = MaterialTheme.typography.bodyMedium.copy(color = Color.Black),
+                onClick = {
+                    // Aquí puedes agregar la navegación a la pantalla de suscripción
+                }
+            )
             // Corrección para el error
             state.error?.let { error ->
                 Spacer(modifier = Modifier.height(16.dp))
