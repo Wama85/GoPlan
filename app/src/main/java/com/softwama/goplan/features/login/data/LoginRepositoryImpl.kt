@@ -20,7 +20,7 @@ class LoginRepositoryImpl : LoginRepository {
                 return@flow
             }
 
-            if (request.username == "admin" && request.password == "admin") {
+            if (request.username == "admin" && request.password == "123") {
                 val response = LoginResponse(
                     token = "mock_token_${System.currentTimeMillis()}",
                     userId = "user_123"

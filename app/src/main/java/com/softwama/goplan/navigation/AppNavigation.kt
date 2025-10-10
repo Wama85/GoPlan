@@ -5,9 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.softwama.goplan.features.login.presentation.LoginScreen
-import com.softwama.goplan.features.profile.presentation.ProfileScreen
 import com.softwama.goplan.features.suscribe.presentation.SuscribeScreen
-
 
 @Composable
 fun AppNavigation() {
@@ -17,12 +15,12 @@ fun AppNavigation() {
         navController = navController,
         startDestination = Screen.Login.route
     ) {
+        // Pantalla de login
         composable(Screen.Login.route) {
             LoginScreen(
                 onLoginSuccess = {
-                    // Navegar a Profile cuando el login sea exitoso
-                    navController.navigate(Screen.Profile.route) {
-                        // Limpiamos el back stack para que no se pueda volver al login con back button
+                    // ✅ Después del login, abrimos MainApp (que contiene el Drawer)
+                    navController.navigate(Screen.Dashboard.route) {
                         popUpTo(Screen.Login.route) { inclusive = true }
                     }
                 },
@@ -32,13 +30,13 @@ fun AppNavigation() {
             )
         }
 
-        composable(Screen.Profile.route) {
-            ProfileScreen(navController = navController)
+        // ✅ En lugar de DashboardScreen directo, cargamos MainApp (Drawer + Dashboard interno)
+        composable(Screen.Dashboard.route) {
+            MainApp(navController = navController)
         }
+
         composable(Screen.Suscribe.route) {
-            SuscribeScreen(navController= navController)
+            SuscribeScreen(navController = navController)
         }
-
-
     }
 }
