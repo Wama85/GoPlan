@@ -81,7 +81,7 @@ dependencies {
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
-    // ❌ ELIMINAR ESTA LÍNEA: implementation(libs.firebase.config.ktx)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -89,7 +89,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
     implementation(libs.retrofit)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.navigation)

@@ -147,19 +147,7 @@ fun DashboardScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // Botón de cerrar sesión
-            OutlinedButton(
-                onClick = {
-                    navController.navigate(Screen.Login.route) {
-                        popUpTo(Screen.Dashboard.route) { inclusive = true }
-                    }
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Icon(Icons.Default.Logout, contentDescription = null)
-                Spacer(modifier = Modifier.width(8.dp))
-                Text("Cerrar Sesión")
-            }
+
         }
     }
 }

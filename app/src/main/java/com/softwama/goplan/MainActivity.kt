@@ -30,11 +30,9 @@ import com.softwama.goplan.navigation.NavigationDrawer
 import io.sentry.Sentry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 class MainActivity : ComponentActivity() {
 
-    // Launcher para pedir permisos de notificaciones
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
@@ -49,10 +47,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inicializar Firebase
         FirebaseApp.initializeApp(this)
 
-        // Sentry - waiting for view to draw
         findViewById<android.view.View>(android.R.id.content).viewTreeObserver.addOnGlobalLayoutListener {
             try {
                 throw Exception("This app uses Sentry! :)")
@@ -61,7 +57,6 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // Pedir permisos de notificaciones
         askNotificationPermission()
 
         setContent {
@@ -74,9 +69,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    /**
-     * Pide permiso de notificaciones en Android 13+ (API 33+)
-     */
     private fun askNotificationPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             when {
@@ -87,26 +79,16 @@ class MainActivity : ComponentActivity() {
                     Log.d(TAG, "✅ Ya tiene permiso de notificaciones")
                     getFirebaseToken()
                 }
-                shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
-                    // Aquí puedes mostrar un diálogo explicando por qué necesitas el permiso
-                    Log.d(TAG, "ℹ️ Mostrando rationale para permisos")
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
                 else -> {
-                    // Solicitar permiso directamente
                     requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
                 }
             }
         } else {
-            // Android 12 o menor, no necesita permiso explícito
             Log.d(TAG, "📱 Android < 13, no se requiere permiso POST_NOTIFICATIONS")
             getFirebaseToken()
         }
     }
 
-    /**
-     * Obtiene el token FCM del dispositivo
-     */
     private fun getFirebaseToken() {
         FirebaseMessaging.getInstance().token
             .addOnCompleteListener { task ->
@@ -115,41 +97,14 @@ class MainActivity : ComponentActivity() {
                     return@addOnCompleteListener
                 }
 
-                // Token FCM obtenido exitosamente
                 val token = task.result
                 Log.d(TAG, "🔑 Token FCM: $token")
 
-                // TODO: Envía este token a tu backend
-                sendTokenToBackend(token)
-
-                // Opcional: Suscribirse a temas
                 subscribeToTopics()
             }
     }
 
-    /**
-     * Envía el token a tu backend (implementar según tu API)
-     */
-    private fun sendTokenToBackend(token: String) {
-        // TODO: Implementar llamada a tu API
-        Log.d(TAG, "📤 Enviando token al backend: $token")
-
-        // Ejemplo con Retrofit (implementar según tu caso):
-        // lifecycleScope.launch {
-        //     try {
-        //         apiService.updateFcmToken(token)
-        //         Log.d(TAG, "✅ Token enviado al backend exitosamente")
-        //     } catch (e: Exception) {
-        //         Log.e(TAG, "❌ Error enviando token al backend", e)
-        //     }
-        // }
-    }
-
-    /**
-     * Suscribe el dispositivo a temas de notificaciones
-     */
     private fun subscribeToTopics() {
-        // Suscribirse a un tema general
         FirebaseMessaging.getInstance().subscribeToTopic("all_users")
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -158,51 +113,10 @@ class MainActivity : ComponentActivity() {
                     Log.e(TAG, "❌ Error suscribiéndose al tema", task.exception)
                 }
             }
-
-        // Puedes suscribirte a más temas según tu lógica de negocio
-        // FirebaseMessaging.getInstance().subscribeToTopic("premium_users")
-        // FirebaseMessaging.getInstance().subscribeToTopic("weekly_reminders")
     }
 
     companion object {
         private const val TAG = "MainActivity"
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun NavigationDrawerHost(
-    coroutineScope: CoroutineScope,
-    drawerState: DrawerState,
-    navController: NavHostController
-) {
-    Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = { Text(stringResource(R.string.app_name)) },
-                modifier = Modifier.statusBarsPadding(),
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceContainer
-                ),
-                navigationIcon = {
-                    IconButton(onClick = {
-                        coroutineScope.launch {
-                            drawerState.open()
-                        }
-                    }) {
-                        Icon(
-                            Icons.Default.Menu,
-                            contentDescription = "Menu"
-                        )
-                    }
-                }
-            )
-        }
-    ) { innerPadding ->
-        AppNavigation(
-            navController = navController,
-            modifier = Modifier.padding(innerPadding)
-        )
     }
 }
 
@@ -216,27 +130,21 @@ fun MainApp() {
 
     val navigationDrawerItems = listOf(
         NavigationDrawer.Dashboard
-        //Añadir otra ventanas
     )
 
-    val drawerState = rememberDrawerState(
-        initialValue = DrawerValue.Closed
-    )
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
-    // Rutas que NO deben mostrar el drawer (Login y Suscribe)
     val routesWithoutDrawer = listOf("login", "suscribe")
     val showDrawer = currentRoute !in routesWithoutDrawer
 
     if (showDrawer) {
-        // Mostrar CON drawer (Dashboard, Calendar, Profile)
         ModalNavigationDrawer(
             drawerState = drawerState,
             drawerContent = {
                 ModalDrawerSheet(
                     modifier = Modifier.width(280.dp)
                 ) {
-                    // Header del drawer con logo
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -256,10 +164,8 @@ fun MainApp() {
                     }
 
                     HorizontalDivider()
-
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // Items del menú
                     navigationDrawerItems.forEach { item ->
                         val isSelected = currentDestination?.route == item.route
 
@@ -275,10 +181,6 @@ fun MainApp() {
                             onClick = {
                                 navController.navigate(item.route) {
                                     launchSingleTop = true
-                                    restoreState = true
-                                    popUpTo(navController.graph.startDestinationId) {
-                                        saveState = true
-                                    }
                                 }
                                 coroutineScope.launch {
                                     drawerState.close()
@@ -290,10 +192,36 @@ fun MainApp() {
                 }
             }
         ) {
-            NavigationDrawerHost(coroutineScope, drawerState, navController)
+            Scaffold(
+                topBar = {
+                    CenterAlignedTopAppBar(
+                        title = { Text(stringResource(R.string.app_name)) },
+                        modifier = Modifier.statusBarsPadding(),
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceContainer
+                        ),
+                        navigationIcon = {
+                            IconButton(onClick = {
+                                coroutineScope.launch {
+                                    drawerState.open()
+                                }
+                            }) {
+                                Icon(
+                                    Icons.Default.Menu,
+                                    contentDescription = "Menu"
+                                )
+                            }
+                        }
+                    )
+                }
+            ) { innerPadding ->
+                AppNavigation(
+                    navController = navController,
+                    modifier = Modifier.padding(innerPadding)
+                )
+            }
         }
     } else {
-        // Mostrar SIN drawer (Login, Suscribe)
         AppNavigation(
             navController = navController,
             modifier = Modifier.fillMaxSize()

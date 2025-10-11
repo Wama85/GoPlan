@@ -1,11 +1,17 @@
 package com.softwama.goplan.navigation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.calendar.presentation.CalendarScreen
 import com.softwama.goplan.features.dashboard.DashboardScreen
 import com.softwama.goplan.features.login.presentation.LoginScreen
@@ -14,68 +20,74 @@ import com.softwama.goplan.features.profile.presentation.ProfileScreen
 import com.softwama.goplan.features.suscribe.presentation.SuscribeScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceViewModel
-import org.koin.androidx.compose.koinViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
+import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.koinInject
+
 
 @Composable
 fun AppNavigation(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+    val dataStore: UserPreferencesDataStore = koinInject()
     val maintenanceViewModel: MaintenanceViewModel = koinViewModel()
 
-    // Verificar estado de mantenimiento
+    var isLoggedIn by remember { mutableStateOf<Boolean?>(null) }
+
     LaunchedEffect(Unit) {
         maintenanceViewModel.checkAppStatus()
+        isLoggedIn = dataStore.getLoginStatus().first()
     }
 
     val isMaintenance by maintenanceViewModel.isMaintenance.collectAsState()
 
-    when (isMaintenance) {
-        null -> LoadingSplash() // pantalla temporal de carga
-        true -> MaintenanceScreen()
-        false -> {
+    when {
+        isMaintenance == null || isLoggedIn == null -> {
+            LoadingSplash()
+        }
+        isMaintenance == true -> {
+            MaintenanceScreen()
+        }
+        else -> {
+            val startDestination = if (isLoggedIn == true) "dashboard" else "login"
+
             NavHost(
                 navController = navController,
-                startDestination = Screen.Login.route,
+                startDestination = startDestination,
                 modifier = modifier
             ) {
-                // Pantalla de Login
-                composable(Screen.Login.route) {
+                composable("login") {
                     LoginScreen(
                         onLoginSuccess = {
-                            navController.navigate(Screen.Dashboard.route) {
-                                popUpTo(Screen.Login.route) { inclusive = true }
+                            navController.navigate("dashboard") {
+                                popUpTo("login") { inclusive = true }
                             }
                         },
                         onNavigateToSuscribe = {
-                            navController.navigate(Screen.Suscribe.route)
+                            navController.navigate("suscribe")
                         }
                     )
                 }
 
-                // Pantalla de Registro
-                composable(Screen.Suscribe.route) {
+                composable("suscribe") {
                     SuscribeScreen(navController = navController)
                 }
 
-                // Pantalla de Dashboard
-                composable(Screen.Dashboard.route) {
+                composable("dashboard") {
                     DashboardScreen(navController = navController)
                 }
 
-                // Pantalla de Perfil
-                composable(Screen.Profile.route) {
+                composable("profile") {
                     ProfileScreen(navController = navController)
                 }
 
-                // Pantalla de Calendario
-                composable(Screen.Calendar.route) {
+                composable("calendar") {
                     CalendarScreen(navController = navController)
                 }
 
-                // Pantalla de Notificaciones
-                composable(Screen.Notifications.route) {
+                composable("notifications") {
                     NotificationsScreen(navController = navController)
                 }
             }
@@ -99,18 +111,15 @@ fun LoadingSplash() {
         }
     }
 
-    androidx.compose.material3.Surface(
+    Surface(
         modifier = Modifier.fillMaxSize(),
-        color = androidx.compose.material3.MaterialTheme.colorScheme.background
+        color = MaterialTheme.colorScheme.background
     ) {
-        androidx.compose.foundation.layout.Box(
-            contentAlignment = androidx.compose.ui.Alignment.Center,
+        Box(
+            contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize()
         ) {
-            androidx.compose.material3.Text(
-                text = "Cargando$dots",
-                style = androidx.compose.material3.MaterialTheme.typography.headlineMedium
-            )
+            CircularProgressIndicator()
         }
     }
 }
