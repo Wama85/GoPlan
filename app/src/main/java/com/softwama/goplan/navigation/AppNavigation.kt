@@ -25,7 +25,6 @@ import kotlinx.coroutines.flow.first
 import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 
-
 @Composable
 fun AppNavigation(
     navController: NavHostController,
@@ -34,24 +33,24 @@ fun AppNavigation(
     val dataStore: UserPreferencesDataStore = koinInject()
     val maintenanceViewModel: MaintenanceViewModel = koinViewModel()
 
-    var isLoggedIn by remember { mutableStateOf<Boolean?>(null) }
+    var initialLoginState by remember { mutableStateOf<Boolean?>(null) }
 
     LaunchedEffect(Unit) {
         maintenanceViewModel.checkAppStatus()
-        isLoggedIn = dataStore.getLoginStatus().first()
+        initialLoginState = dataStore.getLoginStatus().first()
     }
 
     val isMaintenance by maintenanceViewModel.isMaintenance.collectAsState()
 
     when {
-        isMaintenance == null || isLoggedIn == null -> {
+        isMaintenance == null || initialLoginState == null -> {
             LoadingSplash()
         }
         isMaintenance == true -> {
             MaintenanceScreen()
         }
         else -> {
-            val startDestination = if (isLoggedIn == true) "dashboard" else "login"
+            val startDestination = if (initialLoginState == true) "dashboard" else "login"
 
             NavHost(
                 navController = navController,

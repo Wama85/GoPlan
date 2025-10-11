@@ -30,6 +30,8 @@ import com.softwama.goplan.navigation.NavigationDrawer
 import io.sentry.Sentry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.KoinAndroidContext
+
 
 class MainActivity : ComponentActivity() {
 
@@ -60,11 +62,13 @@ class MainActivity : ComponentActivity() {
         askNotificationPermission()
 
         setContent {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                MainApp()
+            KoinAndroidContext {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    MainApp()
+                }
             }
         }
     }

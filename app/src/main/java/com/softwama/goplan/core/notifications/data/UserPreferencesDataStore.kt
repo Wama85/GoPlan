@@ -16,12 +16,12 @@ class UserPreferencesDataStore(private val context: Context) {
         val USERNAME = stringPreferencesKey("username")
         val EMAIL = stringPreferencesKey("email")
         val IS_LOGGED_IN = booleanPreferencesKey("is_logged_in")
-
-        // ✅ Nuevas claves para notificaciones
+        val FCM_TOKEN = stringPreferencesKey("fcm_token") // ✅ Agregar
         val NOTIFICATIONS_ENABLED = booleanPreferencesKey("notifications_enabled")
         val NOTIFICATION_TIME = stringPreferencesKey("notification_time")
     }
 
+    // ========== SESIÓN ==========
     suspend fun saveSession(token: String, userName: String, userEmail: String) {
         context.dataStore.edit { preferences ->
             preferences[Keys.TOKEN] = token
@@ -61,63 +61,64 @@ class UserPreferencesDataStore(private val context: Context) {
         }
     }
 
+    // ✅ CERRAR SESIÓN - Borra TODO
     suspend fun clearSession() {
         context.dataStore.edit { preferences ->
             preferences.clear()
         }
     }
 
-    // ✅ Habilitar o deshabilitar notificaciones
+    // ========== NOTIFICACIONES ==========
     suspend fun saveNotificationsEnabled(enabled: Boolean) {
         context.dataStore.edit { preferences ->
             preferences[Keys.NOTIFICATIONS_ENABLED] = enabled
         }
     }
 
-    // ✅ Leer si las notificaciones están habilitadas
     fun getNotificationsEnabled(): Flow<Boolean> {
         return context.dataStore.data.map { preferences ->
-            preferences[Keys.NOTIFICATIONS_ENABLED] ?: true // por defecto activadas
+            preferences[Keys.NOTIFICATIONS_ENABLED] ?: true
         }
     }
 
-    // ✅ Guardar tiempo configurado para notificaciones
     suspend fun saveNotificationTime(minutes: String) {
         context.dataStore.edit { preferences ->
             preferences[Keys.NOTIFICATION_TIME] = minutes
         }
     }
 
-    // ✅ Obtener tiempo configurado para notificaciones
     fun getNotificationTime(): Flow<String> {
         return context.dataStore.data.map { preferences ->
-            preferences[Keys.NOTIFICATION_TIME] ?: "30" // por defecto 30 minutos
+            preferences[Keys.NOTIFICATION_TIME] ?: "30"
         }
     }
-    suspend fun saveFcmToken(token: String) {
-        context.dataStore.edit { preferences ->
-            preferences[stringPreferencesKey("fcm_token")] = token
-        }
-    }
-    // ✅ Obtener el token FCM guardado
-    fun getFcmToken(): Flow<String?> {
-        return context.dataStore.data.map { preferences ->
-            preferences[stringPreferencesKey("fcm_token")]
-        }
-    }
+
     suspend fun saveNotificationPreferences(enabled: Boolean, time: String) {
         context.dataStore.edit { preferences ->
-            preferences[booleanPreferencesKey("notifications_enabled")] = enabled
-            preferences[stringPreferencesKey("notification_time")] = time
+            preferences[Keys.NOTIFICATIONS_ENABLED] = enabled // ✅ Usar Keys
+            preferences[Keys.NOTIFICATION_TIME] = time // ✅ Usar Keys
         }
     }
-    // ✅ Obtener preferencias de notificaciones combinadas
+
     fun getNotificationPreferences(): Flow<NotificationPreferences> {
         return context.dataStore.data.map { preferences ->
             NotificationPreferences(
                 enabled = preferences[Keys.NOTIFICATIONS_ENABLED] ?: true,
                 timeMinutes = preferences[Keys.NOTIFICATION_TIME] ?: "30"
             )
+        }
+    }
+
+    // ========== FCM TOKEN ==========
+    suspend fun saveFcmToken(token: String) {
+        context.dataStore.edit { preferences ->
+            preferences[Keys.FCM_TOKEN] = token // ✅ Usar Keys
+        }
+    }
+
+    fun getFcmToken(): Flow<String?> {
+        return context.dataStore.data.map { preferences ->
+            preferences[Keys.FCM_TOKEN] // ✅ Usar Keys
         }
     }
 }
