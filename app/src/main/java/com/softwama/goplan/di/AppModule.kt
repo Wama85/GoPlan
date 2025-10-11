@@ -1,5 +1,8 @@
 package com.softwama.goplan.di
 
+import com.softwama.goplan.features.calendar.data.CalendarRepositoryImpl
+import com.softwama.goplan.features.calendar.presentation.CalendarViewModel
+import com.softwama.goplan.features.dashboard.DashboardViewModel
 import com.softwama.goplan.features.login.data.LoginRepositoryImpl
 import com.softwama.goplan.features.login.domain.repository.LoginRepository
 import com.softwama.goplan.features.login.domain.usecase.LoginUseCase
@@ -20,6 +23,7 @@ val appModule=module{
     single<LoginRepository> { LoginRepositoryImpl() }
     single<ProfileRepository> { ProfileRepositoryImpl() }
     single<SuscribeRepository> { SuscribeRepositoryImpl() }
+    single { CalendarRepositoryImpl(get ()) }
 
     //UseCase
     factory { LoginUseCase(get()) }
@@ -30,4 +34,6 @@ val appModule=module{
     viewModel { LoginViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
     viewModel { SuscribeViewModel() }
+    viewModel { DashboardViewModel() }
+    viewModel { CalendarViewModel(get()) }
 }

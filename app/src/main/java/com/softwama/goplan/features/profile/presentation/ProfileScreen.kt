@@ -91,17 +91,9 @@ fun ProfileScreen(
                     text = "Esta es la pantalla de perfil. Aquí podrás ver y gestionar tu información personal.",
                     style = MaterialTheme.typography.bodyMedium
                 )
-                Spacer(modifier = Modifier.height(48.dp))
 
-                Button(
-                    onClick = {
-                        navController.navigate(Screen.Login.route) {
-                            popUpTo(Screen.Profile.route) { inclusive = true }
-                        }
-                    }
-                ) {
-                    Text("Cerrar Sesión")
-                }
+
+
             }
         }
     }

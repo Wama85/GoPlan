@@ -9,10 +9,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.softwama.goplan" />
+                  <option name="mobileSdkAppId" value="1:549142143365:android:af21db7b38c9ab94b4a4ec" />
+                  <option name="projectId" value="goplanw2025" />
+                  <option name="projectNumber" value="549142143365" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
