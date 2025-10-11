@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
+    //id("com.google.gms.google-services")
     id("io.sentry.android.gradle") version "5.9.0"
     alias(libs.plugins.google.gms.google.services)
 }
@@ -30,6 +30,7 @@ android {
             )
         }
     }
+
     packaging {
         resources {
             excludes += setOf(
@@ -46,14 +47,17 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
         isCoreLibraryDesugaringEnabled = true
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
@@ -72,33 +76,51 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.androidx.ui.text)
     implementation(libs.androidx.games.activity)
-    implementation(libs.firebase.auth)
+
+    // Credentials
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
+    // ❌ ELIMINAR ESTA LÍNEA: implementation(libs.firebase.config.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
     implementation(libs.retrofit)
-    implementation (libs.koin.android)
-    implementation (libs.koin.androidx.navigation)
-    implementation (libs.koin.androidx.compose)
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.navigation)
+    implementation(libs.koin.androidx.compose)
     implementation(libs.coil.compose)
     implementation(libs.coil.network)
     implementation(libs.nav.compose)
+    implementation(libs.datastore)
+
     implementation("io.sentry:sentry-android:7.14.0")
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.compose.material:material-icons-extended:1.5.0")
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
 
-    // ===== NUEVAS DEPENDENCIAS PARA GOOGLE CALENDAR =====
-    // Google Sign-In
+    // ❌ ELIMINAR ESTA LÍNEA: implementation("com.google.firebase:firebase-config-ktx:22.0.0")
+
+    // ===== FIREBASE =====
+    // Firebase BoM - DEBE IR PRIMERO, controla todas las versiones
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+
+    // Firebase Cloud Messaging (SIN versión)
+    implementation("com.google.firebase:firebase-messaging-ktx")
+
+    // Firebase Analytics (SIN versión)
+    implementation("com.google.firebase:firebase-analytics-ktx")
+
+    // Firebase Remote Config (SIN versión) - para tu RemoteConfigRepository
+    implementation("com.google.firebase:firebase-config-ktx")
+
+    // ===== GOOGLE CALENDAR API =====
     implementation("com.google.android.gms:play-services-auth:21.2.0")
-
-    // Google Calendar API
     implementation("com.google.apis:google-api-services-calendar:v3-rev20240705-2.0.0") {
         exclude(group = "org.apache.httpcomponents", module = "httpclient")
     }
@@ -109,15 +131,12 @@ dependencies {
     implementation("com.google.http-client:google-http-client-gson:1.45.0") {
         exclude(group = "org.apache.httpcomponents", module = "httpclient")
     }
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
 
 sentry {
     org.set("ucb-yl")
     projectName.set("goplan")
-
-    // this will upload your source code to Sentry to show it as part of the stack traces
-    // disable if you don't want to expose your sources
     includeSourceContext.set(true)
 }

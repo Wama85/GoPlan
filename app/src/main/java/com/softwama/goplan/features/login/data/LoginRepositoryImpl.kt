@@ -6,31 +6,33 @@ import com.softwama.goplan.features.login.domain.repository.LoginRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.util.UUID
 
 class LoginRepositoryImpl : LoginRepository {
 
     override fun login(request: LoginRequest): Flow<Result<LoginResponse>> = flow {
-        try {
-            // Simulamos un delay de red
-            delay(1000)
+        // Simulamos una llamada a la red
+        delay(1000)
 
-            // Validación simple
-            if (request.username.isEmpty() || request.password.isEmpty()) {
-                emit(Result.failure(Exception("Usuario y contraseña son requeridos")))
-                return@flow
-            }
+        // Validación simple (en producción esto viene del servidor)
+        if (request.username.isNotBlank() && request.password.length >= 4) {
+            // Login exitoso - generamos un token simulado
+            val token = "token_${UUID.randomUUID()}"
 
-            if (request.username == "admin" && request.password == "123") {
-                val response = LoginResponse(
-                    token = "mock_token_${System.currentTimeMillis()}",
-                    userId = "user_123"
+            emit(Result.success(
+                LoginResponse(
+                    success = true,
+                    message = "Inicio de sesión exitoso",
+                    token = token,
+                    userName = request.username,
+                    userEmail = "${request.username}@goplan.com" // Email simulado
                 )
-                emit(Result.success(response))
-            } else {
-                emit(Result.failure(Exception("Credenciales inválidas")))
-            }
-        } catch (e: Exception) {
-            emit(Result.failure(Exception(e.message ?: "Error de conexión")))
+            ))
+        } else {
+            // Login fallido
+            emit(Result.failure(
+                Exception("Usuario o contraseña incorrectos")
+            ))
         }
     }
 }

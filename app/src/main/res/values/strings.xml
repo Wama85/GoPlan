@@ -2,5 +2,6 @@
     <string name="app_name">GoPlan</string>
     <string name="login_title">Login</string>
     <string name="inicio_sesion">Iniciar Sesión</string>
+    <string name="default_notification_channel_id">default_notification_channel_id</string>
 
 </resources>
