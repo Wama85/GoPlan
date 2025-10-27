@@ -104,7 +104,7 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.5.0")
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
-    // ❌ ELIMINAR ESTA LÍNEA: implementation("com.google.firebase:firebase-config-ktx:22.0.0")
+    implementation("androidx.core:core-splashscreen:1.2.0-alpha02")
 
     // ===== FIREBASE =====
     // Firebase BoM - DEBE IR PRIMERO, controla todas las versiones

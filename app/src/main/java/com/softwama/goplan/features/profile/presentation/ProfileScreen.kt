@@ -28,11 +28,11 @@ fun ProfileScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = { Text("Perfil") },
-//                navigationIcon = {
-//                    IconButton(onClick = { navController.popBackStack() }) {
-//                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
-//                    }
-//                }
+               navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                       Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                   }
+               }
             )
         }
     ) { padding ->
@@ -107,23 +107,8 @@ fun ProfileScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // Logout Button
-            OutlinedButton(
-                onClick = {
-                    viewModel.logout()
-                    navController.navigate("login") {
-                        popUpTo(0) { inclusive = true }
-                    }
-                },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.outlinedButtonColors(
-                    contentColor = MaterialTheme.colorScheme.error
-                )
-            ) {
-                Icon(Icons.Default.ExitToApp, contentDescription = null)
-                Spacer(modifier = Modifier.width(8.dp))
-                Text("Cerrar Sesión")
-            }
+
+
         }
     }
 }

@@ -59,11 +59,11 @@ fun CalendarScreen(
                         fontWeight = FontWeight.Bold
                     )
                 },
-//                navigationIcon = {
-//                    IconButton(onClick = { navController.popBackStack() }) {
-//                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
-//                    }
-//                },
+               navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                    }
+               },
                 actions = {
                     if (state.isSignedIn) {
                         IconButton(onClick = { viewModel.signOut() }) {

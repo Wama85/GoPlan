@@ -21,17 +21,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
+import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.navigation.AppNavigation
 import com.softwama.goplan.navigation.NavigationDrawer
 import io.sentry.Sentry
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.KoinAndroidContext
+import org.koin.compose.koinInject
 
 
 class MainActivity : ComponentActivity() {
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
     private var globalLayoutListener: ViewTreeObserver.OnGlobalLayoutListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         FirebaseApp.initializeApp(this)
@@ -147,10 +150,11 @@ fun MainApp() {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
     val currentRoute = currentDestination?.route
+    val dataStore: UserPreferencesDataStore = koinInject()
 
     val navigationDrawerItems = listOf(
-        NavigationDrawer.Dashboard ,
-                NavigationDrawer.Tareas,
+        NavigationDrawer.Dashboard,
+        NavigationDrawer.Tareas,
         NavigationDrawer.Proyectos,
         NavigationDrawer.Calendar,
         NavigationDrawer.Estadisticas,
@@ -160,7 +164,7 @@ fun MainApp() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
-    val routesWithoutDrawer = listOf("login", "suscribe", "tareas", "proyectos", "estadisticas","calendar","profile")
+    val routesWithoutDrawer = listOf("login", "suscribe", "tareas", "proyectos", "estadisticas","calendar","profile","notifications")
     val showDrawer = currentRoute !in routesWithoutDrawer
 
     if (showDrawer) {
@@ -205,10 +209,8 @@ fun MainApp() {
                             selected = isSelected,
                             onClick = {
                                 if (item.route == "logout") {
-                                    // Aquí manejas cerrar sesión
                                     coroutineScope.launch {
-                                        // Limpiar preferencias
-                                        // navegar a login
+                                        dataStore.saveLoginStatus(false)
                                         navController.navigate("login") {
                                             popUpTo(0) { inclusive = true }
                                         }
