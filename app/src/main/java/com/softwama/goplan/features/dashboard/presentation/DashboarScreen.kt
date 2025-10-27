@@ -105,7 +105,7 @@ fun DashboardScreen(
                     color = Color(0xFF4CAF50),
                     modifier = Modifier.weight(1f),
                     onClick = {
-                        // Aquí irá la navegación a tareas
+                       navController.navigate(Screen.Tareas.route)
                     }
                 )
 
@@ -115,7 +115,7 @@ fun DashboardScreen(
                     color = Color(0xFF2196F3),
                     modifier = Modifier.weight(1f),
                     onClick = {
-                        // Aquí irá la navegación a proyectos
+                        navController.navigate(Screen.Proyectos.route)
                     }
                 )
             }
@@ -140,7 +140,7 @@ fun DashboardScreen(
                     color = Color(0xFF9C27B0),
                     modifier = Modifier.weight(1f),
                     onClick = {
-                        // Aquí irá la navegación a estadísticas
+                        navController.navigate(Screen.Estadisticas.route)
                     }
                 )
             }

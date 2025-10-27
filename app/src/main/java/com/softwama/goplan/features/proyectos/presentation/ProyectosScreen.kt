@@ -1,5 +1,4 @@
-
-package com.softwama.goplan.features.estadisticas.presentation
+package com.softwama.goplan.features.proyectos.presentation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -14,11 +13,11 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EstadisticasScreen(navController: NavController) {
+fun ProyectosScreen(navController: NavController) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Estadísticas", fontWeight = FontWeight.Bold) },
+                title = { Text("Proyectos", fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
@@ -34,7 +33,7 @@ fun EstadisticasScreen(navController: NavController) {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                "Pantalla de Estadísticas",
+                "Pantalla de Proyectos",
                 style = MaterialTheme.typography.headlineMedium
             )
         }

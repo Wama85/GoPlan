@@ -7,5 +7,9 @@ sealed class Screen(val route: String) {
    object Dashboard : Screen("dashboard")
    object Calendar : Screen("calendar")
    object Notifications : Screen("notifications")
+   object Estadisticas :Screen("estadisticas")
+   object Proyectos :Screen("proyectos")
+   object Tareas :Screen("tareas")
+
 
 }

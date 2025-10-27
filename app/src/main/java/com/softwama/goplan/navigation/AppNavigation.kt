@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,10 +17,13 @@ import com.softwama.goplan.features.calendar.presentation.CalendarScreen
 import com.softwama.goplan.features.dashboard.DashboardScreen
 import com.softwama.goplan.features.login.presentation.LoginScreen
 import com.softwama.goplan.core.notifications.presentation.NotificationsScreen
+import com.softwama.goplan.features.estadisticas.presentation.EstadisticasScreen
 import com.softwama.goplan.features.profile.presentation.ProfileScreen
 import com.softwama.goplan.features.suscribe.presentation.SuscribeScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceViewModel
+import com.softwama.goplan.features.proyectos.presentation.ProyectosScreen
+import com.softwama.goplan.features.tareas.presentation.TareasScreen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import org.koin.androidx.compose.koinViewModel
@@ -88,6 +92,17 @@ fun AppNavigation(
 
                 composable("notifications") {
                     NotificationsScreen(navController = navController)
+                }
+                composable(Screen.Tareas.route) {
+                    TareasScreen(navController = navController)
+                }
+
+                composable(Screen.Proyectos.route) {
+                    ProyectosScreen(navController = navController)
+                }
+
+                composable(Screen.Estadisticas.route) {
+                    EstadisticasScreen(navController = navController)
                 }
             }
         }

@@ -29,6 +29,10 @@ import com.softwama.goplan.features.suscribe.data.SuscribeRepositoryImpl
 import com.softwama.goplan.features.suscribe.domain.repository.SuscribeRepository
 import com.softwama.goplan.features.suscribe.domain.usecase.GetSuscribeUseCase
 import com.softwama.goplan.features.suscribe.presentation.SuscribeViewModel
+import com.softwama.goplan.features.tareas.data.repository.TareaRepositoryImpl
+import com.softwama.goplan.features.tareas.domain.repository.TareaRepository
+import com.softwama.goplan.features.tareas.domain.usecase.*
+import com.softwama.goplan.features.tareas.presentation.TareasViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -68,10 +72,26 @@ val appModule = module {
     factory { GetSuscribeUseCase(get()) }
     factory { CheckMaintenanceUseCase(get()) }
 
+    // Tareas
+    single<TareaRepository> { TareaRepositoryImpl() }
+    factory { ObtenerTareasUseCase(get()) }
+    factory { CrearTareaUseCase(get()) }
+    factory { ActualizarTareaUseCase(get()) }
+    factory { EliminarTareaUseCase(get()) }
+    factory {
+        TareaUseCases(
+            obtenerTareasUseCase = get(),
+            crearTareaUseCase = get(),
+            actualizarTareaUseCase = get(),
+            eliminarTareaUseCase = get()
+        )
+    }
+
     viewModel { LoginViewModel(get(), get(), get()) }
     viewModel { ProfileViewModel(get(), get()) }
     viewModel { SuscribeViewModel() }
     viewModel { DashboardViewModel() }
     viewModel { CalendarViewModel(get()) }
     viewModel { MaintenanceViewModel(get()) }
+    viewModel { TareasViewModel(get()) }
 }

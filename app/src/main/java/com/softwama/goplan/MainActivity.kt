@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewTreeObserver
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -46,18 +47,23 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private var globalLayoutListener: ViewTreeObserver.OnGlobalLayoutListener? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         FirebaseApp.initializeApp(this)
 
-        findViewById<android.view.View>(android.R.id.content).viewTreeObserver.addOnGlobalLayoutListener {
+        val contentView = findViewById<android.view.View>(android.R.id.content)
+        globalLayoutListener = ViewTreeObserver.OnGlobalLayoutListener {
+            contentView.viewTreeObserver.removeOnGlobalLayoutListener(globalLayoutListener)
             try {
                 throw Exception("This app uses Sentry! :)")
             } catch (e: Exception) {
                 Sentry.captureException(e)
             }
         }
+        contentView.viewTreeObserver.addOnGlobalLayoutListener(globalLayoutListener)
 
         askNotificationPermission()
 
@@ -71,6 +77,16 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        globalLayoutListener?.let {
+            findViewById<android.view.View>(android.R.id.content)
+                ?.viewTreeObserver
+                ?.removeOnGlobalLayoutListener(it)
+        }
+        Log.d(TAG, "🧹 MainActivity destruida")
     }
 
     private fun askNotificationPermission() {
@@ -139,7 +155,7 @@ fun MainApp() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
-    val routesWithoutDrawer = listOf("login", "suscribe")
+    val routesWithoutDrawer = listOf("login", "suscribe", "tareas", "proyectos", "estadisticas","calendar","profile")
     val showDrawer = currentRoute !in routesWithoutDrawer
 
     if (showDrawer) {

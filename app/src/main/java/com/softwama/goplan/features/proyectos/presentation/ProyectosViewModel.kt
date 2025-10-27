@@ -1,4 +1,4 @@
 package com.softwama.goplan.features.proyectos.presentation
 
-class ProyectoScreen {
+class ProyectosViewModel {
 }
