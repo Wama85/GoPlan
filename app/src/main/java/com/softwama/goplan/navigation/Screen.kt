@@ -10,6 +10,8 @@ sealed class Screen(val route: String) {
    object Estadisticas :Screen("estadisticas")
    object Proyectos :Screen("proyectos")
    object Tareas :Screen("tareas")
+   object EditProfile : Screen("editProfile")
+   object SettingsScreen : Screen("settingsScreen")
 
 
 }

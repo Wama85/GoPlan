@@ -22,6 +22,8 @@ import com.softwama.goplan.features.profile.presentation.ProfileScreen
 import com.softwama.goplan.features.suscribe.presentation.SuscribeScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceViewModel
+import com.softwama.goplan.features.profile.presentation.EditProfileScreen
+import com.softwama.goplan.features.profile.presentation.SettingsScreen
 import com.softwama.goplan.features.proyectos.presentation.ProyectosScreen
 import com.softwama.goplan.features.tareas.presentation.TareasScreen
 import kotlinx.coroutines.delay
@@ -92,6 +94,12 @@ fun AppNavigation(
 
                 composable("notifications") {
                     NotificationsScreen(navController = navController)
+                }
+                composable("editProfile") {
+                    EditProfileScreen(navController)
+                }
+                composable("settingsScreen") {
+                    SettingsScreen(navController)
                 }
                 composable(Screen.Tareas.route) {
                     TareasScreen(navController = navController)

@@ -37,16 +37,12 @@ class UserPreferencesDataStore(private val context: Context) {
         }
     }
 
-    fun getUserName(): Flow<String?> {
-        return context.dataStore.data.map { preferences ->
-            preferences[Keys.USERNAME]
-        }
+    fun getUserName(): Flow<String> = context.dataStore.data.map { prefs ->
+        prefs[Keys.USERNAME] ?: ""
     }
 
-    fun getUserEmail(): Flow<String?> {
-        return context.dataStore.data.map { preferences ->
-            preferences[Keys.EMAIL]
-        }
+    fun getUserEmail(): Flow<String> = context.dataStore.data.map { prefs ->
+        prefs[Keys.EMAIL] ?: ""
     }
 
     fun getLoginStatus(): Flow<Boolean> {
@@ -61,7 +57,7 @@ class UserPreferencesDataStore(private val context: Context) {
         }
     }
 
-    // ✅ CERRAR SESIÓN - Borra TODO
+    // CERRAR SESIÓN - Borra TODO
     suspend fun clearSession() {
         context.dataStore.edit { preferences ->
             preferences.clear()
@@ -121,4 +117,40 @@ class UserPreferencesDataStore(private val context: Context) {
             preferences[Keys.FCM_TOKEN] // ✅ Usar Keys
         }
     }
+    // ========== MODO OSCURO ==========
+    private val DARK_MODE = booleanPreferencesKey("dark_mode")
+
+    fun isDarkMode(): Flow<Boolean> {
+        return context.dataStore.data.map { preferences ->
+            preferences[DARK_MODE] ?: false
+        }
+    }
+
+    suspend fun setDarkMode(enabled: Boolean) {
+        context.dataStore.edit { preferences ->
+            preferences[DARK_MODE] = enabled
+        }
+    }
+    // ========== PERFIL DE USUARIO ==========
+    suspend fun saveUserName(name: String) {
+        context.dataStore.edit { preferences ->
+            preferences[Keys.USERNAME] = name
+        }
+    }
+
+    suspend fun saveUserEmail(email: String) {
+        context.dataStore.edit { preferences ->
+            preferences[Keys.EMAIL] = email
+        }
+    }
+
+    suspend fun savePassword(password: String) {
+        // Por ahora solo local. Más adelante se sincronizará con Firebase Auth.
+        val PASSWORD = stringPreferencesKey("user_password")
+        context.dataStore.edit { preferences ->
+            preferences[PASSWORD] = password
+        }
+    }
+
+
 }

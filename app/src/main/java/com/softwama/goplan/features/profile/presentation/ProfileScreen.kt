@@ -88,7 +88,7 @@ fun ProfileScreen(
                     ProfileOption(
                         icon = Icons.Default.Edit,
                         title = "Editar Perfil",
-                        onClick = { /* TODO */ }
+                        onClick = {navController.navigate("editProfile") }
                     )
                     HorizontalDivider()
                     ProfileOption(
@@ -100,7 +100,7 @@ fun ProfileScreen(
                     ProfileOption(
                         icon = Icons.Default.Settings,
                         title = "Configuración",
-                        onClick = { /* TODO */ }
+                        onClick = { navController.navigate("settingsScreen")}
                     )
                 }
             }

@@ -129,4 +129,15 @@ val appModule = module {
     single<EstadisticaRepository> { EstadisticaRepositoryImpl(get(), get()) }
     factory { ObtenerEstadisticasUseCase(get()) }
     viewModel { EstadisticasViewModel(get()) }
+
+    // =================== PERFIL ===================
+    // UseCases del perfil
+    factory { com.softwama.goplan.features.profile.domain.usecase.UpdateProfileUseCase(get()) }
+    factory { com.softwama.goplan.features.profile.domain.usecase.GetThemeUseCase(get()) }
+    factory { com.softwama.goplan.features.profile.domain.usecase.SetThemeUseCase(get()) }
+
+    // ViewModels del perfil
+    viewModel { com.softwama.goplan.features.profile.presentation.EditProfileViewModel(get(), get()) }
+    viewModel { com.softwama.goplan.features.profile.presentation.SettingsViewModel(get(), get()) }
+
 }

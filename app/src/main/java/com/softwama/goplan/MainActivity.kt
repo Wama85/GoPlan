@@ -164,7 +164,7 @@ fun MainApp() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
-    val routesWithoutDrawer = listOf("login", "suscribe", "tareas", "proyectos", "estadisticas","calendar","profile","notifications")
+    val routesWithoutDrawer = listOf("login", "suscribe", "tareas", "proyectos", "estadisticas","calendar","profile","notifications","editProfile","settingsScreen")
     val showDrawer = currentRoute !in routesWithoutDrawer
 
     if (showDrawer) {
