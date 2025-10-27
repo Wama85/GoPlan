@@ -15,6 +15,10 @@ import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.calendar.data.CalendarRepositoryImpl
 import com.softwama.goplan.features.calendar.presentation.CalendarViewModel
 import com.softwama.goplan.features.dashboard.DashboardViewModel
+import com.softwama.goplan.features.estadisticas.data.repository.EstadisticaRepositoryImpl
+import com.softwama.goplan.features.estadisticas.domain.repository.EstadisticaRepository
+import com.softwama.goplan.features.estadisticas.domain.usecase.ObtenerEstadisticasUseCase
+import com.softwama.goplan.features.estadisticas.presentation.EstadisticasViewModel
 import com.softwama.goplan.features.login.data.LoginRepositoryImpl
 import com.softwama.goplan.features.login.domain.repository.LoginRepository
 import com.softwama.goplan.features.login.domain.usecase.LoginUseCase
@@ -120,4 +124,9 @@ val appModule = module {
         )
     }
     viewModel { ProyectosViewModel(get()) }
+
+   // Estadísticas
+    single<EstadisticaRepository> { EstadisticaRepositoryImpl(get(), get()) }
+    factory { ObtenerEstadisticasUseCase(get()) }
+    viewModel { EstadisticasViewModel(get()) }
 }

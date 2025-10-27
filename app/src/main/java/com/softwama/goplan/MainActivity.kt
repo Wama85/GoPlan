@@ -149,7 +149,12 @@ fun MainApp() {
     val currentRoute = currentDestination?.route
 
     val navigationDrawerItems = listOf(
-        NavigationDrawer.Dashboard
+        NavigationDrawer.Dashboard ,
+                NavigationDrawer.Tareas,
+        NavigationDrawer.Proyectos,
+        NavigationDrawer.Calendar,
+        NavigationDrawer.Estadisticas,
+        NavigationDrawer.CerrarSesion
     )
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -199,11 +204,23 @@ fun MainApp() {
                             label = { Text(item.label) },
                             selected = isSelected,
                             onClick = {
-                                navController.navigate(item.route) {
-                                    launchSingleTop = true
-                                }
-                                coroutineScope.launch {
-                                    drawerState.close()
+                                if (item.route == "logout") {
+                                    // Aquí manejas cerrar sesión
+                                    coroutineScope.launch {
+                                        // Limpiar preferencias
+                                        // navegar a login
+                                        navController.navigate("login") {
+                                            popUpTo(0) { inclusive = true }
+                                        }
+                                        drawerState.close()
+                                    }
+                                } else {
+                                    navController.navigate(item.route) {
+                                        launchSingleTop = true
+                                    }
+                                    coroutineScope.launch {
+                                        drawerState.close()
+                                    }
                                 }
                             },
                             modifier = Modifier.padding(horizontal = 12.dp)
