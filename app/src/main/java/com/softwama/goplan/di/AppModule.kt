@@ -25,6 +25,14 @@ import com.softwama.goplan.features.profile.data.ProfileRepositoryImpl
 import com.softwama.goplan.features.profile.domain.repository.ProfileRepository
 import com.softwama.goplan.features.profile.domain.usecase.GetProfileUseCase
 import com.softwama.goplan.features.profile.presentation.ProfileViewModel
+import com.softwama.goplan.features.proyectos.data.repository.ProyectoRepositoryImpl
+import com.softwama.goplan.features.proyectos.domain.repository.ProyectoRepository
+import com.softwama.goplan.features.proyectos.domain.usecase.ActualizarProyectoUseCase
+import com.softwama.goplan.features.proyectos.domain.usecase.CrearProyectoUseCase
+import com.softwama.goplan.features.proyectos.domain.usecase.EliminarProyectoUseCase
+import com.softwama.goplan.features.proyectos.domain.usecase.ObtenerProyectosUseCase
+import com.softwama.goplan.features.proyectos.domain.usecase.ProyectoUseCases
+import com.softwama.goplan.features.proyectos.presentation.ProyectosViewModel
 import com.softwama.goplan.features.suscribe.data.SuscribeRepositoryImpl
 import com.softwama.goplan.features.suscribe.domain.repository.SuscribeRepository
 import com.softwama.goplan.features.suscribe.domain.usecase.GetSuscribeUseCase
@@ -94,4 +102,22 @@ val appModule = module {
     viewModel { CalendarViewModel(get()) }
     viewModel { MaintenanceViewModel(get()) }
     viewModel { TareasViewModel(get()) }
+
+    // Agregar al final del appModule, después de Tareas:
+
+// Proyectos
+    single<ProyectoRepository> { ProyectoRepositoryImpl() }
+    factory { ObtenerProyectosUseCase(get()) }
+    factory { CrearProyectoUseCase(get()) }
+    factory { ActualizarProyectoUseCase(get()) }
+    factory { EliminarProyectoUseCase(get()) }
+    factory {
+        ProyectoUseCases(
+            obtenerProyectosUseCase = get(),
+            crearProyectoUseCase = get(),
+            actualizarProyectoUseCase = get(),
+            eliminarProyectoUseCase = get()
+        )
+    }
+    viewModel { ProyectosViewModel(get()) }
 }
