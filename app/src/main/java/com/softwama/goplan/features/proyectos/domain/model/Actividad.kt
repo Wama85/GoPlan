@@ -1,13 +1,12 @@
 
 package com.softwama.goplan.features.proyectos.domain.model
 
-data class Proyecto(
+data class Actividad(
     val id: String = "",
+    val proyectoId: String,
     val nombre: String,
     val descripcion: String = "",
-    val colorHex: String = "#2196F3",
-    val progreso: Float = 0f,
-    val fechaCreacion: Long = System.currentTimeMillis(),
+    val completada: Boolean = false,
     val fechaInicio: Long,
     val fechaFin: Long
 )

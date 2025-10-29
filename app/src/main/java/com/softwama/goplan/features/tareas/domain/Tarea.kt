@@ -6,5 +6,6 @@ data class Tarea(
     val descripcion: String = "",
     val completada: Boolean = false,
     val proyectoId: String = "",
-    val fechaCreacion: Long = System.currentTimeMillis()
+    val fechaCreacion: Long = System.currentTimeMillis(),
+    val fechaVencimiento: Long? = null
 )

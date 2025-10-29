@@ -9,11 +9,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.softwama.goplan.features.tareas.domain.model.Tarea
 import org.koin.androidx.compose.koinViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -119,8 +122,8 @@ fun TareasScreen(
     if (showAddDialog) {
         AgregarTareaDialog(
             onDismiss = { showAddDialog = false },
-            onConfirm = { titulo, descripcion ->
-                viewModel.agregarTarea(titulo, descripcion)
+            onConfirm = { titulo, descripcion, fecha ->
+                viewModel.agregarTarea(titulo, descripcion, fecha)
                 showAddDialog = false
             }
         )
@@ -133,8 +136,16 @@ fun TareaItem(
     onCompletarClick: () -> Unit,
     onEliminarClick: () -> Unit
 ) {
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    val isVencida = tarea.fechaVencimiento?.let { it < System.currentTimeMillis() } ?: false
+
     Card(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        colors = if (isVencida && !tarea.completada) {
+            CardDefaults.cardColors(containerColor = Color(0xFFFFEBEE))
+        } else {
+            CardDefaults.cardColors()
+        }
     ) {
         Row(
             modifier = Modifier
@@ -165,6 +176,24 @@ fun TareaItem(
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                     )
                 }
+                tarea.fechaVencimiento?.let { fecha ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Icon(
+                            Icons.Default.CalendarToday,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp),
+                            tint = if (isVencida && !tarea.completada) Color(0xFFD32F2F) else MaterialTheme.colorScheme.primary
+                        )
+                        Text(
+                            text = dateFormat.format(Date(fecha)),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (isVencida && !tarea.completada) Color(0xFFD32F2F) else MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
             }
 
             IconButton(onClick = onEliminarClick) {
@@ -178,13 +207,19 @@ fun TareaItem(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AgregarTareaDialog(
     onDismiss: () -> Unit,
-    onConfirm: (String, String) -> Unit
+    onConfirm: (String, String, Long?) -> Unit
 ) {
     var titulo by remember { mutableStateOf("") }
     var descripcion by remember { mutableStateOf("") }
+    var fechaSeleccionada by remember { mutableStateOf<Long?>(null) }
+    var showDatePicker by remember { mutableStateOf(false) }
+
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    val datePickerState = rememberDatePickerState()
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -205,11 +240,24 @@ fun AgregarTareaDialog(
                     modifier = Modifier.fillMaxWidth(),
                     maxLines = 3
                 )
+
+                OutlinedButton(
+                    onClick = { showDatePicker = true },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(Icons.Default.CalendarToday, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        fechaSeleccionada?.let {
+                            "Vence: ${dateFormat.format(Date(it))}"
+                        } ?: "Seleccionar fecha de vencimiento"
+                    )
+                }
             }
         },
         confirmButton = {
             TextButton(
-                onClick = { onConfirm(titulo, descripcion) },
+                onClick = { onConfirm(titulo, descripcion, fechaSeleccionada) },
                 enabled = titulo.isNotBlank()
             ) {
                 Text("Agregar")
@@ -221,4 +269,25 @@ fun AgregarTareaDialog(
             }
         }
     )
+
+    if (showDatePicker) {
+        DatePickerDialog(
+            onDismissRequest = { showDatePicker = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    fechaSeleccionada = datePickerState.selectedDateMillis
+                    showDatePicker = false
+                }) {
+                    Text("OK")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDatePicker = false }) {
+                    Text("Cancelar")
+                }
+            }
+        ) {
+            DatePicker(state = datePickerState)
+        }
+    }
 }

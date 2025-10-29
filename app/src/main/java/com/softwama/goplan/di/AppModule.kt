@@ -29,11 +29,18 @@ import com.softwama.goplan.features.profile.data.ProfileRepositoryImpl
 import com.softwama.goplan.features.profile.domain.repository.ProfileRepository
 import com.softwama.goplan.features.profile.domain.usecase.GetProfileUseCase
 import com.softwama.goplan.features.profile.presentation.ProfileViewModel
+import com.softwama.goplan.features.proyectos.data.repository.ActividadRepositoryImpl
 import com.softwama.goplan.features.proyectos.data.repository.ProyectoRepositoryImpl
+import com.softwama.goplan.features.proyectos.domain.repository.ActividadRepository
 import com.softwama.goplan.features.proyectos.domain.repository.ProyectoRepository
+import com.softwama.goplan.features.proyectos.domain.usecase.ActividadUseCases
+import com.softwama.goplan.features.proyectos.domain.usecase.ActualizarActividadUseCase
 import com.softwama.goplan.features.proyectos.domain.usecase.ActualizarProyectoUseCase
+import com.softwama.goplan.features.proyectos.domain.usecase.CrearActividadUseCase
 import com.softwama.goplan.features.proyectos.domain.usecase.CrearProyectoUseCase
+import com.softwama.goplan.features.proyectos.domain.usecase.EliminarActividadUseCase
 import com.softwama.goplan.features.proyectos.domain.usecase.EliminarProyectoUseCase
+import com.softwama.goplan.features.proyectos.domain.usecase.ObtenerActividadesUseCase
 import com.softwama.goplan.features.proyectos.domain.usecase.ObtenerProyectosUseCase
 import com.softwama.goplan.features.proyectos.domain.usecase.ProyectoUseCases
 import com.softwama.goplan.features.proyectos.presentation.ProyectosViewModel
@@ -123,7 +130,7 @@ val appModule = module {
             eliminarProyectoUseCase = get()
         )
     }
-    viewModel { ProyectosViewModel(get()) }
+    viewModel { ProyectosViewModel(get(),get()) }
 
    // Estadísticas
     single<EstadisticaRepository> { EstadisticaRepositoryImpl(get(), get()) }
@@ -139,5 +146,22 @@ val appModule = module {
     // ViewModels del perfil
     viewModel { com.softwama.goplan.features.profile.presentation.EditProfileViewModel(get(), get()) }
     viewModel { com.softwama.goplan.features.profile.presentation.SettingsViewModel(get(), get()) }
+// Agregar después de Proyectos:
+
+// Actividades
+    single<ActividadRepository> { ActividadRepositoryImpl() }
+    factory { ObtenerActividadesUseCase(get()) }
+    factory { CrearActividadUseCase(get()) }
+    factory { ActualizarActividadUseCase(get()) }
+    factory { EliminarActividadUseCase(get()) }
+    factory {
+        ActividadUseCases(
+            obtenerActividadesUseCase = get(),
+            crearActividadUseCase = get(),
+            actualizarActividadUseCase = get(),
+            eliminarActividadUseCase = get()
+        )
+    }
+
 
 }

@@ -42,11 +42,13 @@ class TareasViewModel(
         }
     }
 
-    fun agregarTarea(titulo: String, descripcion: String) {
+    fun agregarTarea(titulo: String, descripcion: String,fechaVencimiento: Long?) {
         viewModelScope.launch {
             val nuevaTarea = Tarea(
                 titulo = titulo,
-                descripcion = descripcion
+                descripcion = descripcion,
+                proyectoId = "",
+                fechaVencimiento = fechaVencimiento
             )
             tareaUseCases.crearTareaUseCase(nuevaTarea)
         }
