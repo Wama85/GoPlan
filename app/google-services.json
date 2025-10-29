@@ -12,7 +12,20 @@
           "package_name": "com.softwama.goplan"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "549142143365-rpou79nsu3egu5pj18ge9k4sc1aa4fi0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.softwama.goplan",
+            "certificate_hash": "69337300a7b410539a0c33599aa8dd1ffb116671"
+          }
+        },
+        {
+          "client_id": "549142143365-n34f0aqdues5s2pie07g2t86tcnikck0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDd_-X-krdYpsDcgsAYWvKdYJFzNqG4O9g"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549142143365-n34f0aqdues5s2pie07g2t86tcnikck0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

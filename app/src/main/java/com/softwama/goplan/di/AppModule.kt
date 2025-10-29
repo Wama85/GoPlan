@@ -19,7 +19,7 @@ import com.softwama.goplan.features.estadisticas.data.repository.EstadisticaRepo
 import com.softwama.goplan.features.estadisticas.domain.repository.EstadisticaRepository
 import com.softwama.goplan.features.estadisticas.domain.usecase.ObtenerEstadisticasUseCase
 import com.softwama.goplan.features.estadisticas.presentation.EstadisticasViewModel
-import com.softwama.goplan.features.login.data.LoginRepositoryImpl
+import com.softwama.goplan.features.login.data.repository.LoginRepositoryImpl
 import com.softwama.goplan.features.login.domain.repository.LoginRepository
 import com.softwama.goplan.features.login.domain.usecase.LoginUseCase
 import com.softwama.goplan.features.login.presentation.LoginViewModel
@@ -47,6 +47,7 @@ import com.softwama.goplan.features.proyectos.presentation.ProyectosViewModel
 import com.softwama.goplan.features.suscribe.data.SuscribeRepositoryImpl
 import com.softwama.goplan.features.suscribe.domain.repository.SuscribeRepository
 import com.softwama.goplan.features.suscribe.domain.usecase.GetSuscribeUseCase
+import com.softwama.goplan.features.suscribe.domain.usecase.RegistrarUsuarioUseCase
 import com.softwama.goplan.features.suscribe.presentation.SuscribeViewModel
 import com.softwama.goplan.features.tareas.data.repository.TareaRepositoryImpl
 import com.softwama.goplan.features.tareas.domain.repository.TareaRepository
@@ -90,6 +91,7 @@ val appModule = module {
     factory { GetProfileUseCase(get()) }
     factory { GetSuscribeUseCase(get()) }
     factory { CheckMaintenanceUseCase(get()) }
+    factory { RegistrarUsuarioUseCase(get()) }
 
     // Tareas
     single<TareaRepository> { TareaRepositoryImpl() }
@@ -108,7 +110,7 @@ val appModule = module {
 
     viewModel { LoginViewModel(get(), get(), get()) }
     viewModel { ProfileViewModel(get(), get()) }
-    viewModel { SuscribeViewModel() }
+    viewModel { SuscribeViewModel(get()) }
     viewModel { DashboardViewModel() }
     viewModel { CalendarViewModel(get()) }
     viewModel { MaintenanceViewModel(get()) }

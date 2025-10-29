@@ -105,7 +105,7 @@ fun LoginScreen(
             OutlinedTextField(
                 value = state.username,
                 onValueChange = { viewModel.onEvent(LoginEvent.UsernameChanged(it)) },
-                label = { Text("Usuario") },
+                label = { Text("Correo electrónico") },
                 leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Usuario") },
                 modifier = Modifier.fillMaxWidth()
             )

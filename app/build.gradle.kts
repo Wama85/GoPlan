@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    //id("com.google.gms.google-services")
     id("io.sentry.android.gradle") version "5.9.0"
     alias(libs.plugins.google.gms.google.services)
 }
@@ -108,9 +107,19 @@ dependencies {
 
     // ===== FIREBASE =====
     // Firebase BoM - DEBE IR PRIMERO, controla todas las versiones
-    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+
+
+
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-config-ktx")
+
+    implementation("io.grpc:grpc-okhttp:1.76.0")
+    implementation("io.grpc:grpc-stub:1.76.0")
+        implementation("io.grpc:grpc-auth:1.76.0")
 
     // Firebase Cloud Messaging (SIN versión)
     implementation("com.google.firebase:firebase-messaging-ktx")

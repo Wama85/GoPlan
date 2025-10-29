@@ -1,5 +1,6 @@
 package com.softwama.goplan.features.suscribe.presentation
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -27,6 +28,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -51,12 +53,25 @@ fun SuscribeScreen(
 ) {
     val state by viewModel.state.collectAsState()
 
+    // Log para debug
+    Log.d("SuscribeScreen", "State actual: loading=${state.isLoading}, exitoso=${state.registroExitoso}, error=${state.error}")
+
+    LaunchedEffect(key1 = state.registroExitoso) {
+        Log.d("SuscribeScreen", "LaunchedEffect ejecutado con registroExitoso=${state.registroExitoso}")
+        if (state.registroExitoso) {
+            Log.d("SuscribeScreen", "Navegando a login...")
+            navController.navigate("login") {
+                popUpTo("suscribe") { inclusive = true }
+            }
+        }
+    }
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
                     Text("REGISTRO",
-                    color = MaterialTheme.colorScheme.onTertiary) },
+                        color = MaterialTheme.colorScheme.onTertiary) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
@@ -92,7 +107,6 @@ fun SuscribeScreen(
                     color = MaterialTheme.colorScheme.primary
                 )
 
-                // Campos del formulario
                 OutlinedTextField(
                     value = state.suscribe.nombre,
                     onValueChange = { viewModel.onEvent(SuscribeEvent.NombreChanged(it)) },
@@ -128,13 +142,7 @@ fun SuscribeScreen(
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
 
-                OutlinedTextField(
-                    value = state.suscribe.user,
-                    onValueChange = { viewModel.onEvent(SuscribeEvent.UserChanged(it)) },
-                    label = { Text("Nombre de usuario") },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
-                )
+
 
                 OutlinedTextField(
                     value = state.suscribe.pass,
@@ -159,20 +167,23 @@ fun SuscribeScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Button(
-                    onClick = { viewModel.onEvent(SuscribeEvent.Submit) },
+                    onClick = {
+                        Log.d("SuscribeScreen", "Botón Registrarse clickeado")
+                        viewModel.onEvent(SuscribeEvent.Submit)
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(56.dp),
                     enabled = !state.isLoading,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = ButtonOrange, // Mismo color que el botón de login
-                        contentColor = Color.Black     // Mismo color de texto
+                        containerColor = ButtonOrange,
+                        contentColor = Color.Black
                     )
                 ) {
                     if (state.isLoading) {
                         CircularProgressIndicator(
                             modifier = Modifier.size(24.dp),
-                            color = Color.Black // Color del progress indicator
+                            color = Color.Black
                         )
                     } else {
                         Text(
@@ -195,7 +206,6 @@ fun SuscribeScreen(
     }
 }
 
-// Transformación visual para fecha
 class DateTransformation : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         return TransformedText(text, OffsetMapping.Identity)
