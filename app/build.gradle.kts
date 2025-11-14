@@ -76,11 +76,10 @@ dependencies {
     implementation(libs.androidx.ui.text)
     implementation(libs.androidx.games.activity)
 
-    // Credentials
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
-
+    implementation(libs.firebase.config)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -105,12 +104,8 @@ dependencies {
 
     implementation("androidx.core:core-splashscreen:1.2.0-alpha02")
 
-    // ===== FIREBASE =====
-    // Firebase BoM - DEBE IR PRIMERO, controla todas las versiones
-    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
-
-
-
+    // Firebase BoM actualizado
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-messaging-ktx")
@@ -119,18 +114,8 @@ dependencies {
 
     implementation("io.grpc:grpc-okhttp:1.76.0")
     implementation("io.grpc:grpc-stub:1.76.0")
-        implementation("io.grpc:grpc-auth:1.76.0")
+    implementation("io.grpc:grpc-auth:1.76.0")
 
-    // Firebase Cloud Messaging (SIN versión)
-    implementation("com.google.firebase:firebase-messaging-ktx")
-
-    // Firebase Analytics (SIN versión)
-    implementation("com.google.firebase:firebase-analytics-ktx")
-
-    // Firebase Remote Config (SIN versión) - para tu RemoteConfigRepository
-    implementation("com.google.firebase:firebase-config-ktx")
-
-    // ===== GOOGLE CALENDAR API =====
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation("com.google.apis:google-api-services-calendar:v3-rev20240705-2.0.0") {
         exclude(group = "org.apache.httpcomponents", module = "httpclient")

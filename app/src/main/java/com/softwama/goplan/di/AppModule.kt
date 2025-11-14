@@ -64,7 +64,10 @@ val appModule = module {
     single { FirebaseNotificationManager(get(), get()) }
 
     single<NotificationRepository> {
-        NotificationRepositoryImpl(firebaseMessaging = get())
+        NotificationRepositoryImpl(
+            firebaseMessaging = get(),
+            dataStore = get()
+        )
     }
 
     factory { GetFcmTokenUseCase(get()) }
@@ -93,7 +96,6 @@ val appModule = module {
     factory { CheckMaintenanceUseCase(get()) }
     factory { RegistrarUsuarioUseCase(get()) }
 
-    // Tareas
     single<TareaRepository> { TareaRepositoryImpl() }
     factory { ObtenerTareasUseCase(get()) }
     factory { CrearTareaUseCase(get()) }
@@ -116,9 +118,6 @@ val appModule = module {
     viewModel { MaintenanceViewModel(get()) }
     viewModel { TareasViewModel(get()) }
 
-    // Agregar al final del appModule, después de Tareas:
-
-// Proyectos
     single<ProyectoRepository> { ProyectoRepositoryImpl() }
     factory { ObtenerProyectosUseCase(get()) }
     factory { CrearProyectoUseCase(get()) }
@@ -134,23 +133,17 @@ val appModule = module {
     }
     viewModel { ProyectosViewModel(get(),get()) }
 
-   // Estadísticas
     single<EstadisticaRepository> { EstadisticaRepositoryImpl(get(), get()) }
     factory { ObtenerEstadisticasUseCase(get()) }
     viewModel { EstadisticasViewModel(get()) }
 
-    // =================== PERFIL ===================
-    // UseCases del perfil
     factory { com.softwama.goplan.features.profile.domain.usecase.UpdateProfileUseCase(get()) }
     factory { com.softwama.goplan.features.profile.domain.usecase.GetThemeUseCase(get()) }
     factory { com.softwama.goplan.features.profile.domain.usecase.SetThemeUseCase(get()) }
 
-    // ViewModels del perfil
     viewModel { com.softwama.goplan.features.profile.presentation.EditProfileViewModel(get(), get()) }
     viewModel { com.softwama.goplan.features.profile.presentation.SettingsViewModel(get(), get()) }
-// Agregar después de Proyectos:
 
-// Actividades
     single<ActividadRepository> { ActividadRepositoryImpl() }
     factory { ObtenerActividadesUseCase(get()) }
     factory { CrearActividadUseCase(get()) }
@@ -164,6 +157,4 @@ val appModule = module {
             eliminarActividadUseCase = get()
         )
     }
-
-
 }

@@ -3,17 +3,19 @@ package com.softwama.goplan.core.notifications.data.repository
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessaging
 import com.softwama.goplan.core.notifications.domain.repository.NotificationRepository
+import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import kotlinx.coroutines.tasks.await
 
 class NotificationRepositoryImpl(
-    private val firebaseMessaging: FirebaseMessaging
-    // private val apiService: ApiService // Cuando tengas tu API
+    private val firebaseMessaging: FirebaseMessaging,
+    private val dataStore: UserPreferencesDataStore
 ) : NotificationRepository {
 
     override suspend fun getFcmToken(): Result<String> {
         return try {
             val token = firebaseMessaging.token.await()
             Log.d(TAG, "✅ Token FCM obtenido: $token")
+            dataStore.saveFcmToken(token)
             Result.success(token)
         } catch (e: Exception) {
             Log.e(TAG, "❌ Error obteniendo token FCM", e)
@@ -44,15 +46,8 @@ class NotificationRepositoryImpl(
     }
 
     override suspend fun sendTokenToBackend(token: String): Result<Unit> {
-        return try {
-            // TODO: Implementar cuando tengas tu API
-            Log.d(TAG, "📤 Enviando token al backend: $token")
-            // apiService.updateFcmToken(token)
-            Result.success(Unit)
-        } catch (e: Exception) {
-            Log.e(TAG, "❌ Error enviando token al backend", e)
-            Result.failure(e)
-        }
+        Log.d(TAG, "ℹ️ Solo Firebase - Token guardado localmente")
+        return Result.success(Unit)
     }
 
     companion object {

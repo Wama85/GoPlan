@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -32,11 +33,13 @@ import com.softwama.goplan.navigation.AppNavigation
 import com.softwama.goplan.navigation.NavigationDrawer
 import io.sentry.Sentry
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.compose.koinInject
 
-
 class MainActivity : ComponentActivity() {
+
+    private val dataStore: UserPreferencesDataStore by inject()
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -122,6 +125,10 @@ class MainActivity : ComponentActivity() {
 
                 val token = task.result
                 Log.d(TAG, "🔑 Token FCM: $token")
+
+                lifecycleScope.launch {
+                    dataStore.saveFcmToken(token)
+                }
 
                 subscribeToTopics()
             }
