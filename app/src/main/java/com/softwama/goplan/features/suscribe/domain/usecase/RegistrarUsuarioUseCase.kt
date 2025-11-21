@@ -18,9 +18,7 @@ class RegistrarUsuarioUseCase(
         if (!suscribe.correo.contains("@")) {
             return Result.failure(Exception("Correo inválido"))
         }
-        if (suscribe.fechaNac.isBlank()) {
-            return Result.failure(Exception("La fecha de nacimiento es requerida"))
-        }
+
 
         if (suscribe.pass.length < 6) {
             return Result.failure(Exception("La contraseña debe tener al menos 6 caracteres"))

@@ -14,8 +14,8 @@ android {
         applicationId = "com.softwama.goplan"
         minSdk = 23
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 5
+        versionName = "1.0.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -67,7 +67,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
+
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
@@ -82,12 +82,17 @@ dependencies {
     implementation(libs.firebase.config)
 
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+
+
+
+        implementation("io.insert-koin:koin-androidx-compose:3.5.0")
     implementation(libs.retrofit)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.navigation)
@@ -131,8 +136,3 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
 
-sentry {
-    org.set("ucb-yl")
-    projectName.set("goplan")
-    includeSourceContext.set(true)
-}

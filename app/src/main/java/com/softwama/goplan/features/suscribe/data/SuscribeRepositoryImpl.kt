@@ -31,7 +31,7 @@ class SuscribeRepositoryImpl : SuscribeRepository {
                     "nombre" to suscribe.nombre,
                     "apellido" to suscribe.apellido,
                     "correo" to suscribe.correo,
-                    "fechaNac" to suscribe.fechaNac,
+
 
                     "fechaRegistro" to System.currentTimeMillis()
                 )

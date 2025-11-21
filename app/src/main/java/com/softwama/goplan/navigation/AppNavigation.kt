@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -38,6 +40,7 @@ fun AppNavigation(
 ) {
     val dataStore: UserPreferencesDataStore = koinInject()
     val maintenanceViewModel: MaintenanceViewModel = koinViewModel()
+    val lifecycleOwner = LocalLifecycleOwner.current
 
     var initialLoginState by remember { mutableStateOf<Boolean?>(null) }
 
@@ -46,7 +49,21 @@ fun AppNavigation(
         initialLoginState = dataStore.getLoginStatus().first()
     }
 
+    LaunchedEffect(lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            maintenanceViewModel.checkAppStatus()
+        }
+    }
+
     val isMaintenance by maintenanceViewModel.isMaintenance.collectAsState()
+
+    LaunchedEffect(isMaintenance) {
+        if (isMaintenance == true) {
+            maintenanceViewModel.startPolling()
+        } else {
+            maintenanceViewModel.stopPolling()
+        }
+    }
 
     when {
         isMaintenance == null || initialLoginState == null -> {

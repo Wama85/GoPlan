@@ -132,15 +132,7 @@ fun SuscribeScreen(
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
                 )
 
-                OutlinedTextField(
-                    value = state.suscribe.fechaNac,
-                    onValueChange = { viewModel.onEvent(SuscribeEvent.FechaNacChanged(it)) },
-                    label = { Text("Fecha de nacimiento (DD/MM/AAAA)") },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true,
-                    visualTransformation = DateTransformation(),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-                )
+
 
 
 

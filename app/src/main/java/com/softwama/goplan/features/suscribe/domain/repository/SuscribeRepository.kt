@@ -1,4 +1,4 @@
-// features/suscribe/domain/repository/SuscribeRepository.kt
+
 package com.softwama.goplan.features.suscribe.domain.repository
 
 import com.softwama.goplan.features.suscribe.domain.model.Suscribe

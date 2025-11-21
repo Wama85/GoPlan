@@ -22,7 +22,7 @@ sealed class SuscribeEvent {
     data class NombreChanged(val nombre: String) : SuscribeEvent()
     data class ApellidoChanged(val apellido: String) : SuscribeEvent()
     data class CorreoChanged(val correo: String) : SuscribeEvent()
-    data class FechaNacChanged(val fechaNac: String) : SuscribeEvent()
+
 
     data class PassChanged(val pass: String) : SuscribeEvent()
     data class RepitPassChanged(val repitPass: String) : SuscribeEvent()
@@ -47,9 +47,7 @@ class SuscribeViewModel(
             is SuscribeEvent.CorreoChanged -> {
                 _state.update { it.copy(suscribe = it.suscribe.copy(correo = event.correo)) }
             }
-            is SuscribeEvent.FechaNacChanged -> {
-                _state.update { it.copy(suscribe = it.suscribe.copy(fechaNac = event.fechaNac)) }
-            }
+
             is SuscribeEvent.PassChanged -> {
                 _state.update { it.copy(suscribe = it.suscribe.copy(pass = event.pass)) }
             }
