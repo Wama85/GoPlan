@@ -125,6 +125,18 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation("com.google.apis:google-api-services-calendar:v3-rev20240705-2.0.0") {
+// Testing
+        testImplementation("junit:junit:4.13.2")
+        testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+        testImplementation("io.mockk:mockk:1.13.8")
+        testImplementation("app.cash.turbine:turbine:1.0.0")
+
+// Android Testing
+        androidTestImplementation("androidx.test.ext:junit:1.1.5")
+        androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+        androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+        androidTestImplementation("androidx.room:room-testing:2.6.1")
+
         exclude(group = "org.apache.httpcomponents", module = "httpclient")
     }
     implementation("com.google.api-client:google-api-client-android:2.6.0") {
