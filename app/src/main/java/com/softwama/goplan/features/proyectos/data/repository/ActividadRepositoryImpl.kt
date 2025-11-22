@@ -1,33 +1,53 @@
 package com.softwama.goplan.features.proyectos.data.repository
 
+import android.util.Log
+import com.softwama.goplan.data.local.database.dao.ActividadDao
+import com.softwama.goplan.data.local.database.entity.ActividadEntity
+import com.softwama.goplan.data.remote.FirestoreDataSource
 import com.softwama.goplan.features.proyectos.domain.model.Actividad
 import com.softwama.goplan.features.proyectos.domain.repository.ActividadRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
+import java.util.UUID
 
-class ActividadRepositoryImpl : ActividadRepository {
-
-    private val _actividades = MutableStateFlow<List<Actividad>>(emptyList())
+class ActividadRepositoryImpl(
+    private val actividadDao: ActividadDao,
+    private val firestoreDataSource: FirestoreDataSource? = null
+) : ActividadRepository {
 
     override fun obtenerActividadesPorProyecto(proyectoId: String): Flow<List<Actividad>> {
-        return _actividades.map { actividades ->
-            actividades.filter { it.proyectoId == proyectoId }
+        return actividadDao.obtenerPorProyecto(proyectoId).map { entities ->
+            entities.map { it.toDomain() }
         }
     }
 
     override suspend fun crearActividad(actividad: Actividad) {
-        val nuevaActividad = actividad.copy(id = java.util.UUID.randomUUID().toString())
-        _actividades.value = _actividades.value + nuevaActividad
+        val nuevaActividad = actividad.copy(id = UUID.randomUUID().toString())
+        actividadDao.insertar(ActividadEntity.fromDomain(nuevaActividad))
+        sincronizarConFirestore(nuevaActividad)
     }
 
     override suspend fun actualizarActividad(actividad: Actividad) {
-        _actividades.value = _actividades.value.map {
-            if (it.id == actividad.id) actividad else it
-        }
+        actividadDao.actualizar(ActividadEntity.fromDomain(actividad))
+        sincronizarConFirestore(actividad)
     }
 
     override suspend fun eliminarActividad(actividadId: String) {
-        _actividades.value = _actividades.value.filter { it.id != actividadId }
+        actividadDao.eliminar(actividadId)
+        try {
+            firestoreDataSource?.eliminarActividad(actividadId)
+        } catch (e: Exception) {
+            Log.w("ActividadRepo", "Firestore no disponible")
+        }
+    }
+
+    private suspend fun sincronizarConFirestore(actividad: Actividad) {
+        try {
+            firestoreDataSource?.guardarActividad(actividad)?.onSuccess {
+                actividadDao.marcarSincronizada(actividad.id)
+            }
+        } catch (e: Exception) {
+            Log.w("ActividadRepo", "Firestore no disponible, datos guardados localmente")
+        }
     }
 }

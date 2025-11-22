@@ -11,6 +11,7 @@ import com.softwama.goplan.core.notifications.domain.usecase.SaveNotificationPre
 import com.softwama.goplan.core.notifications.domain.usecase.SubscribeToTopicUseCase
 import com.softwama.goplan.core.notifications.presentation.NotificationsViewModel
 import com.softwama.goplan.core.remoteconfig.RemoteConfigRepository
+import com.softwama.goplan.data.local.database.GoPlanDatabase
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.calendar.data.CalendarRepositoryImpl
 import com.softwama.goplan.features.calendar.presentation.CalendarViewModel
@@ -58,6 +59,11 @@ import org.koin.dsl.module
 
 val appModule = module {
 
+    single { GoPlanDatabase.getInstance(get()) }
+    single { get<GoPlanDatabase>().tareaDao() }
+    single { get<GoPlanDatabase>().proyectoDao() }
+    single { get<GoPlanDatabase>().actividadDao() }
+
     single { RemoteConfigRepository() }
     single { UserPreferencesDataStore(get()) }
     single { FirebaseMessaging.getInstance() }
@@ -96,7 +102,7 @@ val appModule = module {
     factory { CheckMaintenanceUseCase(get()) }
     factory { RegistrarUsuarioUseCase(get()) }
 
-    single<TareaRepository> { TareaRepositoryImpl() }
+    single<TareaRepository> { TareaRepositoryImpl(get(),null) }
     factory { ObtenerTareasUseCase(get()) }
     factory { CrearTareaUseCase(get()) }
     factory { ActualizarTareaUseCase(get()) }
@@ -113,12 +119,12 @@ val appModule = module {
     viewModel { LoginViewModel(get(), get(), get()) }
     viewModel { ProfileViewModel(get(), get()) }
     viewModel { SuscribeViewModel(get()) }
-    viewModel { DashboardViewModel() }
+    viewModel { DashboardViewModel(get()) }
     viewModel { CalendarViewModel(get()) }
     viewModel { MaintenanceViewModel(get()) }
     viewModel { TareasViewModel(get()) }
 
-    single<ProyectoRepository> { ProyectoRepositoryImpl() }
+    single<ProyectoRepository> { ProyectoRepositoryImpl(get(),null) }
     factory { ObtenerProyectosUseCase(get()) }
     factory { CrearProyectoUseCase(get()) }
     factory { ActualizarProyectoUseCase(get()) }
@@ -144,7 +150,7 @@ val appModule = module {
     viewModel { com.softwama.goplan.features.profile.presentation.EditProfileViewModel(get(), get()) }
     viewModel { com.softwama.goplan.features.profile.presentation.SettingsViewModel(get(), get()) }
 
-    single<ActividadRepository> { ActividadRepositoryImpl() }
+    single<ActividadRepository> { ActividadRepositoryImpl(get(),null) }
     factory { ObtenerActividadesUseCase(get()) }
     factory { CrearActividadUseCase(get()) }
     factory { ActualizarActividadUseCase(get()) }

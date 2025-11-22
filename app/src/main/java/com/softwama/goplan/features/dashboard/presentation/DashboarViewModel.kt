@@ -1,30 +1,37 @@
 package com.softwama.goplan.features.dashboard
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 data class DashboardState(
-    val userName: String = "Usuario",
-    val isLoading: Boolean = false
+    val userName: String = "",
+    val isLoading: Boolean = true
 )
 
-class DashboardViewModel : ViewModel() {
+class DashboardViewModel(
+    private val dataStore: UserPreferencesDataStore
+) : ViewModel() {
 
     private val _state = MutableStateFlow(DashboardState())
     val state: StateFlow<DashboardState> = _state.asStateFlow()
 
     init {
-        // Aquí puedes cargar datos del usuario si es necesario
         loadUserData()
     }
 
     private fun loadUserData() {
-        // Por ahora dejamos datos básicos
-        // Más adelante puedes cargar del repositorio
-        _state.value = _state.value.copy(
-            userName = "Juan Pérez" // Esto lo puedes obtener del login después
-        )
+        viewModelScope.launch {
+            dataStore.getUserName().collect { name ->
+                _state.value = _state.value.copy(
+                    userName = name.ifEmpty { "Usuario" },
+                    isLoading = false
+                )
+            }
+        }
     }
 }

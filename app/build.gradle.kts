@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("io.sentry.android.gradle") version "5.9.0"
     alias(libs.plugins.google.gms.google.services)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -90,9 +91,7 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.ui.test.manifest)
 
-
-
-        implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
     implementation(libs.retrofit)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.navigation)
@@ -120,7 +119,10 @@ dependencies {
     implementation("io.grpc:grpc-okhttp:1.76.0")
     implementation("io.grpc:grpc-stub:1.76.0")
     implementation("io.grpc:grpc-auth:1.76.0")
-
+// Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation("com.google.apis:google-api-services-calendar:v3-rev20240705-2.0.0") {
         exclude(group = "org.apache.httpcomponents", module = "httpclient")

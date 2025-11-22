@@ -31,6 +31,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.navigation.AppNavigation
 import com.softwama.goplan.navigation.NavigationDrawer
+import com.softwama.goplan.ui.theme.GoPlanTheme
 import io.sentry.Sentry
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -75,11 +76,16 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             KoinAndroidContext {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MainApp()
+                val dataStore: UserPreferencesDataStore = koinInject()
+                val isDarkMode by dataStore.isDarkMode().collectAsState(initial = false)
+
+                GoPlanTheme(darkTheme = isDarkMode) {
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        MainApp()
+                    }
                 }
             }
         }
