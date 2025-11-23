@@ -8,6 +8,7 @@ import com.softwama.goplan.features.tareas.domain.model.Tarea
 data class TareaEntity(
     @PrimaryKey
     val id: String,
+    val userId: String,
     val titulo: String,
     val descripcion: String,
     val completada: Boolean,
@@ -27,8 +28,9 @@ data class TareaEntity(
     )
 
     companion object {
-        fun fromDomain(tarea: Tarea, sincronizado: Boolean = false): TareaEntity = TareaEntity(
+        fun fromDomain(tarea: Tarea, userId: String, sincronizado: Boolean = false): TareaEntity = TareaEntity(
             id = tarea.id,
+            userId = userId,
             titulo = tarea.titulo,
             descripcion = tarea.descripcion,
             completada = tarea.completada,

@@ -9,6 +9,7 @@ import com.softwama.goplan.features.proyectos.domain.model.Actividad
 data class ActividadEntity(
     @PrimaryKey
     val id: String,
+    val userId: String,
     val proyectoId: String,
     val nombre: String,
     val descripcion: String,
@@ -28,8 +29,9 @@ data class ActividadEntity(
     )
 
     companion object {
-        fun fromDomain(actividad: Actividad, sincronizado: Boolean = false): ActividadEntity = ActividadEntity(
+        fun fromDomain(actividad: Actividad, userId: String, sincronizado: Boolean = false): ActividadEntity = ActividadEntity(
             id = actividad.id,
+            userId = userId,
             proyectoId = actividad.proyectoId,
             nombre = actividad.nombre,
             descripcion = actividad.descripcion,

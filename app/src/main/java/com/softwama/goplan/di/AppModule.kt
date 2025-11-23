@@ -102,7 +102,7 @@ val appModule = module {
     factory { CheckMaintenanceUseCase(get()) }
     factory { RegistrarUsuarioUseCase(get()) }
 
-    single<TareaRepository> { TareaRepositoryImpl(get(),null) }
+    single<TareaRepository> { TareaRepositoryImpl(get(),null,get()) }
     factory { ObtenerTareasUseCase(get()) }
     factory { CrearTareaUseCase(get()) }
     factory { ActualizarTareaUseCase(get()) }
@@ -124,7 +124,7 @@ val appModule = module {
     viewModel { MaintenanceViewModel(get()) }
     viewModel { TareasViewModel(get()) }
 
-    single<ProyectoRepository> { ProyectoRepositoryImpl(get(),null) }
+    single<ProyectoRepository> { ProyectoRepositoryImpl(get(),null,get()) }
     factory { ObtenerProyectosUseCase(get()) }
     factory { CrearProyectoUseCase(get()) }
     factory { ActualizarProyectoUseCase(get()) }
@@ -150,7 +150,7 @@ val appModule = module {
     viewModel { com.softwama.goplan.features.profile.presentation.EditProfileViewModel(get(), get()) }
     viewModel { com.softwama.goplan.features.profile.presentation.SettingsViewModel(get(), get()) }
 
-    single<ActividadRepository> { ActividadRepositoryImpl(get(),null) }
+    single<ActividadRepository> { ActividadRepositoryImpl(get(),null,get()) }
     factory { ObtenerActividadesUseCase(get()) }
     factory { CrearActividadUseCase(get()) }
     factory { ActualizarActividadUseCase(get()) }
