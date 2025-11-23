@@ -30,18 +30,11 @@ fun DashboardScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        "GoPlan Dashboard",
+                        "Dashboard",
                         fontWeight = FontWeight.Bold
                     )
                 },
-                actions = {
-                    IconButton(onClick = { navController.navigate(Screen.Profile.route) }) {
-                        Icon(
-                            Icons.Default.Person,
-                            contentDescription = "Perfil"
-                        )
-                    }
-                }
+
             )
         }
     ) { padding ->
