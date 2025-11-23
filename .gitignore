@@ -1,22 +1,35 @@
-*.iml
-.gradle
-caches/
+# ----------- Android Studio / IntelliJ -----------
 .idea/
-daemon/
-wrapper/dists/
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.iml
+
+# ----------- Gradle -----------
+.gradle/
+build/
+**/build/
+
+# Local config (NO SE SUBE)
 local.properties
-# Sentry Config File
+
+# ----------- Google Services -----------
+# NO SUBIR LLAVES A GITHUB
+app/google-services.json
+
+# ----------- Android NDK / CMake -----------
+.cxx/
+externalNativeBuild/
+
+# ----------- Logs y archivos temporales -----------
+*.log
+.DS_Store
+
+# ----------- Capturas del emulador -----------
+captures/
+
+# ----------- Carpetas que NO deben subirse -----------
+daemon/
+wrapper/
+caches/
+
+# ----------- Sentry -----------
 sentry.properties
 sentry-wizard.exe
