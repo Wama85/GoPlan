@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "549142143365-90euent3t6p0b0tc9rm9ptj258bmthrv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.softwama.goplan",
+            "certificate_hash": "6dc69f1f5c755958ee1dd94a3a9bdc3168b7e476"
+          }
+        },
+        {
           "client_id": "549142143365-rpou79nsu3egu5pj18ge9k4sc1aa4fi0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

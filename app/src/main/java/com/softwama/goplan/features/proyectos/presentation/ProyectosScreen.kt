@@ -1,9 +1,10 @@
 package com.softwama.goplan.features.proyectos.presentation
 
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -28,14 +29,15 @@ fun ProyectosScreen(
 ) {
     val state by viewModel.state.collectAsState()
     var showAddDialog by remember { mutableStateOf(false) }
-    var proyectoParaActividad by remember { mutableStateOf<Proyecto?>(null) }
+    var showDeleteConfirmation by remember { mutableStateOf<Proyecto?>(null) }
+    var proyectoSeleccionado by remember { mutableStateOf<Proyecto?>(null) }
 
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        "Proyectos",
+                        "Mis Proyectos",
                         fontWeight = FontWeight.Bold
                     )
                 },
@@ -50,7 +52,7 @@ fun ProyectosScreen(
             FloatingActionButton(
                 onClick = { showAddDialog = true }
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Nuevo Proyecto")
+                Icon(Icons.Default.Add, contentDescription = "Agregar Proyecto")
             }
         }
     ) { padding ->
@@ -87,15 +89,10 @@ fun ProyectosScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 items(state.proyectos) { proyecto ->
-                    ProyectoCardExpandible(
+                    ProyectoCard(
                         proyecto = proyecto,
-                        actividades = state.actividadesPorProyecto[proyecto.id] ?: emptyList(),
-                        expandido = state.proyectoExpandido == proyecto.id,
-                        onExpandirClick = { viewModel.toggleProyectoExpandido(proyecto.id) },
-                        onEliminarClick = { viewModel.eliminarProyecto(proyecto.id) },
-                        onAgregarActividadClick = { proyectoParaActividad = proyecto },
-                        onToggleActividadClick = { viewModel.toggleActividadCompletada(it) },
-                        onEliminarActividadClick = { viewModel.eliminarActividad(it.id) }
+                        onClick = { proyectoSeleccionado = proyecto },
+                        onDeleteClick = { showDeleteConfirmation = proyecto }
                     )
                 }
             }
@@ -103,48 +100,66 @@ fun ProyectosScreen(
     }
 
     if (showAddDialog) {
-        NuevoProyectoDialog(
+        AgregarProyectoDialog(
             onDismiss = { showAddDialog = false },
-            onConfirm = { nombre, descripcion, color, fechaInicio, fechaFin ->
-                viewModel.agregarProyecto(nombre, descripcion, color, fechaInicio, fechaFin)
+            onConfirm = { nombre, descripcion, fechaInicio, fechaFin, colorHex ->
+                viewModel.agregarProyecto(
+                    nombre,
+                    descripcion,
+                    Color(android.graphics.Color.parseColor(colorHex)),
+                    fechaInicio,
+                    fechaFin
+                )
                 showAddDialog = false
             }
         )
     }
 
-    proyectoParaActividad?.let { proyecto ->
-        NuevaActividadDialog(
+    proyectoSeleccionado?.let { proyecto ->
+        DetalleProyectoDialog(
             proyecto = proyecto,
-            onDismiss = { proyectoParaActividad = null },
-            onConfirm = { nombre, descripcion, fechaInicio, fechaFin ->
-                viewModel.agregarActividad(proyecto.id, nombre, descripcion, fechaInicio, fechaFin)
-                proyectoParaActividad = null
+            onDismiss = { proyectoSeleccionado = null },
+            viewModel = viewModel
+        )
+    }
+
+    showDeleteConfirmation?.let { proyecto ->
+        AlertDialog(
+            onDismissRequest = { showDeleteConfirmation = null },
+            title = { Text("Eliminar Proyecto") },
+            text = { Text("¿Estás seguro de que deseas eliminar '${proyecto.nombre}'?") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        viewModel.eliminarProyecto(proyecto.id)
+                        showDeleteConfirmation = null
+                    }
+                ) {
+                    Text("Eliminar", color = MaterialTheme.colorScheme.error)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteConfirmation = null }) {
+                    Text("Cancelar")
+                }
             }
         )
     }
 }
 
 @Composable
-fun ProyectoCardExpandible(
+fun ProyectoCard(
     proyecto: Proyecto,
-    actividades: List<Actividad>,
-    expandido: Boolean,
-    onExpandirClick: () -> Unit,
-    onEliminarClick: () -> Unit,
-    onAgregarActividadClick: () -> Unit,
-    onToggleActividadClick: (Actividad) -> Unit,
-    onEliminarActividadClick: (Actividad) -> Unit
+    onClick: () -> Unit,
+    onDeleteClick: () -> Unit
 ) {
-    val color = try {
-        Color(android.graphics.Color.parseColor(proyecto.colorHex))
-    } catch (e: Exception) {
-        Color(0xFF2196F3)
-    }
-
-    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-
     Card(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(android.graphics.Color.parseColor(proyecto.colorHex)).copy(alpha = 0.1f)
+        )
     ) {
         Column(
             modifier = Modifier
@@ -156,53 +171,18 @@ fun ProyectoCardExpandible(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                Text(
+                    text = proyecto.nombre,
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier.weight(1f)
-                ) {
-                    Surface(
-                        modifier = Modifier.size(40.dp),
-                        shape = MaterialTheme.shapes.medium,
-                        color = color.copy(alpha = 0.2f)
-                    ) {
-                        Box(contentAlignment = Alignment.Center) {
-                            Icon(
-                                Icons.Default.Folder,
-                                contentDescription = null,
-                                tint = color
-                            )
-                        }
-                    }
-
-                    Column {
-                        Text(
-                            text = proyecto.nombre,
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "${dateFormat.format(Date(proyecto.fechaInicio))} - ${dateFormat.format(Date(proyecto.fechaFin))}",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                        )
-                    }
-                }
-
-                Row {
-                    IconButton(onClick = onExpandirClick) {
-                        Icon(
-                            if (expandido) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
-                            contentDescription = if (expandido) "Contraer" else "Expandir"
-                        )
-                    }
-                    IconButton(onClick = onEliminarClick) {
-                        Icon(
-                            Icons.Default.Delete,
-                            contentDescription = "Eliminar",
-                            tint = MaterialTheme.colorScheme.error
-                        )
-                    }
+                )
+                IconButton(onClick = onDeleteClick) {
+                    Icon(
+                        Icons.Default.Delete,
+                        contentDescription = "Eliminar",
+                        tint = MaterialTheme.colorScheme.error
+                    )
                 }
             }
 
@@ -211,7 +191,7 @@ fun ProyectoCardExpandible(
                 Text(
                     text = proyecto.descripcion,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                 )
             }
 
@@ -219,233 +199,203 @@ fun ProyectoCardExpandible(
 
             LinearProgressIndicator(
                 progress = { proyecto.progreso },
-                modifier = Modifier.fillMaxWidth(),
-                color = color
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(8.dp),
+                color = Color(android.graphics.Color.parseColor(proyecto.colorHex)),
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "${(proyecto.progreso * 100).toInt()}% completado • ${actividades.count { it.completada }}/${actividades.size} actividades",
+                text = "${(proyecto.progreso * 100).toInt()}% completado",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
             )
-
-            AnimatedVisibility(visible = expandido) {
-                Column(
-                    modifier = Modifier.padding(top = 16.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = "Actividades",
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold
-                        )
-                        IconButton(onClick = onAgregarActividadClick) {
-                            Icon(Icons.Default.Add, contentDescription = "Agregar actividad")
-                        }
-                    }
-
-                    if (actividades.isEmpty()) {
-                        Text(
-                            text = "No hay actividades",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                            modifier = Modifier.padding(vertical = 8.dp)
-                        )
-                    } else {
-                        actividades.forEach { actividad ->
-                            ActividadItem(
-                                actividad = actividad,
-                                onToggleClick = { onToggleActividadClick(actividad) },
-                                onEliminarClick = { onEliminarActividadClick(actividad) }
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun ActividadItem(
-    actividad: Actividad,
-    onToggleClick: () -> Unit,
-    onEliminarClick: () -> Unit
-) {
-    val dateFormat = SimpleDateFormat("dd/MM", Locale.getDefault())
-
-    Surface(
-        modifier = Modifier.fillMaxWidth(),
-        shape = MaterialTheme.shapes.small,
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Checkbox(
-                checked = actividad.completada,
-                onCheckedChange = { onToggleClick() }
-            )
-
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = actividad.nombre,
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Medium,
-                    textDecoration = if (actividad.completada) {
-                        androidx.compose.ui.text.style.TextDecoration.LineThrough
-                    } else null
-                )
-                if (actividad.descripcion.isNotEmpty()) {
-                    Text(
-                        text = actividad.descripcion,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                    )
-                }
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        Icons.Default.CalendarToday,
-                        contentDescription = null,
-                        modifier = Modifier.size(12.dp),
-                        tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                    )
-                    Text(
-                        text = "${dateFormat.format(Date(actividad.fechaInicio))} - ${dateFormat.format(Date(actividad.fechaFin))}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                    )
-                }
-            }
-
-            IconButton(onClick = onEliminarClick) {
-                Icon(
-                    Icons.Default.Delete,
-                    contentDescription = "Eliminar",
-                    modifier = Modifier.size(20.dp),
-                    tint = MaterialTheme.colorScheme.error
-                )
-            }
         }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NuevoProyectoDialog(
+fun AgregarProyectoDialog(
     onDismiss: () -> Unit,
-    onConfirm: (String, String, Color, Long, Long) -> Unit
+    onConfirm: (String, String, Long, Long, String) -> Unit
 ) {
     var nombre by remember { mutableStateOf("") }
     var descripcion by remember { mutableStateOf("") }
-    var colorSeleccionado by remember { mutableStateOf(Color(0xFF2196F3)) }
     var fechaInicio by remember { mutableStateOf<Long?>(null) }
     var fechaFin by remember { mutableStateOf<Long?>(null) }
+    var colorSeleccionado by remember { mutableStateOf("#2196F3") }
     var showDatePickerInicio by remember { mutableStateOf(false) }
     var showDatePickerFin by remember { mutableStateOf(false) }
-    var errorFecha by remember { mutableStateOf("") }
+    var errorDescripcion by remember { mutableStateOf<String?>(null) }
+    var advertenciaFechaInicio by remember { mutableStateOf<String?>(null) }
+    var advertenciaFechaFin by remember { mutableStateOf<String?>(null) }
+
+    val MAX_DESCRIPCION_LENGTH = 100
+    val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     val datePickerStateInicio = rememberDatePickerState()
     val datePickerStateFin = rememberDatePickerState()
 
     val coloresDisponibles = listOf(
-        Color(0xFF2196F3),
-        Color(0xFF4CAF50),
-        Color(0xFFFF9800),
-        Color(0xFF9C27B0),
-        Color(0xFFF44336),
-        Color(0xFF00BCD4)
+        "#2196F3" to "Azul",
+        "#4CAF50" to "Verde",
+        "#FF9800" to "Naranja",
+        "#9C27B0" to "Morado",
+        "#F44336" to "Rojo",
+        "#00BCD4" to "Cyan"
     )
+
+    fun validarDescripcion(texto: String): String {
+        var textoValidado = texto
+
+        if (textoValidado.length > MAX_DESCRIPCION_LENGTH) {
+            textoValidado = textoValidado.take(MAX_DESCRIPCION_LENGTH)
+            errorDescripcion = "Máximo $MAX_DESCRIPCION_LENGTH caracteres"
+        } else {
+            errorDescripcion = null
+        }
+
+        val regex = Regex("\n{${MAX_SALTOS_LINEA_CONSECUTIVOS + 1},}")
+        textoValidado = textoValidado.replace(regex, "\n".repeat(MAX_SALTOS_LINEA_CONSECUTIVOS))
+
+        return textoValidado
+    }
+
+    fun validarFecha(fecha: Long?): String? {
+        if (fecha == null) return null
+        val hoy = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }.timeInMillis
+
+        return if (fecha < hoy) {
+            "⚠️ Fecha pasada"
+        } else {
+            null
+        }
+    }
 
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Nuevo Proyecto") },
         text = {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
                 OutlinedTextField(
                     value = nombre,
                     onValueChange = { nombre = it },
-                    label = { Text("Nombre") },
+                    label = { Text("Nombre del Proyecto") },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 OutlinedTextField(
                     value = descripcion,
-                    onValueChange = { descripcion = it },
+                    onValueChange = {
+                        descripcion = validarDescripcion(it)
+                    },
                     label = { Text("Descripción (opcional)") },
                     modifier = Modifier.fillMaxWidth(),
-                    maxLines = 3
+                    maxLines = 3,
+                    supportingText = {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = errorDescripcion ?: "",
+                                color = MaterialTheme.colorScheme.error
+                            )
+                            Text(
+                                text = "${descripcion.length}/$MAX_DESCRIPCION_LENGTH",
+                                color = if (descripcion.length >= MAX_DESCRIPCION_LENGTH) {
+                                    MaterialTheme.colorScheme.error
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                }
+                            )
+                        }
+                    },
+                    isError = errorDescripcion != null
                 )
 
-                OutlinedButton(
-                    onClick = { showDatePickerInicio = true },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Icon(Icons.Default.CalendarToday, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        fechaInicio?.let { "Inicio: ${dateFormat.format(Date(it))}" }
-                            ?: "Seleccionar fecha de inicio"
-                    )
+                Column {
+                    OutlinedButton(
+                        onClick = { showDatePickerInicio = true },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.CalendarToday, contentDescription = null)
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            fechaInicio?.let {
+                                "Inicio: ${dateFormat.format(Date(it))}"
+                            } ?: "Fecha de inicio"
+                        )
+                    }
+                    advertenciaFechaInicio?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFFFFA500),
+                            modifier = Modifier.padding(start = 16.dp, top = 4.dp)
+                        )
+                    }
                 }
 
-                OutlinedButton(
-                    onClick = { showDatePickerFin = true },
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = fechaInicio != null
-                ) {
-                    Icon(Icons.Default.CalendarToday, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        fechaFin?.let { "Fin: ${dateFormat.format(Date(it))}" }
-                            ?: "Seleccionar fecha de fin"
-                    )
-                }
-
-                if (errorFecha.isNotEmpty()) {
-                    Text(
-                        text = errorFecha,
-                        color = MaterialTheme.colorScheme.error,
-                        style = MaterialTheme.typography.bodySmall
-                    )
+                Column {
+                    OutlinedButton(
+                        onClick = { showDatePickerFin = true },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.Event, contentDescription = null)
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            fechaFin?.let {
+                                "Fin: ${dateFormat.format(Date(it))}"
+                            } ?: "Fecha de finalización"
+                        )
+                    }
+                    advertenciaFechaFin?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFFFFA500),
+                            modifier = Modifier.padding(start = 16.dp, top = 4.dp)
+                        )
+                    }
                 }
 
                 Text(
-                    "Selecciona un color:",
-                    style = MaterialTheme.typography.bodyMedium
+                    text = "Color del proyecto:",
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Bold
                 )
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    coloresDisponibles.forEach { color ->
+                    coloresDisponibles.forEach { (colorHex, _) ->
                         Surface(
-                            modifier = Modifier.size(40.dp),
-                            shape = MaterialTheme.shapes.medium,
-                            color = color,
-                            border = if (color == colorSeleccionado) {
+                            modifier = Modifier
+                                .size(40.dp)
+                                .clickable { colorSeleccionado = colorHex },
+                            shape = RoundedCornerShape(8.dp),
+                            color = Color(android.graphics.Color.parseColor(colorHex)),
+                            border = if (colorSeleccionado == colorHex) {
                                 androidx.compose.foundation.BorderStroke(
                                     3.dp,
                                     MaterialTheme.colorScheme.primary
                                 )
-                            } else null,
-                            onClick = { colorSeleccionado = color }
+                            } else null
                         ) {}
                     }
                 }
@@ -455,11 +405,13 @@ fun NuevoProyectoDialog(
             TextButton(
                 onClick = {
                     if (fechaInicio != null && fechaFin != null) {
-                        if (fechaFin!! > fechaInicio!!) {
-                            onConfirm(nombre, descripcion, colorSeleccionado, fechaInicio!!, fechaFin!!)
-                        } else {
-                            errorFecha = "La fecha de fin debe ser posterior a la de inicio"
-                        }
+                        onConfirm(
+                            nombre.trim(),
+                            descripcion.trim(),
+                            fechaInicio!!,
+                            fechaFin!!,
+                            colorSeleccionado
+                        )
                     }
                 },
                 enabled = nombre.isNotBlank() && fechaInicio != null && fechaFin != null
@@ -480,8 +432,8 @@ fun NuevoProyectoDialog(
             confirmButton = {
                 TextButton(onClick = {
                     fechaInicio = datePickerStateInicio.selectedDateMillis
+                    advertenciaFechaInicio = validarFecha(fechaInicio)
                     showDatePickerInicio = false
-                    errorFecha = ""
                 }) {
                     Text("OK")
                 }
@@ -502,8 +454,8 @@ fun NuevoProyectoDialog(
             confirmButton = {
                 TextButton(onClick = {
                     fechaFin = datePickerStateFin.selectedDateMillis
+                    advertenciaFechaFin = validarFecha(fechaFin)
                     showDatePickerFin = false
-                    errorFecha = ""
                 }) {
                     Text("OK")
                 }
@@ -521,8 +473,175 @@ fun NuevoProyectoDialog(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NuevaActividadDialog(
+fun DetalleProyectoDialog(
     proyecto: Proyecto,
+    onDismiss: () -> Unit,
+    viewModel: ProyectosViewModel
+) {
+    val state by viewModel.state.collectAsState()
+    val actividades = state.actividadesPorProyecto[proyecto.id] ?: emptyList()
+    var showAddActividadDialog by remember { mutableStateOf(false) }
+    var showDeleteActividadConfirmation by remember { mutableStateOf<String?>(null) }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Column {
+                Text(proyecto.nombre)
+                LinearProgressIndicator(
+                    progress = { proyecto.progreso },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                    color = Color(android.graphics.Color.parseColor(proyecto.colorHex))
+                )
+            }
+        },
+        text = {
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (proyecto.descripcion.isNotEmpty()) {
+                    Text(
+                        text = proyecto.descripcion,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
+
+                HorizontalDivider()
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        "Actividades",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    IconButton(onClick = { showAddActividadDialog = true }) {
+                        Icon(Icons.Default.Add, contentDescription = "Agregar Actividad")
+                    }
+                }
+
+                if (actividades.isEmpty()) {
+                    Text(
+                        "No hay actividades",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                    )
+                } else {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        actividades.forEach { actividad ->
+                            Card(
+                                modifier = Modifier.fillMaxWidth(),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = if (actividad.completada)
+                                        Color(0xFFE8F5E9)
+                                    else
+                                        MaterialTheme.colorScheme.surface
+                                )
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(12.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Checkbox(
+                                        checked = actividad.completada,
+                                        onCheckedChange = {
+                                            viewModel.toggleActividadCompletada(actividad)
+                                        }
+                                    )
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text(
+                                            text = actividad.nombre,
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            textDecoration = if (actividad.completada)
+                                                androidx.compose.ui.text.style.TextDecoration.LineThrough
+                                            else null
+                                        )
+                                        if (actividad.descripcion.isNotEmpty()) {
+                                            Text(
+                                                text = actividad.descripcion,
+                                                style = MaterialTheme.typography.bodySmall,
+                                                color = MaterialTheme.colorScheme.onSurface.copy(
+                                                    alpha = 0.6f
+                                                )
+                                            )
+                                        }
+                                    }
+                                    IconButton(onClick = {
+                                        showDeleteActividadConfirmation = actividad.id
+                                    }) {
+                                        Icon(
+                                            Icons.Default.Delete,
+                                            contentDescription = "Eliminar",
+                                            tint = MaterialTheme.colorScheme.error
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Cerrar")
+            }
+        }
+    )
+
+    if (showAddActividadDialog) {
+        AgregarActividadDialog(
+            proyectoId = proyecto.id,
+            onDismiss = { showAddActividadDialog = false },
+            onConfirm = { nombre, descripcion, fechaInicio, fechaFin ->
+                viewModel.agregarActividad(
+                    proyecto.id,
+                    nombre,
+                    descripcion,
+                    fechaInicio,
+                    fechaFin
+                )
+                showAddActividadDialog = false
+            }
+        )
+    }
+
+    showDeleteActividadConfirmation?.let { actividadId ->
+        AlertDialog(
+            onDismissRequest = { showDeleteActividadConfirmation = null },
+            title = { Text("Eliminar Actividad") },
+            text = { Text("¿Estás seguro de que deseas eliminar esta actividad?") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        viewModel.eliminarActividad(actividadId)
+                        showDeleteActividadConfirmation = null
+                    }
+                ) {
+                    Text("Eliminar", color = MaterialTheme.colorScheme.error)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteActividadConfirmation = null }) {
+                    Text("Cancelar")
+                }
+            }
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AgregarActividadDialog(
+    proyectoId: String,
     onDismiss: () -> Unit,
     onConfirm: (String, String, Long, Long) -> Unit
 ) {
@@ -532,77 +651,136 @@ fun NuevaActividadDialog(
     var fechaFin by remember { mutableStateOf<Long?>(null) }
     var showDatePickerInicio by remember { mutableStateOf(false) }
     var showDatePickerFin by remember { mutableStateOf(false) }
-    var errorFecha by remember { mutableStateOf("") }
+    var errorDescripcion by remember { mutableStateOf<String?>(null) }
+    var advertenciaFechaInicio by remember { mutableStateOf<String?>(null) }
+    var advertenciaFechaFin by remember { mutableStateOf<String?>(null) }
+
+    val MAX_DESCRIPCION_LENGTH = 100
+    val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     val datePickerStateInicio = rememberDatePickerState()
     val datePickerStateFin = rememberDatePickerState()
+
+    fun validarDescripcion(texto: String): String {
+        var textoValidado = texto
+
+        if (textoValidado.length > MAX_DESCRIPCION_LENGTH) {
+            textoValidado = textoValidado.take(MAX_DESCRIPCION_LENGTH)
+            errorDescripcion = "Máximo $MAX_DESCRIPCION_LENGTH caracteres"
+        } else {
+            errorDescripcion = null
+        }
+
+        val regex = Regex("\n{${MAX_SALTOS_LINEA_CONSECUTIVOS + 1},}")
+        textoValidado = textoValidado.replace(regex, "\n".repeat(MAX_SALTOS_LINEA_CONSECUTIVOS))
+
+        return textoValidado
+    }
+
+    fun validarFecha(fecha: Long?): String? {
+        if (fecha == null) return null
+        val hoy = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }.timeInMillis
+
+        return if (fecha < hoy) {
+            "⚠️ Fecha pasada"
+        } else {
+            null
+        }
+    }
 
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Nueva Actividad") },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(
-                    text = "Proyecto: ${proyecto.nombre}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.primary
-                )
-                Text(
-                    text = "Rango permitido: ${dateFormat.format(Date(proyecto.fechaInicio))} - ${dateFormat.format(Date(proyecto.fechaFin))}",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                )
-
-                HorizontalDivider()
-
                 OutlinedTextField(
                     value = nombre,
                     onValueChange = { nombre = it },
-                    label = { Text("Nombre") },
+                    label = { Text("Nombre de la Actividad") },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 OutlinedTextField(
                     value = descripcion,
-                    onValueChange = { descripcion = it },
+                    onValueChange = {
+                        descripcion = validarDescripcion(it)
+                    },
                     label = { Text("Descripción (opcional)") },
                     modifier = Modifier.fillMaxWidth(),
-                    maxLines = 3
+                    maxLines = 3,
+                    supportingText = {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = errorDescripcion ?: "",
+                                color = MaterialTheme.colorScheme.error
+                            )
+                            Text(
+                                text = "${descripcion.length}/$MAX_DESCRIPCION_LENGTH",
+                                color = if (descripcion.length >= MAX_DESCRIPCION_LENGTH) {
+                                    MaterialTheme.colorScheme.error
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                }
+                            )
+                        }
+                    },
+                    isError = errorDescripcion != null
                 )
 
-                OutlinedButton(
-                    onClick = { showDatePickerInicio = true },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Icon(Icons.Default.CalendarToday, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        fechaInicio?.let { "Inicio: ${dateFormat.format(Date(it))}" }
-                            ?: "Seleccionar fecha de inicio"
-                    )
+                Column {
+                    OutlinedButton(
+                        onClick = { showDatePickerInicio = true },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.CalendarToday, contentDescription = null)
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            fechaInicio?.let {
+                                "Inicio: ${dateFormat.format(Date(it))}"
+                            } ?: "Fecha de inicio"
+                        )
+                    }
+                    advertenciaFechaInicio?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFFFFA500),
+                            modifier = Modifier.padding(start = 16.dp, top = 4.dp)
+                        )
+                    }
                 }
 
-                OutlinedButton(
-                    onClick = { showDatePickerFin = true },
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = fechaInicio != null
-                ) {
-                    Icon(Icons.Default.CalendarToday, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        fechaFin?.let { "Fin: ${dateFormat.format(Date(it))}" }
-                            ?: "Seleccionar fecha de fin"
-                    )
-                }
-
-                if (errorFecha.isNotEmpty()) {
-                    Text(
-                        text = errorFecha,
-                        color = MaterialTheme.colorScheme.error,
-                        style = MaterialTheme.typography.bodySmall
-                    )
+                Column {
+                    OutlinedButton(
+                        onClick = { showDatePickerFin = true },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.Event, contentDescription = null)
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            fechaFin?.let {
+                                "Fin: ${dateFormat.format(Date(it))}"
+                            } ?: "Fecha de finalización"
+                        )
+                    }
+                    advertenciaFechaFin?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFFFFA500),
+                            modifier = Modifier.padding(start = 16.dp, top = 4.dp)
+                        )
+                    }
                 }
             }
         },
@@ -610,25 +788,12 @@ fun NuevaActividadDialog(
             TextButton(
                 onClick = {
                     if (fechaInicio != null && fechaFin != null) {
-                        when {
-                            fechaInicio!! < proyecto.fechaInicio || fechaInicio!! > proyecto.fechaFin -> {
-                                errorFecha = "La fecha de inicio debe estar dentro del rango del proyecto"
-                            }
-                            fechaFin!! < proyecto.fechaInicio || fechaFin!! > proyecto.fechaFin -> {
-                                errorFecha = "La fecha de fin debe estar dentro del rango del proyecto"
-                            }
-                            fechaFin!! <= fechaInicio!! -> {
-                                errorFecha = "La fecha de fin debe ser posterior a la de inicio"
-                            }
-                            else -> {
-                                onConfirm(nombre, descripcion, fechaInicio!!, fechaFin!!)
-                            }
-                        }
+                        onConfirm(nombre.trim(), descripcion.trim(), fechaInicio!!, fechaFin!!)
                     }
                 },
                 enabled = nombre.isNotBlank() && fechaInicio != null && fechaFin != null
             ) {
-                Text("Crear")
+                Text("Agregar")
             }
         },
         dismissButton = {
@@ -644,8 +809,8 @@ fun NuevaActividadDialog(
             confirmButton = {
                 TextButton(onClick = {
                     fechaInicio = datePickerStateInicio.selectedDateMillis
+                    advertenciaFechaInicio = validarFecha(fechaInicio)
                     showDatePickerInicio = false
-                    errorFecha = ""
                 }) {
                     Text("OK")
                 }
@@ -666,8 +831,8 @@ fun NuevaActividadDialog(
             confirmButton = {
                 TextButton(onClick = {
                     fechaFin = datePickerStateFin.selectedDateMillis
+                    advertenciaFechaFin = validarFecha(fechaFin)
                     showDatePickerFin = false
-                    errorFecha = ""
                 }) {
                     Text("OK")
                 }

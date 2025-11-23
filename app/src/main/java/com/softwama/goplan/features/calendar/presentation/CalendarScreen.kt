@@ -1,7 +1,5 @@
 package com.softwama.goplan.features.calendar.presentation
 
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,8 +19,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.common.api.ApiException
 import com.softwama.goplan.features.calendar.domain.model.CalendarEvent
 import com.softwama.goplan.features.calendar.domain.model.EventColor
 import org.koin.androidx.compose.koinViewModel
@@ -37,19 +33,6 @@ fun CalendarScreen(
 ) {
     val state by viewModel.state.collectAsState()
 
-    // Launcher para Google Sign-In
-    val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-        try {
-            val account = task.getResult(ApiException::class.java)
-            viewModel.onSignInSuccess(account)
-        } catch (e: ApiException) {
-            // Error al iniciar sesión
-        }
-    }
-
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -59,43 +42,20 @@ fun CalendarScreen(
                         fontWeight = FontWeight.Bold
                     )
                 },
-               navigationIcon = {
+                navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
-                    }
-               },
-                actions = {
-                    if (state.isSignedIn) {
-                        IconButton(onClick = { viewModel.signOut() }) {
-                            Icon(Icons.Default.Logout, contentDescription = "Cerrar sesión")
-                        }
-                    } else {
-                        IconButton(onClick = {
-                            val signInIntent = viewModel.getSignInClient().signInIntent
-                            launcher.launch(signInIntent)
-                        }) {
-                            Icon(Icons.Default.Login, contentDescription = "Iniciar sesión")
-                        }
-                    }
-                    IconButton(onClick = { viewModel.loadEvents() }) {
-                        Icon(Icons.Default.Refresh, contentDescription = "Actualizar")
                     }
                 }
             )
         },
         floatingActionButton = {
-            if (!state.isSignedIn) {
-                ExtendedFloatingActionButton(
-                    onClick = {
-                        val signInIntent = viewModel.getSignInClient().signInIntent
-                        launcher.launch(signInIntent)
-                    },
-                    icon = {
-                        Icon(Icons.Default.Login, contentDescription = null)
-                    },
-                    text = { Text("Conectar con Google") },
-                    containerColor = MaterialTheme.colorScheme.primary
-                )
+            if (state.isSignedIn) {
+                FloatingActionButton(
+                    onClick = { viewModel.loadEvents() }
+                ) {
+                    Icon(Icons.Default.Sync, contentDescription = "Sincronizar")
+                }
             }
         }
     ) { padding ->
@@ -111,7 +71,7 @@ fun CalendarScreen(
                         .fillMaxWidth()
                         .padding(16.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.tertiaryContainer
+                        containerColor = MaterialTheme.colorScheme.errorContainer
                     )
                 ) {
                     Row(
@@ -122,14 +82,14 @@ fun CalendarScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Icon(
-                            Icons.Default.Info,
+                            Icons.Default.Warning,
                             contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onTertiaryContainer
+                            tint = MaterialTheme.colorScheme.onErrorContainer
                         )
                         Text(
-                            text = "Conecta tu cuenta de Google para ver tus eventos reales",
+                            text = "Inicia sesión con Google desde la pantalla de login para ver tus eventos",
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onTertiaryContainer
+                            color = MaterialTheme.colorScheme.onErrorContainer
                         )
                     }
                 }
@@ -260,7 +220,6 @@ fun CalendarEventCard(event: CalendarEvent) {
                 .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Indicador de color
             Box(
                 modifier = Modifier
                     .width(4.dp)
@@ -273,26 +232,22 @@ fun CalendarEventCard(event: CalendarEvent) {
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                // Título
                 Text(
                     text = event.title,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
 
-                // Descripción
                 Text(
                     text = event.description,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                 )
 
-                // Hora y ubicación
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Hora
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(4.dp),
                         verticalAlignment = Alignment.CenterVertically
@@ -310,7 +265,6 @@ fun CalendarEventCard(event: CalendarEvent) {
                         )
                     }
 
-                    // Ubicación
                     event.location?.let { location ->
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -332,7 +286,6 @@ fun CalendarEventCard(event: CalendarEvent) {
                     }
                 }
 
-                // Fecha
                 Text(
                     text = formatDate(event.startTime),
                     style = MaterialTheme.typography.bodySmall,
@@ -340,7 +293,6 @@ fun CalendarEventCard(event: CalendarEvent) {
                 )
             }
 
-            // Badge de color
             Box(
                 modifier = Modifier
                     .size(12.dp)

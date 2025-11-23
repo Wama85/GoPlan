@@ -206,7 +206,6 @@ fun TareaItem(
         }
     }
 }
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AgregarTareaDialog(
@@ -217,9 +216,46 @@ fun AgregarTareaDialog(
     var descripcion by remember { mutableStateOf("") }
     var fechaSeleccionada by remember { mutableStateOf<Long?>(null) }
     var showDatePicker by remember { mutableStateOf(false) }
+    var errorDescripcion by remember { mutableStateOf<String?>(null) }
+    var advertenciaFecha by remember { mutableStateOf<String?>(null) }
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     val datePickerState = rememberDatePickerState()
+
+    val MAX_DESCRIPCION_LENGTH = 100
+    val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
+
+    fun validarDescripcion(texto: String): String {
+        var textoValidado = texto
+
+        if (textoValidado.length > MAX_DESCRIPCION_LENGTH) {
+            textoValidado = textoValidado.take(MAX_DESCRIPCION_LENGTH)
+            errorDescripcion = "Máximo $MAX_DESCRIPCION_LENGTH caracteres"
+        } else {
+            errorDescripcion = null
+        }
+
+        val regex = Regex("\n{${MAX_SALTOS_LINEA_CONSECUTIVOS + 1},}")
+        textoValidado = textoValidado.replace(regex, "\n".repeat(MAX_SALTOS_LINEA_CONSECUTIVOS))
+
+        return textoValidado
+    }
+
+    fun validarFecha(fecha: Long?): String? {
+        if (fecha == null) return null
+        val hoy = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }.timeInMillis
+
+        return if (fecha < hoy) {
+            "⚠️ Fecha pasada"
+        } else {
+            null
+        }
+    }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -233,31 +269,64 @@ fun AgregarTareaDialog(
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
+
                 OutlinedTextField(
                     value = descripcion,
-                    onValueChange = { descripcion = it },
+                    onValueChange = {
+                        descripcion = validarDescripcion(it)
+                    },
                     label = { Text("Descripción (opcional)") },
                     modifier = Modifier.fillMaxWidth(),
-                    maxLines = 3
+                    maxLines = 5,
+                    supportingText = {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = errorDescripcion ?: "",
+                                color = MaterialTheme.colorScheme.error
+                            )
+                            Text(
+                                text = "${descripcion.length}/$MAX_DESCRIPCION_LENGTH",
+                                color = if (descripcion.length >= MAX_DESCRIPCION_LENGTH) {
+                                    MaterialTheme.colorScheme.error
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                }
+                            )
+                        }
+                    },
+                    isError = errorDescripcion != null
                 )
 
-                OutlinedButton(
-                    onClick = { showDatePicker = true },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Icon(Icons.Default.CalendarToday, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        fechaSeleccionada?.let {
-                            "Vence: ${dateFormat.format(Date(it))}"
-                        } ?: "Seleccionar fecha de vencimiento"
-                    )
+                Column {
+                    OutlinedButton(
+                        onClick = { showDatePicker = true },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.CalendarToday, contentDescription = null)
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            fechaSeleccionada?.let {
+                                "Vence: ${dateFormat.format(Date(it))}"
+                            } ?: "Seleccionar fecha de vencimiento"
+                        )
+                    }
+                    advertenciaFecha?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFFFFA500),
+                            modifier = Modifier.padding(start = 16.dp, top = 4.dp)
+                        )
+                    }
                 }
             }
         },
         confirmButton = {
             TextButton(
-                onClick = { onConfirm(titulo, descripcion, fechaSeleccionada) },
+                onClick = { onConfirm(titulo.trim(), descripcion.trim(), fechaSeleccionada) },
                 enabled = titulo.isNotBlank()
             ) {
                 Text("Agregar")
@@ -276,6 +345,7 @@ fun AgregarTareaDialog(
             confirmButton = {
                 TextButton(onClick = {
                     fechaSeleccionada = datePickerState.selectedDateMillis
+                    advertenciaFecha = validarFecha(fechaSeleccionada)
                     showDatePicker = false
                 }) {
                     Text("OK")

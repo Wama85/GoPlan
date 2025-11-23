@@ -1,0 +1,1146 @@
+2025-11-22T07:43:58.820-0400 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonMain] Assuming the daemon was started with following jvm opts: [-Xmx2048m, -Dfile.encoding=UTF-8, -Duser.country=ES, -Duser.language=es, -Duser.variant]
+2025-11-22T07:43:59.091-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Kaspersky Security Data Escort Adapter-WFP Native MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.092-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.094-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Kaspersky Security Data Escort Adapter-Kaspersky Lab NDIS 6 Filter-0000
+2025-11-22T07:43:59.094-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.095-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Kaspersky Security Data Escort Adapter-Npcap Packet Driver (NPCAP)-0000
+2025-11-22T07:43:59.095-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.095-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Kaspersky Security Data Escort Adapter-QoS Packet Scheduler-0000
+2025-11-22T07:43:59.096-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.096-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Kaspersky Security Data Escort Adapter-WFP 802.3 MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.096-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.097-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IP)-WFP Native MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.097-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.097-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IP)-Kaspersky Lab NDIS 6 Filter-0000
+2025-11-22T07:43:59.098-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.098-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IP)-Npcap Packet Driver (NPCAP)-0000
+2025-11-22T07:43:59.098-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.099-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IP)-QoS Packet Scheduler-0000
+2025-11-22T07:43:59.099-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.099-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IPv6)-WFP Native MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.100-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.100-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IPv6)-Kaspersky Lab NDIS 6 Filter-0000
+2025-11-22T07:43:59.100-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.100-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IPv6)-Npcap Packet Driver (NPCAP)-0000
+2025-11-22T07:43:59.101-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.101-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IPv6)-QoS Packet Scheduler-0000
+2025-11-22T07:43:59.101-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.102-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (Network Monitor)-WFP Native MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.102-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.102-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (Network Monitor)-Kaspersky Lab NDIS 6 Filter-0000
+2025-11-22T07:43:59.102-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.103-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (Network Monitor)-Npcap Packet Driver (NPCAP)-0000
+2025-11-22T07:43:59.103-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.103-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000
+2025-11-22T07:43:59.103-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.104-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Kernel Debug Network Adapter
+2025-11-22T07:43:59.104-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.104-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Realtek USB GbE Family Controller
+2025-11-22T07:43:59.104-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.106-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Bluetooth Device (Personal Area Network)
+2025-11-22T07:43:59.107-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.107-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Kaspersky Security Data Escort Adapter
+2025-11-22T07:43:59.109-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.109-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:fe3f:2670:63c1:aeb%ethernet_32771
+2025-11-22T07:43:59.109-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IP)
+2025-11-22T07:43:59.109-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.110-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IPv6)
+2025-11-22T07:43:59.110-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.110-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface VirtualBox Host-Only Ethernet Adapter
+2025-11-22T07:43:59.111-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.111-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (Network Monitor)
+2025-11-22T07:43:59.112-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.113-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface ASIX USB to Gigabit Ethernet Family Adapter
+2025-11-22T07:43:59.113-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.113-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface VirtualBox Host-Only Ethernet Adapter
+2025-11-22T07:43:59.113-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.113-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (PPPOE)
+2025-11-22T07:43:59.114-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.114-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface RAS Async Adapter
+2025-11-22T07:43:59.114-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.114-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Software Loopback Interface 1
+2025-11-22T07:43:59.115-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? true
+2025-11-22T07:43:59.115-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /0:0:0:0:0:0:0:1
+2025-11-22T07:43:59.116-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /127.0.0.1
+2025-11-22T07:43:59.116-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz-WFP Native MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.117-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.117-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz-Virtual WiFi Filter Driver-0000
+2025-11-22T07:43:59.117-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.117-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz-Native WiFi Filter Driver-0000
+2025-11-22T07:43:59.118-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.118-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz-Kaspersky Lab NDIS 6 Filter-0000
+2025-11-22T07:43:59.118-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.118-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz-Npcap Packet Driver (NPCAP)-0000
+2025-11-22T07:43:59.119-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.119-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz-QoS Packet Scheduler-0000
+2025-11-22T07:43:59.119-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.120-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz-WFP 802.3 MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.120-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.120-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter-WFP Native MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.120-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.121-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter-Native WiFi Filter Driver-0000
+2025-11-22T07:43:59.121-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.122-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter-Kaspersky Lab NDIS 6 Filter-0000
+2025-11-22T07:43:59.122-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.123-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter-Npcap Packet Driver (NPCAP)-0000
+2025-11-22T07:43:59.123-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.123-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter-QoS Packet Scheduler-0000
+2025-11-22T07:43:59.123-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.124-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter-WFP 802.3 MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.124-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.124-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter #2-WFP Native MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.124-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.125-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter #2-Native WiFi Filter Driver-0000
+2025-11-22T07:43:59.125-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.125-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter #2-Kaspersky Lab NDIS 6 Filter-0000
+2025-11-22T07:43:59.125-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.126-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter #2-Npcap Packet Driver (NPCAP)-0000
+2025-11-22T07:43:59.126-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.126-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter #2-QoS Packet Scheduler-0000
+2025-11-22T07:43:59.131-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.131-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter #2-WFP 802.3 MAC Layer LightWeight Filter-0000
+2025-11-22T07:43:59.131-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.132-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Intel(R) Wi-Fi 6 AX201 160MHz
+2025-11-22T07:43:59.132-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.133-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:b6f9:8ab6:82f4:ae22%wireless_32768
+2025-11-22T07:43:59.134-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /192.167.65.209
+2025-11-22T07:43:59.134-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter
+2025-11-22T07:43:59.134-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.134-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:73b2:d908:e75a:6313%wireless_32769
+2025-11-22T07:43:59.134-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Wi-Fi Direct Virtual Adapter #2
+2025-11-22T07:43:59.134-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.135-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:a7be:79c1:d773:4549%wireless_32770
+2025-11-22T07:43:59.135-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft Teredo Tunneling Adapter
+2025-11-22T07:43:59.135-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.135-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft IP-HTTPS Platform Adapter
+2025-11-22T07:43:59.135-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.135-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface Microsoft 6to4 Adapter
+2025-11-22T07:43:59.136-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.136-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (SSTP)
+2025-11-22T07:43:59.136-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.137-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (IKEv2)
+2025-11-22T07:43:59.137-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.137-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (L2TP)
+2025-11-22T07:43:59.138-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.142-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface WAN Miniport (PPTP)
+2025-11-22T07:43:59.143-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2025-11-22T07:43:59.165-0400 [DEBUG] [org.gradle.internal.nativeintegration.services.NativeServices] Native-platform posix files integration is not available. Continuing with fallback.
+2025-11-22T07:43:59.193-0400 [INFO] [org.gradle.launcher.daemon.server.Daemon] start() called on daemon - DefaultDaemonContext[uid=664948cc-6b15-445e-b97e-e9e2d8f8a3bb,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon,pid=15112,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=ES,-Duser.language=es,-Duser.variant]
+2025-11-22T07:43:59.265-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Listening on [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]].
+2025-11-22T07:43:59.293-0400 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] Daemon starting at: Sat Nov 22 07:43:59 BOT 2025, with address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:43:59.293-0400 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertising the daemon address to the clients: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:43:59.294-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertised daemon context: DefaultDaemonContext[uid=664948cc-6b15-445e-b97e-e9e2d8f8a3bb,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon,pid=15112,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=ES,-Duser.language=es,-Duser.variant]
+2025-11-22T07:43:59.296-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]], context: DefaultDaemonContext[uid=664948cc-6b15-445e-b97e-e9e2d8f8a3bb,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon,pid=15112,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=ES,-Duser.language=es,-Duser.variant]
+2025-11-22T07:43:59.311-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T07:43:59.316-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:43:59.324-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:43:59.324-0400 [LIFECYCLE] [org.gradle.launcher.daemon.server.Daemon] Daemon server started.
+2025-11-22T07:43:59.328-0400 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonStartupCommunication] Completed writing the daemon greeting. Closing streams...
+2025-11-22T07:43:59.342-0400 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stopOnExpiration() called on daemon
+2025-11-22T07:43:59.344-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:58169 to /127.0.0.1:58168.
+2025-11-22T07:43:59.345-0400 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] awaitExpiration() called on daemon
+2025-11-22T07:43:59.345-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:43:59.483-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 35: received class org.gradle.launcher.daemon.protocol.Build
+2025-11-22T07:43:59.483-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 35: Received non-IO message from client: Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}
+2025-11-22T07:43:59.484-0400 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}.
+2025-11-22T07:43:59.484-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan} with connection: socket connection from /127.0.0.1:58168 to /127.0.0.1:58169.
+2025-11-22T07:43:59.488-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:58169] after 0.0038333333333333336 minutes of idle
+2025-11-22T07:43:59.489-0400 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:43:59.489-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:43:59.490-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T07:43:59.491-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:43:59.492-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:43:59.493-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-11-22T07:43:59.493-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:43:59.494-0400 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}. Dispatching build started information...
+2025-11-22T07:43:59.494-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 37: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@1e3c6101
+2025-11-22T07:43:59.496-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [USERDOMAIN_ROAMINGPROFILE, EFC_4808_1592913036, PROCESSOR_LEVEL, SESSIONNAME, ALLUSERSPROFILE, PROCESSOR_ARCHITECTURE, PSModulePath, SystemDrive, PT8HOME, USERNAME, ProgramFiles(x86), PATHEXT, DriverData, ProgramData, ProgramW6432, HOMEPATH, PROCESSOR_IDENTIFIER, ProgramFiles, PUBLIC, windir, =::, ZES_ENABLE_SYSMAN, OneDriveCommercial, IGCCSVC_DB, LOCALAPPDATA, ChocolateyLastPathUpdate, USERDOMAIN, LOGONSERVER, JAVA_HOME, WebStorm, OneDrive, APPDATA, ChocolateyInstall, MAVEN_BIN, VBOX_MSI_INSTALL_PATH, CommonProgramFiles, Path, OS, COMPUTERNAME, PROCESSOR_REVISION, CommonProgramW6432, ComSpec, TEMP, SystemRoot, HOMEDRIVE, USERPROFILE, TMP, CommonProgramFiles(x86), NUMBER_OF_PROCESSORS]
+2025-11-22T07:43:59.502-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2025-11-22T07:43:59.502-0400 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 15112). The daemon log file: D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon\8.13\daemon-15112.out.log
+2025-11-22T07:43:59.510-0400 [INFO] [org.gradle.launcher.daemon.server.exec.LogAndCheckHealth] Starting build in new daemon [memory: 2 GiB]
+2025-11-22T07:43:59.515-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2025-11-22T07:43:59.515-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=664948cc-6b15-445e-b97e-e9e2d8f8a3bb,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon,pid=15112,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=ES,-Duser.language=es,-Duser.variant]
+
+BUILD SUCCESSFUL in 31s
+2025-11-22T07:44:28.956-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+2025-11-22T07:44:28.973-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:44:28.973-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:58169]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@789dd41c with state Busy
+2025-11-22T07:44:28.974-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:58169]
+2025-11-22T07:44:28.974-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-11-22T07:44:28.974-0400 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as idle, address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:44:28.974-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:44:28.975-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T07:44:28.976-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:28.977-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:28.977-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:44:28.978-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.launcher.exec.BuildActionResult@35cd8f6c]
+2025-11-22T07:44:28.978-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 34: dispatching Success[value=org.gradle.launcher.exec.BuildActionResult@35cd8f6c]
+2025-11-22T07:44:28.979-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 35: received class org.gradle.launcher.daemon.protocol.CloseInput
+2025-11-22T07:44:28.979-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 35: Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@2395e7c8
+2025-11-22T07:44:28.980-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 35: received class org.gradle.launcher.daemon.protocol.Finished
+2025-11-22T07:44:28.980-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 35: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@45dbbf84
+2025-11-22T07:44:28.980-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.CleanUpVirtualFileSystemAfterBuild] Cleaning virtual file system after build finished
+2025-11-22T07:44:28.981-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=daf01399-e569-4840-bb30-d0e1bb2ef795, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}
+2025-11-22T07:44:28.981-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+2025-11-22T07:44:28.981-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 35: received null
+2025-11-22T07:44:28.981-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@45dbbf84
+2025-11-22T07:44:28.981-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 35: Received end-of-input from client.
+2025-11-22T07:44:28.982-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 34: stopping connection
+2025-11-22T07:44:28.983-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 34: stopping connection
+2025-11-22T07:44:29.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:29.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:29.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:29.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:39.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:39.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:39.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:39.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:39.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:39.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:39.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:39.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:39.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:49.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:49.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:49.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:49.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:49.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:49.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:59.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:59.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:59.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:59.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:59.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:59.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:44:59.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:44:59.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:44:59.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:19.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:19.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:19.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:19.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:19.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:19.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:19.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:19.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:19.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:29.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:29.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:29.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:29.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:29.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:29.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:29.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:29.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:29.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:39.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:39.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:39.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:39.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:39.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:39.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:39.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:39.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:39.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:49.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:49.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:49.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:59.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:59.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:59.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:59.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:59.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:59.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:45:59.368-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:45:59.368-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:45:59.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:46:06.078-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:64110 to /127.0.0.1:58168.
+2025-11-22T07:46:06.085-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 168: received class org.gradle.launcher.daemon.protocol.Build
+2025-11-22T07:46:06.085-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 168: Received non-IO message from client: Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}
+2025-11-22T07:46:06.085-0400 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}.
+2025-11-22T07:46:06.085-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan} with connection: socket connection from /127.0.0.1:58168 to /127.0.0.1:64110.
+2025-11-22T07:46:06.086-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:64110] after 1.61855 minutes of idle
+2025-11-22T07:46:06.086-0400 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:46:06.086-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:46:06.088-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T07:46:06.088-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:46:06.090-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:46:06.091-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-11-22T07:46:06.091-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:46:06.091-0400 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}. Dispatching build started information...
+2025-11-22T07:46:06.091-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 170: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@67887e38
+2025-11-22T07:46:06.092-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [USERDOMAIN_ROAMINGPROFILE, EFC_4808_1592913036, PROCESSOR_LEVEL, SESSIONNAME, ALLUSERSPROFILE, PROCESSOR_ARCHITECTURE, PSModulePath, SystemDrive, PT8HOME, USERNAME, ProgramFiles(x86), PATHEXT, DriverData, ProgramData, ProgramW6432, HOMEPATH, PROCESSOR_IDENTIFIER, ProgramFiles, PUBLIC, windir, =::, ZES_ENABLE_SYSMAN, OneDriveCommercial, IGCCSVC_DB, LOCALAPPDATA, ChocolateyLastPathUpdate, USERDOMAIN, LOGONSERVER, JAVA_HOME, WebStorm, OneDrive, APPDATA, ChocolateyInstall, MAVEN_BIN, VBOX_MSI_INSTALL_PATH, CommonProgramFiles, Path, OS, COMPUTERNAME, PROCESSOR_REVISION, CommonProgramW6432, ComSpec, TEMP, SystemRoot, HOMEDRIVE, USERPROFILE, TMP, CommonProgramFiles(x86), NUMBER_OF_PROCESSORS]
+2025-11-22T07:46:06.095-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2025-11-22T07:46:06.095-0400 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 15112). The daemon log file: D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon\8.13\daemon-15112.out.log
+2025-11-22T07:46:06.097-0400 [INFO] [org.gradle.launcher.daemon.server.exec.LogAndCheckHealth] Starting 2nd build in daemon [uptime: 2 mins 7.145 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 2 GiB]
+2025-11-22T07:46:06.097-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2025-11-22T07:46:06.097-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=664948cc-6b15-445e-b97e-e9e2d8f8a3bb,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon,pid=15112,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=ES,-Duser.language=es,-Duser.variant]
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libdatastore_shared_counter.so, libsentry-android.so, libsentry.so. Run with --info option to learn more.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/MainActivity.kt:78:13 This API is experimental and can change in the next versions
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/core/notifications/presentation/NotificationsScreen.kt:51:44 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:4:8 'class GoogleSignIn : Any' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:5:8 'class GoogleSignInAccount : AbstractSafeParcelable, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:6:8 'class GoogleSignInClient : GoogleApi<GoogleSignInOptions!>' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:7:8 'class GoogleSignInOptions : AbstractSafeParcelable, Api.ApiOptions.Optional, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:21:23 'class GoogleSignInOptions : AbstractSafeParcelable, Api.ApiOptions.Optional, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:21:51 'class GoogleSignInOptions : AbstractSafeParcelable, Api.ApiOptions.Optional, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:26:29 'class GoogleSignInClient : GoogleApi<GoogleSignInOptions!>' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:26:50 'class GoogleSignIn : Any' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:28:35 'class GoogleSignInAccount : AbstractSafeParcelable, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:29:16 'class GoogleSignIn : Any' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/data/GoogleAuthManager.kt:36:37 'class GoogleSignInAccount : AbstractSafeParcelable, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarScreen.kt:24:8 'class GoogleSignIn : Any' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarScreen.kt:44:20 'class GoogleSignIn : Any' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarScreen.kt:64:44 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarScreen.kt:70:48 'val Icons.Filled.Logout: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.Logout.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarScreen.kt:77:48 'val Icons.Filled.Login: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.Login.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarScreen.kt:94:44 'val Icons.Filled.Login: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.Login.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarViewModel.kt:5:8 'class GoogleSignInAccount : AbstractSafeParcelable, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/calendar/presentation/CalendarViewModel.kt:52:34 'class GoogleSignInAccount : AbstractSafeParcelable, ReflectedParcelable' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/estadisticas/presentation/EstadisticasScreen.kt:37:44 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/estadisticas/presentation/EstadisticasScreen.kt:90:43 'val Icons.Filled.TrendingUp: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.TrendingUp.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/login/presentation/LoginScreen.kt:174:13 'fun ClickableText(text: AnnotatedString, modifier: Modifier = ..., style: TextStyle = ..., softWrap: Boolean = ..., overflow: TextOverflow = ..., maxLines: Int = ..., onTextLayout: (TextLayoutResult) -> Unit = ..., onClick: (Int) -> Unit): Unit' is deprecated. Use Text or BasicText and pass an AnnotatedString that contains a LinkAnnotation. Check LinkAnnotation's documentation for more details and samples.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/profile/presentation/EditProfileScreen.kt:28:44 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/profile/presentation/ProfileScreen.kt:33:43 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/profile/presentation/SettingsScreen.kt:27:44 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/proyectos/presentation/ProyectosScreen.kt:44:44 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/suscribe/data/SuscribeRepositoryImpl.kt:72:32 'fun fetchSignInMethodsForEmail(p0: String): Task<SignInMethodQueryResult!>' is deprecated. Deprecated in Java.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/suscribe/presentation/SuscribeScreen.kt:78:57 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/features/tareas/presentation/TareasScreen.kt:41:44 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/navigation/NavigationDrawer.kt:51:22 'val Icons.Filled.Logout: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.Logout.
+w: file:///D:/Users/wi_an/AndroidStudioProjects/GoPlan/app/src/main/java/com/softwama/goplan/navigation/NavigationDrawer.kt:52:24 'val Icons.Outlined.Logout: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Outlined.Logout.
+ASM Instrumentation process wasn't able to resolve some classes, this means that
+the instrumented classes might contain corrupt stack frames. Make sure the
+dependencies that contain these classes are on the runtime or the provided
+classpath. Otherwise, the jvm might fail to load the corrupt classes at runtime
+when running in a jvm environment like unit tests.
+
+Classes that weren't resolved:
+> sun.misc.Unsafe
+> com.google.common.util.concurrent.ListenableFuture
+> androidx.window.extensions.embedding.SplitPlaceholderRule
+> androidx.window.extensions.embedding.ActivityRule
+> androidx.window.extensions.embedding.SplitPairRule
+> androidx.compose.animation.tooling.ComposeAnimatedProperty
+> org.apache.http.client.methods.HttpPatch
+> javax.naming.NamingException
+> javax.naming.directory.Attributes
+
+
+BUILD SUCCESSFUL in 5m 50s
+44 actionable tasks: 44 executed
+2025-11-22T07:51:56.790-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+2025-11-22T07:51:56.809-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:51:56.810-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:64110]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@789dd41c with state Busy
+2025-11-22T07:51:56.811-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:64110]
+2025-11-22T07:51:56.811-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-11-22T07:51:56.812-0400 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as idle, address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:51:56.812-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:51:56.814-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T07:51:56.816-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:51:56.818-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:51:56.819-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.launcher.exec.BuildActionResult@977cdfc]
+2025-11-22T07:51:56.819-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:51:56.820-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 167: dispatching Success[value=org.gradle.launcher.exec.BuildActionResult@977cdfc]
+2025-11-22T07:51:56.821-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.CleanUpVirtualFileSystemAfterBuild] Cleaning virtual file system after build finished
+2025-11-22T07:51:56.822-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 168: received class org.gradle.launcher.daemon.protocol.CloseInput
+2025-11-22T07:51:56.822-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 168: Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@555c3c5f
+2025-11-22T07:51:56.823-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 168: received class org.gradle.launcher.daemon.protocol.Finished
+2025-11-22T07:51:56.823-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 168: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@5b9bd884
+2025-11-22T07:51:56.824-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=f61864b1-d294-4c65-8692-6d696fcc1b87, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}
+2025-11-22T07:51:56.824-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@5b9bd884
+2025-11-22T07:51:56.824-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 167: stopping connection
+2025-11-22T07:51:56.825-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+2025-11-22T07:51:56.825-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 168: received null
+2025-11-22T07:51:56.825-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 168: Received end-of-input from client.
+2025-11-22T07:51:56.826-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 167: stopping connection
+2025-11-22T07:51:59.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:51:59.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:51:59.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:51:59.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:51:59.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:51:59.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:09.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:09.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:09.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:09.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:09.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:09.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:09.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:09.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:19.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:19.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:19.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:19.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:19.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:19.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:39.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:39.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:49.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:52:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:52:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:52:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:12.152-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:59349 to /127.0.0.1:58168.
+2025-11-22T07:53:12.157-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 343: received class org.gradle.launcher.daemon.protocol.Build
+2025-11-22T07:53:12.158-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 343: Received non-IO message from client: Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}
+2025-11-22T07:53:12.158-0400 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}.
+2025-11-22T07:53:12.158-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan} with connection: socket connection from /127.0.0.1:58168 to /127.0.0.1:59349.
+2025-11-22T07:53:12.158-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:59349] after 1.2557333333333331 minutes of idle
+2025-11-22T07:53:12.158-0400 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:53:12.159-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:53:12.160-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T07:53:12.160-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:12.162-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:12.162-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-11-22T07:53:12.162-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:53:12.163-0400 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}. Dispatching build started information...
+2025-11-22T07:53:12.163-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 345: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@3a9c4bb8
+2025-11-22T07:53:12.164-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [USERDOMAIN_ROAMINGPROFILE, EFC_4808_1592913036, PROCESSOR_LEVEL, SESSIONNAME, ALLUSERSPROFILE, PROCESSOR_ARCHITECTURE, PSModulePath, SystemDrive, PT8HOME, USERNAME, ProgramFiles(x86), PATHEXT, DriverData, ProgramData, ProgramW6432, HOMEPATH, PROCESSOR_IDENTIFIER, ProgramFiles, PUBLIC, windir, =::, ZES_ENABLE_SYSMAN, OneDriveCommercial, IGCCSVC_DB, LOCALAPPDATA, ChocolateyLastPathUpdate, USERDOMAIN, LOGONSERVER, JAVA_HOME, WebStorm, OneDrive, APPDATA, ChocolateyInstall, MAVEN_BIN, VBOX_MSI_INSTALL_PATH, CommonProgramFiles, Path, OS, COMPUTERNAME, PROCESSOR_REVISION, CommonProgramW6432, ComSpec, TEMP, SystemRoot, HOMEDRIVE, USERPROFILE, TMP, CommonProgramFiles(x86), NUMBER_OF_PROCESSORS]
+2025-11-22T07:53:12.165-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2025-11-22T07:53:12.165-0400 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 15112). The daemon log file: D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon\8.13\daemon-15112.out.log
+2025-11-22T07:53:12.166-0400 [INFO] [org.gradle.launcher.daemon.server.exec.LogAndCheckHealth] Starting 3rd build in daemon [uptime: 9 mins 13.212 secs, performance: 98%, GC rate: 0.00/s, heap usage: 0% of 2 GiB]
+2025-11-22T07:53:12.166-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2025-11-22T07:53:12.166-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=664948cc-6b15-445e-b97e-e9e2d8f8a3bb,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan\daemon,pid=15112,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=ES,-Duser.language=es,-Duser.variant]
+
+BUILD SUCCESSFUL in 2s
+44 actionable tasks: 44 up-to-date
+2025-11-22T07:53:14.688-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+2025-11-22T07:53:14.693-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:53:14.694-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:59349]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@789dd41c with state Busy
+2025-11-22T07:53:14.694-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:58168 to /127.0.0.1:59349]
+2025-11-22T07:53:14.694-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-11-22T07:53:14.694-0400 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as idle, address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:53:14.694-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T07:53:14.696-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T07:53:14.697-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:14.699-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:14.699-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-11-22T07:53:14.699-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.launcher.exec.BuildActionResult@4e6483aa]
+2025-11-22T07:53:14.700-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 342: dispatching Success[value=org.gradle.launcher.exec.BuildActionResult@4e6483aa]
+2025-11-22T07:53:14.700-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 343: received class org.gradle.launcher.daemon.protocol.CloseInput
+2025-11-22T07:53:14.700-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 343: Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@5391554c
+2025-11-22T07:53:14.700-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=a518d62f-eafb-4b51-975a-2b167ea6a8ff, currentDir=D:\Users\wi_an\AndroidStudioProjects\GoPlan}
+2025-11-22T07:53:14.701-0400 [DEBUG] [org.gradle.launcher.daemon.server.exec.CleanUpVirtualFileSystemAfterBuild] Cleaning virtual file system after build finished
+2025-11-22T07:53:14.701-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 343: received class org.gradle.launcher.daemon.protocol.Finished
+2025-11-22T07:53:14.701-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 343: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@5d56a14e
+2025-11-22T07:53:14.701-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+2025-11-22T07:53:14.701-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@5d56a14e
+2025-11-22T07:53:14.701-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 343: received null
+2025-11-22T07:53:14.701-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 343: Received end-of-input from client.
+2025-11-22T07:53:14.702-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 342: stopping connection
+2025-11-22T07:53:14.703-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 342: stopping connection
+2025-11-22T07:53:19.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:19.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:19.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:49.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:49.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:49.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:59.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:53:59.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:53:59.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:53:59.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:29.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:29.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:39.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:39.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:39.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:41.524-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(6)-127.0.0.1: accepted socket from [127.0.0.1:59990]
+2025-11-22T07:54:41.528-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(6)-127.0.0.1: (port 56718) op = 80
+2025-11-22T07:54:41.530-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(6)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:54:41.530-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(6)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:54:41.531-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(6)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:54:41.531-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(6)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:54:41.531-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(6)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:54:49.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:49.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:49.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:49.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:49.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:56.539-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(6)-127.0.0.1: (port 56718) connection closed
+2025-11-22T07:54:56.539-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(6)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=59990,localport=56718]
+2025-11-22T07:54:56.540-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(6)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=59990,localport=56718]
+2025-11-22T07:54:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:59.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:59.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:59.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:59.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:54:59.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:54:59.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:54:59.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:09.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:09.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:09.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:09.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:09.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:09.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:09.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:09.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:09.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:19.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:19.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:19.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:29.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:29.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:29.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:29.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:29.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:29.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:29.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:29.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:29.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:39.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:39.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:39.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:39.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:39.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:39.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:39.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:39.368-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:39.368-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:49.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:49.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:49.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:49.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:49.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:49.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:49.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:49.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:49.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:55:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:55:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:55:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:19.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:19.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:19.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:29.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:29.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:29.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:29.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:49.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:59.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:59.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:59.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:56:59.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:56:59.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:56:59.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:09.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:19.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:29.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:29.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:39.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:39.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:39.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:49.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:49.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:49.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:57:59.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:57:59.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:57:59.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:09.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:09.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:09.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:09.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:09.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:09.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:09.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:09.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:09.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:19.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:19.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:19.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:19.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:29.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:29.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:29.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:29.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:29.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:29.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:39.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:39.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:39.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:39.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:39.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:39.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:39.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:39.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:39.370-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:49.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:49.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:49.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:49.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:49.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:49.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:49.371-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:49.372-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:49.372-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:59.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:59.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:59.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:59.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:59.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:59.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:58:59.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:58:59.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:58:59.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:09.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:09.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:09.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:09.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:09.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:09.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:09.368-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:09.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:09.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:19.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:19.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:19.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:29.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:29.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:29.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:29.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:29.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:29.366-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:29.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:29.367-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:29.368-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:39.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:39.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:39.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:39.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:39.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:39.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:41.530-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(7)-127.0.0.1: accepted socket from [127.0.0.1:59821]
+2025-11-22T07:59:41.532-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(7)-127.0.0.1: (port 56718) op = 80
+2025-11-22T07:59:41.533-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(7)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:59:41.534-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(7)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:59:41.534-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(7)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:59:41.535-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(7)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:59:41.535-0400 [DEBUG] [sun.rmi.loader] RMI TCP Connection(7)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@13878e75
+2025-11-22T07:59:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:49.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:56.551-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(7)-127.0.0.1: (port 56718) connection closed
+2025-11-22T07:59:56.551-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(7)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=59821,localport=56718]
+2025-11-22T07:59:56.552-0400 [DEBUG] [sun.rmi.transport.tcp] RMI TCP Connection(7)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=59821,localport=56718]
+2025-11-22T07:59:59.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:59.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:59.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:59.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:59.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:59.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T07:59:59.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T07:59:59.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T07:59:59.363-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:09.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:09.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:09.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:09.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:09.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:09.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:09.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:09.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:09.362-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:19.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:19.357-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:19.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:19.358-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:29.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:29.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:29.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:29.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:29.364-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:29.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:29.368-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:29.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:29.369-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:49.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:49.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:49.356-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:00:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:00:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:00:59.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:09.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:09.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:19.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:29.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:29.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:29.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:29.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:39.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:39.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:39.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:49.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:49.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:59.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:59.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:01:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:01:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:01:59.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:09.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:09.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:09.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:19.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:19.353-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:19.354-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:19.355-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:29.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:29.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:29.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:39.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:39.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:39.349-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:39.350-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:39.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:49.351-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:49.352-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:49.359-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:49.360-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:49.361-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:49.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
+2025-11-22T08:02:49.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:49.365-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:49.782-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:52075 to /127.0.0.1:58168.
+2025-11-22T08:02:49.790-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 457: received class org.gradle.launcher.daemon.protocol.StopWhenIdle
+2025-11-22T08:02:49.790-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 457: Received non-IO message from client: StopWhenIdle[id=d70d2384-af83-4859-8942-424cf7ba3bb9]
+2025-11-22T08:02:49.790-0400 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: StopWhenIdle[id=d70d2384-af83-4859-8942-424cf7ba3bb9].
+2025-11-22T08:02:49.790-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: StopWhenIdle[id=d70d2384-af83-4859-8942-424cf7ba3bb9] with connection: socket connection from /127.0.0.1:58168 to /127.0.0.1:52075.
+2025-11-22T08:02:49.791-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Storing daemon stop event: stop command received
+2025-11-22T08:02:49.791-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon stop event with timestamp 1763812969791
+2025-11-22T08:02:49.801-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T08:02:49.802-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:49.809-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:49.810-0400 [LIFECYCLE] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon will be stopped at the end of the build stop command received
+2025-11-22T08:02:49.810-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Marking daemon stopped due to stop command received. The daemon is not running a build
+2025-11-22T08:02:49.810-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 456: dispatching Success[value=null]
+2025-11-22T08:02:49.810-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon has stopped.
+2025-11-22T08:02:49.810-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: StopWhenIdle[id=d70d2384-af83-4859-8942-424cf7ba3bb9]
+2025-11-22T08:02:49.811-0400 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stop() called on daemon
+2025-11-22T08:02:49.813-0400 [INFO] [org.gradle.launcher.daemon.server.Daemon] Stop requested. Daemon is removing its presence from the registry...
+2025-11-22T08:02:49.814-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Removing our presence to clients, eg. removing this address from the registry: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T08:02:49.814-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T08:02:49.816-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 457: received class org.gradle.launcher.daemon.protocol.Finished
+2025-11-22T08:02:49.816-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 457: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@7fc039f4
+2025-11-22T08:02:49.816-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@7fc039f4
+2025-11-22T08:02:49.816-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 456: stopping connection
+2025-11-22T08:02:49.816-0400 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+2025-11-22T08:02:49.817-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 457: received null
+2025-11-22T08:02:49.817-0400 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 457: Received end-of-input from client.
+2025-11-22T08:02:49.818-0400 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 456: stopping connection
+2025-11-22T08:02:49.818-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T08:02:49.819-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:49.822-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:49.822-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Address removed from registry.
+2025-11-22T08:02:49.848-0400 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for jars (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\jars-9)
+2025-11-22T08:02:49.848-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on jars (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\jars-9).
+2025-11-22T08:02:49.850-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] jars (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\jars-9) has last been fully cleaned up 0 hours ago
+2025-11-22T08:02:49.850-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] Skipping cleanup for jars (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\jars-9) as it is not yet due
+2025-11-22T08:02:49.851-0400 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for file content cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\fileContent)
+2025-11-22T08:02:49.851-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on file content cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\fileContent).
+2025-11-22T08:02:49.852-0400 [DEBUG] [org.gradle.internal.watch.vfs.impl.WatchingVirtualFileSystem] Closing VFS, dropping state
+2025-11-22T08:02:49.867-0400 [DEBUG] [org.gradle.internal.watch.registry.impl.DefaultFileWatcherRegistry] Finished listening to file system change events
+2025-11-22T08:02:49.867-0400 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for Generated Gradle JARs cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\generated-gradle-jars)
+2025-11-22T08:02:49.868-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on Generated Gradle JARs cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\generated-gradle-jars).
+2025-11-22T08:02:49.868-0400 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for artifact cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2)
+2025-11-22T08:02:49.868-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-artifact.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2\metadata-2.107\module-artifact.bin)
+2025-11-22T08:02:49.869-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-metadata.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2\metadata-2.107\module-metadata.bin)
+2025-11-22T08:02:49.870-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache resource-at-url.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2\metadata-2.107\resource-at-url.bin)
+2025-11-22T08:02:49.870-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-artifacts.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2\metadata-2.107\module-artifacts.bin)
+2025-11-22T08:02:49.870-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on artifact cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2).
+2025-11-22T08:02:49.871-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] artifact cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2) has last been fully cleaned up 0 hours ago
+2025-11-22T08:02:49.872-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] Skipping cleanup for artifact cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\modules-2) as it is not yet due
+2025-11-22T08:02:49.873-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] groovy-dsl (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\groovy-dsl) has last been fully cleaned up 0 hours ago
+2025-11-22T08:02:49.873-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] Skipping cleanup for groovy-dsl (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\groovy-dsl) as it is not yet due
+2025-11-22T08:02:49.873-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCoordinator] Cache groovy-dsl (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\groovy-dsl) was closed 0 times.
+2025-11-22T08:02:49.874-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] Artifact transforms cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\transforms) has last been fully cleaned up 0 hours ago
+2025-11-22T08:02:49.874-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] Skipping cleanup for Artifact transforms cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\transforms) as it is not yet due
+2025-11-22T08:02:49.874-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCoordinator] Cache Artifact transforms cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\transforms) was closed 0 times.
+2025-11-22T08:02:49.875-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] kotlin-dsl (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\kotlin-dsl) has last been fully cleaned up 0 hours ago
+2025-11-22T08:02:49.875-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCleanupExecutor] Skipping cleanup for kotlin-dsl (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\kotlin-dsl) as it is not yet due
+2025-11-22T08:02:49.875-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCoordinator] Cache kotlin-dsl (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\kotlin-dsl) was closed 0 times.
+2025-11-22T08:02:49.876-0400 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for journal cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\journal-1)
+2025-11-22T08:02:49.876-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache file-access.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\journal-1\file-access.bin)
+2025-11-22T08:02:49.877-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on journal cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\journal-1).
+2025-11-22T08:02:49.877-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCoordinator] Cache journal cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\journal-1) was closed 4 times.
+2025-11-22T08:02:49.878-0400 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for file hash cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\fileHashes)
+2025-11-22T08:02:49.878-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache fileHashes.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\fileHashes\fileHashes.bin)
+2025-11-22T08:02:49.879-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache resourceHashesCache.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\fileHashes\resourceHashesCache.bin)
+2025-11-22T08:02:49.880-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on file hash cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\fileHashes).
+2025-11-22T08:02:49.880-0400 [DEBUG] [org.gradle.cache.internal.DefaultCacheCoordinator] Cache file hash cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\fileHashes) was closed 4 times.
+2025-11-22T08:02:49.881-0400 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for Java compile cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\javaCompile)
+2025-11-22T08:02:49.881-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache jarAnalysis.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\javaCompile\jarAnalysis.bin)
+2025-11-22T08:02:49.881-0400 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache classAnalysis.bin (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\javaCompile\classAnalysis.bin)
+2025-11-22T08:02:49.881-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on Java compile cache (D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches\8.13\javaCompile).
+2025-11-22T08:02:49.883-0400 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting unused version-specific caches in D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches' started
+2025-11-22T08:02:49.884-0400 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Deleting unused version-specific caches in D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches'
+2025-11-22T08:02:49.884-0400 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting unused version-specific caches in D:\Users\wi_an\AndroidStudioProjects\GoPlan\caches' completed
+2025-11-22T08:02:49.884-0400 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stop() called on daemon
+2025-11-22T08:02:49.884-0400 [INFO] [org.gradle.launcher.daemon.server.Daemon] Stop requested. Daemon is removing its presence from the registry...
+2025-11-22T08:02:49.884-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Removing our presence to clients, eg. removing this address from the registry: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T08:02:49.884-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T08:02:49.885-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-11-22T08:02:49.885-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-11-22T08:02:49.887-0400 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-11-22T08:02:49.887-0400 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Address removed from registry.
+2025-11-22T08:02:49.889-0400 [DEBUG] [org.gradle.cache.internal.locklistener.DefaultFileLockContentionHandler] File lock listener thread completed.
+2025-11-22T08:02:49.891-0400 [DEBUG] [java.lang.Runtime] Runtime.exit() called with status: 0
+java.lang.Throwable: Runtime.exit(0)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Unknown Source)
+	at java.base/java.lang.Shutdown.exit(Unknown Source)
+	at java.base/java.lang.Runtime.exit(Unknown Source)
+	at java.base/java.lang.System.exit(Unknown Source)
+	at org.gradle.launcher.bootstrap.ProcessCompleter.complete(ProcessCompleter.java:21)
+	at org.gradle.launcher.bootstrap.EntryPoint.run(EntryPoint.java:61)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.runNoExit(ProcessBootstrap.java:72)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.run(ProcessBootstrap.java:39)
+	at org.gradle.launcher.daemon.bootstrap.GradleDaemon.main(GradleDaemon.java:22)
+Daemon vm is shutting down... The daemon has exited normally or was terminated in response to a user interrupt.
+2025-11-22T08:02:49.893-0400 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [502013dd-d71a-4ff7-826d-e8e68aae14eb port:58168, addresses:[localhost/127.0.0.1]]
+2025-11-22T08:02:49.894-0400 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] VM shutdown hook was unable to remove the daemon address from the registry. It will be cleaned up later.
+java.lang.IllegalStateException: Cannot start managing file contention because this handler has been closed.
+	at org.gradle.cache.internal.locklistener.DefaultFileLockContentionHandler.assertNotStopped(DefaultFileLockContentionHandler.java:248)
+	at org.gradle.cache.internal.locklistener.DefaultFileLockContentionHandler.reservePort(DefaultFileLockContentionHandler.java:286)
+	at org.gradle.cache.internal.DefaultFileLockManager.lock(DefaultFileLockManager.java:124)
+	at org.gradle.cache.internal.DefaultFileLockManager.lock(DefaultFileLockManager.java:106)
+	at org.gradle.cache.internal.DefaultFileLockManager.lock(DefaultFileLockManager.java:101)
+	at org.gradle.cache.internal.OnDemandFileAccess.updateFile(OnDemandFileAccess.java:51)
+	at org.gradle.cache.internal.FileBackedObjectHolder.update(FileBackedObjectHolder.java:77)
+	at org.gradle.cache.internal.FileIntegrityViolationSuppressingObjectHolderDecorator.lambda$update$0(FileIntegrityViolationSuppressingObjectHolderDecorator.java:48)
+	at org.gradle.cache.internal.FileIntegrityViolationSuppressingObjectHolderDecorator.doUpdate(FileIntegrityViolationSuppressingObjectHolderDecorator.java:58)
+	at org.gradle.cache.internal.FileIntegrityViolationSuppressingObjectHolderDecorator.update(FileIntegrityViolationSuppressingObjectHolderDecorator.java:48)
+	at org.gradle.launcher.daemon.registry.PersistentDaemonRegistry.remove(PersistentDaemonRegistry.java:133)
+	at org.gradle.launcher.daemon.server.Daemon$1.run(Daemon.java:133)
+	at java.base/java.lang.Thread.run(Unknown Source)

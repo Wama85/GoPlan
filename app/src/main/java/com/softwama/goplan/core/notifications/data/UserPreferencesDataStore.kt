@@ -151,6 +151,17 @@ class UserPreferencesDataStore(private val context: Context) {
             preferences[PASSWORD] = password
         }
     }
+    suspend fun saveGoogleSignInStatus(isSignedIn: Boolean) {
+        context.dataStore.edit { preferences ->
+            preferences[booleanPreferencesKey("google_signed_in")] = isSignedIn
+        }
+    }
+
+    fun getGoogleSignInStatus(): Flow<Boolean> {
+        return context.dataStore.data.map { preferences ->
+            preferences[booleanPreferencesKey("google_signed_in")] ?: false
+        }
+    }
 
 
 }

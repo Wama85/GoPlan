@@ -3,6 +3,7 @@ package com.softwama.goplan.features.login.presentation
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.login.domain.usecase.LoginUseCase
 import com.softwama.goplan.features.maintenance.domain.CheckMaintenanceUseCase
@@ -49,7 +50,6 @@ class LoginViewModel(
                 _state.update { it.copy(isLoading = true, error = null) }
                 Log.d("LoginViewModel", "Iniciando login...")
 
-                // Check maintenance
                 val isMaintenance = checkMaintenanceUseCase()
                 if (isMaintenance) {
                     _state.update {
@@ -61,14 +61,12 @@ class LoginViewModel(
                     return@launch
                 }
 
-                // Login con Firebase
                 val result = loginUseCase(_state.value.username, _state.value.password)
 
                 result.fold(
                     onSuccess = { userId ->
                         Log.d("LoginViewModel", "Login exitoso: $userId")
 
-                        // Guardar sesión
                         saveSession(
                             token = userId,
                             userName = _state.value.username,
@@ -104,6 +102,39 @@ class LoginViewModel(
                         isLoading = false,
                         error = "Error inesperado: ${e.message}"
                     )
+                }
+            }
+        }
+    }
+
+    fun onGoogleSignInSuccess(account: GoogleSignInAccount?) {
+        if (account != null) {
+            viewModelScope.launch {
+                try {
+                    _state.update { it.copy(isLoading = true) }
+
+                    dataStore.saveSession(
+                        token = account.id ?: "",
+                        userName = account.displayName ?: account.email ?: "Usuario",
+                        userEmail = account.email ?: ""
+                    )
+                    dataStore.saveGoogleSignInStatus(true)
+
+                    _state.update {
+                        it.copy(
+                            isLoading = false,
+                            isLoginSuccessful = true,
+                            error = null
+                        )
+                    }
+                } catch (e: Exception) {
+                    Log.e("LoginViewModel", "Error en Google Sign-In", e)
+                    _state.update {
+                        it.copy(
+                            isLoading = false,
+                            error = "Error al iniciar sesión con Google"
+                        )
+                    }
                 }
             }
         }
