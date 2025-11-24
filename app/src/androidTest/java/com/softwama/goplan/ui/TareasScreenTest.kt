@@ -34,7 +34,8 @@ class TareasScreenTest {
                 TareaItem(
                     tarea = tarea,
                     onCompletarClick = {},
-                    onEliminarClick = {}
+                    onEliminarClick = {},
+                   onEditarClick = {}
                 )
             }
         }
@@ -58,7 +59,8 @@ class TareasScreenTest {
                 TareaItem(
                     tarea = tarea,
                     onCompletarClick = {},
-                    onEliminarClick = {}
+                    onEliminarClick = {},
+                     onEditarClick = {}
                 )
             }
         }
@@ -82,7 +84,8 @@ class TareasScreenTest {
                 TareaItem(
                     tarea = tarea,
                     onCompletarClick = {},
-                    onEliminarClick = {}
+                    onEliminarClick = {},
+                    onEditarClick = {}
                 )
             }
         }

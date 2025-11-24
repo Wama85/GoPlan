@@ -20,6 +20,7 @@ class ProyectoDaoTest {
 
     private lateinit var database: GoPlanDatabase
     private lateinit var proyectoDao: ProyectoDao
+    private val testUserId = "test_user_id"
 
     @Before
     fun setup() {
@@ -39,6 +40,7 @@ class ProyectoDaoTest {
     fun insertarYObtenerProyecto() = runTest {
         val proyecto = ProyectoEntity(
             id = UUID.randomUUID().toString(),
+            userId = testUserId,
             nombre = "Proyecto de prueba",
             descripcion = "Descripción",
             colorHex = "#2196F3",
@@ -50,7 +52,7 @@ class ProyectoDaoTest {
         )
 
         proyectoDao.insertar(proyecto)
-        val proyectos = proyectoDao.obtenerTodos().first()
+        val proyectos = proyectoDao.obtenerTodos(testUserId).first()
 
         assert(proyectos.size == 1)
         assert(proyectos[0].nombre == "Proyecto de prueba")
@@ -61,6 +63,7 @@ class ProyectoDaoTest {
         val id = UUID.randomUUID().toString()
         val proyecto = ProyectoEntity(
             id = id,
+            userId = testUserId,
             nombre = "Proyecto a eliminar",
             descripcion = "",
             colorHex = "#2196F3",
@@ -72,8 +75,8 @@ class ProyectoDaoTest {
         )
 
         proyectoDao.insertar(proyecto)
-        proyectoDao.eliminar(id)
-        val proyectos = proyectoDao.obtenerTodos().first()
+        proyectoDao.eliminar(id, testUserId)
+        val proyectos = proyectoDao.obtenerTodos(testUserId).first()
 
         assert(proyectos.isEmpty())
     }
@@ -83,6 +86,7 @@ class ProyectoDaoTest {
         val id = UUID.randomUUID().toString()
         val proyecto = ProyectoEntity(
             id = id,
+            userId = testUserId,
             nombre = "Proyecto",
             descripcion = "",
             colorHex = "#2196F3",
@@ -95,7 +99,7 @@ class ProyectoDaoTest {
 
         proyectoDao.insertar(proyecto)
         proyectoDao.actualizar(proyecto.copy(progreso = 0.5f))
-        val proyectoActualizado = proyectoDao.obtenerPorId(id)
+        val proyectoActualizado = proyectoDao.obtenerPorId(id, testUserId)
 
         assert(proyectoActualizado?.progreso == 0.5f)
     }
