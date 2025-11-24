@@ -7,6 +7,9 @@ import com.softwama.goplan.core.notifications.NotificationHelper
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.calendar.data.CalendarRepositoryImpl
 import com.softwama.goplan.features.calendar.data.GoogleAuthManager
+import com.softwama.goplan.features.proyectos.domain.repository.ActividadRepository
+import com.softwama.goplan.features.proyectos.domain.repository.ProyectoRepository
+import com.softwama.goplan.features.tareas.domain.repository.TareaRepository
 import kotlinx.coroutines.flow.first
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -21,19 +24,28 @@ class EventNotificationWorker(
     // ← Inyectar usando Koin
     private val dataStore: UserPreferencesDataStore by inject()
     private val authManager: GoogleAuthManager by inject()
-
+    private val tareaRepository: TareaRepository by inject()
+    private val proyectoRepository: ProyectoRepository by inject()
+    private val actividadRepository: ActividadRepository by inject()
     override suspend fun doWork(): Result {
-        // ✅ Verificar si las notificaciones están habilitadas
+        // Verificar si las notificaciones están habilitadas
         val notificationsEnabled = dataStore.getNotificationsEnabled().first()
         if (!notificationsEnabled) {
             return Result.success()
         }
 
-        // ✅ Obtener el tiempo de anticipación configurado
+        // Obtener el tiempo de anticipación configurado
         val notificationTimeMinutes = dataStore.getNotificationTime().first().toLongOrNull() ?: 30L
 
         // Obtener eventos próximos - usar instancias inyectadas
-        val repository = CalendarRepositoryImpl(applicationContext, authManager, dataStore)
+        val repository = CalendarRepositoryImpl(
+            applicationContext,
+            authManager,
+            dataStore,
+            tareaRepository,
+            proyectoRepository,
+            actividadRepository
+        )
         val events = repository.getEvents().first()
 
         val notificationHelper = NotificationHelper(applicationContext)

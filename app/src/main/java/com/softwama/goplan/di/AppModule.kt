@@ -98,7 +98,7 @@ val appModule = module {
     single<LoginRepository> { LoginRepositoryImpl() }
     single<ProfileRepository> { ProfileRepositoryImpl() }
     single<SuscribeRepository> { SuscribeRepositoryImpl() }
-    single { CalendarRepositoryImpl(get(), get(),get()) }  // ← Inyectar GoogleAuthManager
+    single { CalendarRepositoryImpl(get(), get(),get(),get(),get(),get()) }  // ← Inyectar GoogleAuthManager
 
     factory { LoginUseCase(get()) }
     factory { GetProfileUseCase(get()) }

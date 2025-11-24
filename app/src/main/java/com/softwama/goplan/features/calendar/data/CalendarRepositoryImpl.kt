@@ -6,6 +6,9 @@ import com.google.api.client.util.DateTime
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.calendar.domain.model.CalendarEvent
 import com.softwama.goplan.features.calendar.domain.model.EventColor
+import com.softwama.goplan.features.tareas.domain.repository.TareaRepository
+import com.softwama.goplan.features.proyectos.domain.repository.ProyectoRepository
+import com.softwama.goplan.features.proyectos.domain.repository.ActividadRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -20,14 +23,15 @@ import java.time.format.DateTimeFormatter
 class CalendarRepositoryImpl(
     private val context: Context,
     private val authManager: GoogleAuthManager,
-    private val dataStore: UserPreferencesDataStore  // ← INYECTAR EN VEZ DE CREAR
+    private val dataStore: UserPreferencesDataStore,
+    private val tareaRepository: TareaRepository,
+    private val proyectoRepository: ProyectoRepository,
+    private val actividadRepository: ActividadRepository
 ) {
 
     companion object {
         private const val TAG = "CalendarRepository"
     }
-
-    // ← ELIMINAR ESTA LÍNEA: private val dataStore = UserPreferencesDataStore(context)
 
     private val mockEvents = listOf(
         CalendarEvent(
@@ -81,9 +85,109 @@ class CalendarRepositoryImpl(
                 emit(mockEvents)
             }
         } else {
-            Log.w(TAG, "Firebase login detected, using mock data only")
-            emit(mockEvents)
+            // Login con Firebase → Mostrar tareas y proyectos del usuario
+            Log.d(TAG, "Firebase login detected, fetching user tasks and projects")
+            try {
+                val userEvents = getUserTasksAndProjects()
+                Log.d(TAG, "Fetched ${userEvents.size} events from user data")
+                emit(userEvents)
+            } catch (e: Exception) {
+                Log.e(TAG, "Error fetching user tasks/projects: ${e.message}", e)
+                emit(emptyList())
+            }
         }
+    }
+
+    private suspend fun getUserTasksAndProjects(): List<CalendarEvent> = withContext(Dispatchers.IO) {
+        val events = mutableListOf<CalendarEvent>()
+
+        // Obtener tareas con fecha de vencimiento
+        val tareas = tareaRepository.obtenerTareas().first()
+        tareas.filter { it.fechaVencimiento != null }.forEach { tarea ->
+            val dateTime = LocalDateTime.ofInstant(
+                Instant.ofEpochMilli(tarea.fechaVencimiento!!),
+                ZoneId.systemDefault()
+            )
+
+            events.add(
+                CalendarEvent(
+                    id = "tarea_${tarea.id}",
+                    title = "📋 ${tarea.titulo}",
+                    description = tarea.descripcion,
+                    startTime = dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                    endTime = dateTime.plusHours(1).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                    location = null,
+                    color = if (tarea.completada) EventColor.GREEN else EventColor.BLUE
+                )
+            )
+        }
+
+        // Obtener proyectos
+        val proyectos = proyectoRepository.obtenerProyectos().first()
+        proyectos.forEach { proyecto ->
+            val startDateTime = LocalDateTime.ofInstant(
+                Instant.ofEpochMilli(proyecto.fechaInicio),
+                ZoneId.systemDefault()
+            )
+            val endDateTime = LocalDateTime.ofInstant(
+                Instant.ofEpochMilli(proyecto.fechaFin),
+                ZoneId.systemDefault()
+            )
+
+            // Evento de inicio de proyecto
+            events.add(
+                CalendarEvent(
+                    id = "proyecto_inicio_${proyecto.id}",
+                    title = "🚀 Inicio: ${proyecto.nombre}",
+                    description = proyecto.descripcion,
+                    startTime = startDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                    endTime = startDateTime.plusHours(1).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                    location = null,
+                    color = EventColor.ORANGE
+                )
+            )
+
+            // Evento de fin de proyecto
+            events.add(
+                CalendarEvent(
+                    id = "proyecto_fin_${proyecto.id}",
+                    title = "🏁 Fin: ${proyecto.nombre}",
+                    description = proyecto.descripcion,
+                    startTime = endDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                    endTime = endDateTime.plusHours(1).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                    location = null,
+                    color = EventColor.PURPLE
+                )
+            )
+
+            // Obtener actividades del proyecto
+            val actividades = actividadRepository.obtenerActividadesPorProyecto(proyecto.id).first()
+            actividades.forEach { actividad ->
+                val actStartDateTime = LocalDateTime.ofInstant(
+                    Instant.ofEpochMilli(actividad.fechaInicio),
+                    ZoneId.systemDefault()
+                )
+                val actEndDateTime = LocalDateTime.ofInstant(
+                    Instant.ofEpochMilli(actividad.fechaFin),
+                    ZoneId.systemDefault()
+                )
+
+                events.add(
+                    CalendarEvent(
+                        id = "actividad_${actividad.id}",
+                        title = "⚡ ${actividad.nombre}",
+                        description = "${proyecto.nombre} - ${actividad.descripcion}",
+                        startTime = actStartDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                        endTime = actEndDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                        location = null,
+                        color = if (actividad.completada) EventColor.GREEN else EventColor.RED
+                    )
+                )
+            }
+        }
+
+        // Ordenar por fecha
+        events.sortedBy { it.startTime }
     }
 
     private suspend fun getGoogleCalendarEvents(): List<CalendarEvent> = withContext(Dispatchers.IO) {
