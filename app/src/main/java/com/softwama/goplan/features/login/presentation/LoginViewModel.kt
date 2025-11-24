@@ -77,6 +77,9 @@ class LoginViewModel(
                             }
                         )
 
+                        // ← AGREGAR ESTO
+                        dataStore.setLoginType("firebase")
+
                         _state.update {
                             it.copy(
                                 isLoading = false,
@@ -120,6 +123,9 @@ class LoginViewModel(
                     )
                     dataStore.saveGoogleSignInStatus(true)
 
+                    // ← AGREGAR ESTO
+                    dataStore.setLoginType("google")
+
                     _state.update {
                         it.copy(
                             isLoading = false,
@@ -147,6 +153,7 @@ class LoginViewModel(
     fun logout() {
         viewModelScope.launch {
             dataStore.clearSession()
+            dataStore.clearLoginType()
             _state.update { LoginState() }
         }
     }

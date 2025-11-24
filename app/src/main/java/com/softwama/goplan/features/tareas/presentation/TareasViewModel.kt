@@ -84,4 +84,16 @@ class TareasViewModel(
             currentState.copy(tareasFiltradas = filtradas)
         }
     }
+    fun editarTarea(tareaId: String, titulo: String, descripcion: String, fechaVencimiento: Long?) {
+        viewModelScope.launch {
+            val tarea = _state.value.tareas.find { it.id == tareaId } ?: return@launch
+            tareaUseCases.actualizarTareaUseCase(
+                tarea.copy(
+                    titulo = titulo,
+                    descripcion = descripcion,
+                    fechaVencimiento = fechaVencimiento
+                )
+            )
+        }
+    }
 }

@@ -14,6 +14,7 @@ import com.softwama.goplan.core.remoteconfig.RemoteConfigRepository
 import com.softwama.goplan.data.local.database.GoPlanDatabase
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.calendar.data.CalendarRepositoryImpl
+import com.softwama.goplan.features.calendar.data.GoogleAuthManager
 import com.softwama.goplan.features.calendar.presentation.CalendarViewModel
 import com.softwama.goplan.features.dashboard.DashboardViewModel
 import com.softwama.goplan.features.estadisticas.data.repository.EstadisticaRepositoryImpl
@@ -69,6 +70,9 @@ val appModule = module {
     single { FirebaseMessaging.getInstance() }
     single { FirebaseNotificationManager(get(), get()) }
 
+    // ← AGREGAR ESTO
+    single { GoogleAuthManager(get()) }
+
     single<NotificationRepository> {
         NotificationRepositoryImpl(
             firebaseMessaging = get(),
@@ -94,7 +98,7 @@ val appModule = module {
     single<LoginRepository> { LoginRepositoryImpl() }
     single<ProfileRepository> { ProfileRepositoryImpl() }
     single<SuscribeRepository> { SuscribeRepositoryImpl() }
-    single { CalendarRepositoryImpl(get()) }
+    single { CalendarRepositoryImpl(get(), get(),get()) }  // ← Inyectar GoogleAuthManager
 
     factory { LoginUseCase(get()) }
     factory { GetProfileUseCase(get()) }

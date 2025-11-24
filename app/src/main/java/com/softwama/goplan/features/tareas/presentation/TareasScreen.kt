@@ -26,6 +26,7 @@ fun TareasScreen(
 ) {
     val state by viewModel.state.collectAsState()
     var showAddDialog by remember { mutableStateOf(false) }
+    var tareaAEditar by remember { mutableStateOf<Tarea?>(null) }
 
     Scaffold(
         topBar = {
@@ -111,6 +112,7 @@ fun TareasScreen(
                         TareaItem(
                             tarea = tarea,
                             onCompletarClick = { viewModel.toggleCompletada(tarea.id) },
+                            onEditarClick = { tareaAEditar = tarea },
                             onEliminarClick = { viewModel.eliminarTarea(tarea.id) }
                         )
                     }
@@ -120,11 +122,23 @@ fun TareasScreen(
     }
 
     if (showAddDialog) {
-        AgregarTareaDialog(
+        TareaDialog(
+            tarea = null,
             onDismiss = { showAddDialog = false },
             onConfirm = { titulo, descripcion, fecha ->
                 viewModel.agregarTarea(titulo, descripcion, fecha)
                 showAddDialog = false
+            }
+        )
+    }
+
+    tareaAEditar?.let { tarea ->
+        TareaDialog(
+            tarea = tarea,
+            onDismiss = { tareaAEditar = null },
+            onConfirm = { titulo, descripcion, fecha ->
+                viewModel.editarTarea(tarea.id, titulo, descripcion, fecha)
+                tareaAEditar = null
             }
         )
     }
@@ -134,6 +148,7 @@ fun TareasScreen(
 fun TareaItem(
     tarea: Tarea,
     onCompletarClick: () -> Unit,
+    onEditarClick: () -> Unit,
     onEliminarClick: () -> Unit
 ) {
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -196,6 +211,14 @@ fun TareaItem(
                 }
             }
 
+            IconButton(onClick = onEditarClick) {
+                Icon(
+                    Icons.Default.Edit,
+                    contentDescription = "Editar",
+                    tint = MaterialTheme.colorScheme.primary
+                )
+            }
+
             IconButton(onClick = onEliminarClick) {
                 Icon(
                     Icons.Default.Delete,
@@ -206,15 +229,17 @@ fun TareaItem(
         }
     }
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AgregarTareaDialog(
+fun TareaDialog(
+    tarea: Tarea?,
     onDismiss: () -> Unit,
     onConfirm: (String, String, Long?) -> Unit
 ) {
-    var titulo by remember { mutableStateOf("") }
-    var descripcion by remember { mutableStateOf("") }
-    var fechaSeleccionada by remember { mutableStateOf<Long?>(null) }
+    var titulo by remember { mutableStateOf(tarea?.titulo ?: "") }
+    var descripcion by remember { mutableStateOf(tarea?.descripcion ?: "") }
+    var fechaSeleccionada by remember { mutableStateOf(tarea?.fechaVencimiento) }
     var showDatePicker by remember { mutableStateOf(false) }
     var errorDescripcion by remember { mutableStateOf<String?>(null) }
     var advertenciaFecha by remember { mutableStateOf<String?>(null) }
@@ -222,7 +247,7 @@ fun AgregarTareaDialog(
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     val datePickerState = rememberDatePickerState()
 
-    val MAX_DESCRIPCION_LENGTH = 100
+    val MAX_DESCRIPCION_LENGTH = 50
     val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
     fun validarDescripcion(texto: String): String {
@@ -259,7 +284,7 @@ fun AgregarTareaDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Nueva Tarea") },
+        title = { Text(if (tarea == null) "Nueva Tarea" else "Editar Tarea") },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 OutlinedTextField(
@@ -329,7 +354,7 @@ fun AgregarTareaDialog(
                 onClick = { onConfirm(titulo.trim(), descripcion.trim(), fechaSeleccionada) },
                 enabled = titulo.isNotBlank()
             ) {
-                Text("Agregar")
+                Text(if (tarea == null) "Agregar" else "Guardar")
             }
         },
         dismissButton = {

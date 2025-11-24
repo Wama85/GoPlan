@@ -5,31 +5,35 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.softwama.goplan.core.notifications.NotificationHelper
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
-
 import com.softwama.goplan.features.calendar.data.CalendarRepositoryImpl
+import com.softwama.goplan.features.calendar.data.GoogleAuthManager
 import kotlinx.coroutines.flow.first
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 class EventNotificationWorker(
     context: Context,
     params: WorkerParameters
-) : CoroutineWorker(context, params) {
+) : CoroutineWorker(context, params), KoinComponent {  // ← Implementar KoinComponent
+
+    // ← Inyectar usando Koin
+    private val dataStore: UserPreferencesDataStore by inject()
+    private val authManager: GoogleAuthManager by inject()
 
     override suspend fun doWork(): Result {
-        val dataStore = UserPreferencesDataStore(applicationContext)
-
-        // ✅ Verificar si las notificaciones están habilitadas - agregar .first()
+        // ✅ Verificar si las notificaciones están habilitadas
         val notificationsEnabled = dataStore.getNotificationsEnabled().first()
         if (!notificationsEnabled) {
             return Result.success()
         }
 
-        // ✅ Obtener el tiempo de anticipación configurado - agregar .first()
+        // ✅ Obtener el tiempo de anticipación configurado
         val notificationTimeMinutes = dataStore.getNotificationTime().first().toLongOrNull() ?: 30L
 
-        // Obtener eventos próximos
-        val repository = CalendarRepositoryImpl(applicationContext)
+        // Obtener eventos próximos - usar instancias inyectadas
+        val repository = CalendarRepositoryImpl(applicationContext, authManager, dataStore)
         val events = repository.getEvents().first()
 
         val notificationHelper = NotificationHelper(applicationContext)

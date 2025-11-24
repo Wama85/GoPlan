@@ -33,3 +33,7 @@ caches/
 # ----------- Sentry -----------
 sentry.properties
 sentry-wizard.exe
+
+#----------- app ------------
+app/release/
+*.aab

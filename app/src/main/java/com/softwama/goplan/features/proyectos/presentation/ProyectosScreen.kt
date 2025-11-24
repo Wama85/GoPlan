@@ -31,6 +31,7 @@ fun ProyectosScreen(
     var showAddDialog by remember { mutableStateOf(false) }
     var showDeleteConfirmation by remember { mutableStateOf<Proyecto?>(null) }
     var proyectoSeleccionado by remember { mutableStateOf<Proyecto?>(null) }
+    var proyectoAEditar by remember { mutableStateOf<Proyecto?>(null) }
 
     Scaffold(
         topBar = {
@@ -92,6 +93,7 @@ fun ProyectosScreen(
                     ProyectoCard(
                         proyecto = proyecto,
                         onClick = { proyectoSeleccionado = proyecto },
+                        onEditClick = { proyectoAEditar = proyecto },
                         onDeleteClick = { showDeleteConfirmation = proyecto }
                     )
                 }
@@ -100,7 +102,8 @@ fun ProyectosScreen(
     }
 
     if (showAddDialog) {
-        AgregarProyectoDialog(
+        ProyectoDialog(
+            proyecto = null,
             onDismiss = { showAddDialog = false },
             onConfirm = { nombre, descripcion, fechaInicio, fechaFin, colorHex ->
                 viewModel.agregarProyecto(
@@ -111,6 +114,24 @@ fun ProyectosScreen(
                     fechaFin
                 )
                 showAddDialog = false
+            }
+        )
+    }
+
+    proyectoAEditar?.let { proyecto ->
+        ProyectoDialog(
+            proyecto = proyecto,
+            onDismiss = { proyectoAEditar = null },
+            onConfirm = { nombre, descripcion, fechaInicio, fechaFin, colorHex ->
+                viewModel.editarProyecto(
+                    proyecto.id,
+                    nombre,
+                    descripcion,
+                    Color(android.graphics.Color.parseColor(colorHex)),
+                    fechaInicio,
+                    fechaFin
+                )
+                proyectoAEditar = null
             }
         )
     }
@@ -151,6 +172,7 @@ fun ProyectosScreen(
 fun ProyectoCard(
     proyecto: Proyecto,
     onClick: () -> Unit,
+    onEditClick: () -> Unit,
     onDeleteClick: () -> Unit
 ) {
     Card(
@@ -177,12 +199,21 @@ fun ProyectoCard(
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.weight(1f)
                 )
-                IconButton(onClick = onDeleteClick) {
-                    Icon(
-                        Icons.Default.Delete,
-                        contentDescription = "Eliminar",
-                        tint = MaterialTheme.colorScheme.error
-                    )
+                Row {
+                    IconButton(onClick = onEditClick) {
+                        Icon(
+                            Icons.Default.Edit,
+                            contentDescription = "Editar",
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    IconButton(onClick = onDeleteClick) {
+                        Icon(
+                            Icons.Default.Delete,
+                            contentDescription = "Eliminar",
+                            tint = MaterialTheme.colorScheme.error
+                        )
+                    }
                 }
             }
 
@@ -218,22 +249,23 @@ fun ProyectoCard(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AgregarProyectoDialog(
+fun ProyectoDialog(
+    proyecto: Proyecto?,
     onDismiss: () -> Unit,
     onConfirm: (String, String, Long, Long, String) -> Unit
 ) {
-    var nombre by remember { mutableStateOf("") }
-    var descripcion by remember { mutableStateOf("") }
-    var fechaInicio by remember { mutableStateOf<Long?>(null) }
-    var fechaFin by remember { mutableStateOf<Long?>(null) }
-    var colorSeleccionado by remember { mutableStateOf("#2196F3") }
+    var nombre by remember { mutableStateOf(proyecto?.nombre ?: "") }
+    var descripcion by remember { mutableStateOf(proyecto?.descripcion ?: "") }
+    var fechaInicio by remember { mutableStateOf(proyecto?.fechaInicio) }
+    var fechaFin by remember { mutableStateOf(proyecto?.fechaFin) }
+    var colorSeleccionado by remember { mutableStateOf(proyecto?.colorHex ?: "#2196F3") }
     var showDatePickerInicio by remember { mutableStateOf(false) }
     var showDatePickerFin by remember { mutableStateOf(false) }
     var errorDescripcion by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaInicio by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaFin by remember { mutableStateOf<String?>(null) }
 
-    val MAX_DESCRIPCION_LENGTH = 100
+    val MAX_DESCRIPCION_LENGTH = 50
     val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -283,7 +315,7 @@ fun AgregarProyectoDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Nuevo Proyecto") },
+        title = { Text(if (proyecto == null) "Nuevo Proyecto" else "Editar Proyecto") },
         text = {
             Column(
                 verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -416,7 +448,7 @@ fun AgregarProyectoDialog(
                 },
                 enabled = nombre.isNotBlank() && fechaInicio != null && fechaFin != null
             ) {
-                Text("Crear")
+                Text(if (proyecto == null) "Crear" else "Guardar")
             }
         },
         dismissButton = {
@@ -482,6 +514,7 @@ fun DetalleProyectoDialog(
     val actividades = state.actividadesPorProyecto[proyecto.id] ?: emptyList()
     var showAddActividadDialog by remember { mutableStateOf(false) }
     var showDeleteActividadConfirmation by remember { mutableStateOf<String?>(null) }
+    var actividadAEditar by remember { mutableStateOf<Actividad?>(null) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -575,6 +608,15 @@ fun DetalleProyectoDialog(
                                         }
                                     }
                                     IconButton(onClick = {
+                                        actividadAEditar = actividad
+                                    }) {
+                                        Icon(
+                                            Icons.Default.Edit,
+                                            contentDescription = "Editar",
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                    IconButton(onClick = {
                                         showDeleteActividadConfirmation = actividad.id
                                     }) {
                                         Icon(
@@ -598,7 +640,8 @@ fun DetalleProyectoDialog(
     )
 
     if (showAddActividadDialog) {
-        AgregarActividadDialog(
+        ActividadDialog(
+            actividad = null,
             proyectoId = proyecto.id,
             onDismiss = { showAddActividadDialog = false },
             onConfirm = { nombre, descripcion, fechaInicio, fechaFin ->
@@ -610,6 +653,24 @@ fun DetalleProyectoDialog(
                     fechaFin
                 )
                 showAddActividadDialog = false
+            }
+        )
+    }
+
+    actividadAEditar?.let { actividad ->
+        ActividadDialog(
+            actividad = actividad,
+            proyectoId = proyecto.id,
+            onDismiss = { actividadAEditar = null },
+            onConfirm = { nombre, descripcion, fechaInicio, fechaFin ->
+                viewModel.editarActividad(
+                    actividad.id,
+                    nombre,
+                    descripcion,
+                    fechaInicio,
+                    fechaFin
+                )
+                actividadAEditar = null
             }
         )
     }
@@ -640,22 +701,23 @@ fun DetalleProyectoDialog(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AgregarActividadDialog(
+fun ActividadDialog(
+    actividad: Actividad?,
     proyectoId: String,
     onDismiss: () -> Unit,
     onConfirm: (String, String, Long, Long) -> Unit
 ) {
-    var nombre by remember { mutableStateOf("") }
-    var descripcion by remember { mutableStateOf("") }
-    var fechaInicio by remember { mutableStateOf<Long?>(null) }
-    var fechaFin by remember { mutableStateOf<Long?>(null) }
+    var nombre by remember { mutableStateOf(actividad?.nombre ?: "") }
+    var descripcion by remember { mutableStateOf(actividad?.descripcion ?: "") }
+    var fechaInicio by remember { mutableStateOf(actividad?.fechaInicio) }
+    var fechaFin by remember { mutableStateOf(actividad?.fechaFin) }
     var showDatePickerInicio by remember { mutableStateOf(false) }
     var showDatePickerFin by remember { mutableStateOf(false) }
     var errorDescripcion by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaInicio by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaFin by remember { mutableStateOf<String?>(null) }
 
-    val MAX_DESCRIPCION_LENGTH = 100
+    val MAX_DESCRIPCION_LENGTH = 20
     val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -696,7 +758,7 @@ fun AgregarActividadDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Nueva Actividad") },
+        title = { Text(if (actividad == null) "Nueva Actividad" else "Editar Actividad") },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(
@@ -793,7 +855,7 @@ fun AgregarActividadDialog(
                 },
                 enabled = nombre.isNotBlank() && fechaInicio != null && fechaFin != null
             ) {
-                Text("Agregar")
+                Text(if (actividad == null) "Agregar" else "Guardar")
             }
         },
         dismissButton = {

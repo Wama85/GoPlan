@@ -32,6 +32,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.Scope
 import com.google.api.services.calendar.CalendarScopes
 import com.softwama.goplan.R
+import com.softwama.goplan.features.calendar.data.GoogleAuthManager
 import com.softwama.goplan.ui.theme.ButtonOrange
 import org.koin.androidx.compose.koinViewModel
 
@@ -45,17 +46,8 @@ fun LoginScreen(
     val state by viewModel.state.collectAsState()
     val context = LocalContext.current
 
-    // Google Sign-In Options
-    val gso = remember {
-        GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .requestScopes(Scope(CalendarScopes.CALENDAR_READONLY))
-            .build()
-    }
-
-    val googleSignInClient = remember {
-        GoogleSignIn.getClient(context, gso)
-    }
+    // ← Obtener GoogleAuthManager de Koin
+    val authManager = remember { org.koin.core.context.GlobalContext.get().get<GoogleAuthManager>() }
 
     // Launcher para Google Sign-In
     val launcher = rememberLauncherForActivityResult(
@@ -86,13 +78,13 @@ fun LoginScreen(
                 contentDescription = "Imagen de inicio de sesión",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(220.dp),
+                    .height(180.dp),
                 contentScale = ContentScale.Crop
             )
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(20.dp),
+                    .padding(16.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -117,6 +109,7 @@ fun LoginScreen(
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
+
                 var passwordVisible by remember { mutableStateOf(false) }
                 OutlinedTextField(
                     value = state.password,
@@ -137,7 +130,7 @@ fun LoginScreen(
                     }
                 )
 
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
                     onClick = { viewModel.onEvent(LoginEvent.Login) },
@@ -160,7 +153,7 @@ fun LoginScreen(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
                 // Divider con "O"
                 Row(
@@ -177,12 +170,12 @@ fun LoginScreen(
                     HorizontalDivider(modifier = Modifier.weight(1f))
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
                 // Botón de Google Sign-In
                 OutlinedButton(
                     onClick = {
-                        val signInIntent = googleSignInClient.signInIntent
+                        val signInIntent = authManager.googleSignInClient.signInIntent
                         launcher.launch(signInIntent)
                     },
                     modifier = Modifier
@@ -207,7 +200,24 @@ fun LoginScreen(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+// Botón para cambiar de cuenta
+                TextButton(
+                    onClick = {
+                        authManager.googleSignInClient.signOut().addOnCompleteListener {
+                            val signInIntent = authManager.googleSignInClient.signInIntent
+                            launcher.launch(signInIntent)
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        "Usar otra cuenta de Google",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
 
                 val annotatedString = buildAnnotatedString {
                     append("¿No tienes cuenta? ")
@@ -220,6 +230,8 @@ fun LoginScreen(
                     }
                     pop()
                 }
+
+
 
                 ClickableText(
                     text = annotatedString,
@@ -237,18 +249,20 @@ fun LoginScreen(
                 )
 
                 state.error?.let { error ->
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = error,
-                        color = MaterialTheme.colorScheme.error
+                        color = MaterialTheme.colorScheme.error,
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
 
                 state.loginMessage?.let { message ->
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = message,
-                        color = MaterialTheme.colorScheme.primary
+                        color = MaterialTheme.colorScheme.primary,
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
             }

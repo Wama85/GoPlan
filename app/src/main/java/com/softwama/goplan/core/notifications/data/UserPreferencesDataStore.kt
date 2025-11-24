@@ -16,7 +16,7 @@ class UserPreferencesDataStore(private val context: Context) {
         val USERNAME = stringPreferencesKey("username")
         val EMAIL = stringPreferencesKey("email")
         val IS_LOGGED_IN = booleanPreferencesKey("is_logged_in")
-        val FCM_TOKEN = stringPreferencesKey("fcm_token") // ✅ Agregar
+        val FCM_TOKEN = stringPreferencesKey("fcm_token")
         val NOTIFICATIONS_ENABLED = booleanPreferencesKey("notifications_enabled")
         val NOTIFICATION_TIME = stringPreferencesKey("notification_time")
     }
@@ -91,8 +91,8 @@ class UserPreferencesDataStore(private val context: Context) {
 
     suspend fun saveNotificationPreferences(enabled: Boolean, time: String) {
         context.dataStore.edit { preferences ->
-            preferences[Keys.NOTIFICATIONS_ENABLED] = enabled // ✅ Usar Keys
-            preferences[Keys.NOTIFICATION_TIME] = time // ✅ Usar Keys
+            preferences[Keys.NOTIFICATIONS_ENABLED] = enabled
+            preferences[Keys.NOTIFICATION_TIME] = time
         }
     }
 
@@ -108,13 +108,13 @@ class UserPreferencesDataStore(private val context: Context) {
     // ========== FCM TOKEN ==========
     suspend fun saveFcmToken(token: String) {
         context.dataStore.edit { preferences ->
-            preferences[Keys.FCM_TOKEN] = token // ✅ Usar Keys
+            preferences[Keys.FCM_TOKEN] = token
         }
     }
 
     fun getFcmToken(): Flow<String?> {
         return context.dataStore.data.map { preferences ->
-            preferences[Keys.FCM_TOKEN] // ✅ Usar Keys
+            preferences[Keys.FCM_TOKEN]
         }
     }
     // ========== MODO OSCURO ==========
@@ -160,6 +160,24 @@ class UserPreferencesDataStore(private val context: Context) {
     fun getGoogleSignInStatus(): Flow<Boolean> {
         return context.dataStore.data.map { preferences ->
             preferences[booleanPreferencesKey("google_signed_in")] ?: false
+        }
+    }
+
+    suspend fun setLoginType(type: String) {
+        context.dataStore.edit { preferences ->
+            preferences[stringPreferencesKey("login_type")] = type
+        }
+    }
+
+    fun getLoginType(): Flow<String> {
+        return context.dataStore.data.map { preferences ->
+            preferences[stringPreferencesKey("login_type")] ?: "firebase"
+        }
+    }
+
+    suspend fun clearLoginType() {
+        context.dataStore.edit { preferences ->
+            preferences.remove(stringPreferencesKey("login_type"))
         }
     }
 

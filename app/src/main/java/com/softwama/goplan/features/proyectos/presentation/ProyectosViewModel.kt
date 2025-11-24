@@ -108,4 +108,36 @@ class ProyectosViewModel(
             actividadUseCases.eliminarActividadUseCase(actividadId)
         }
     }
+    fun editarProyecto(proyectoId: String, nombre: String, descripcion: String, color: Color, fechaInicio: Long, fechaFin: Long) {
+        viewModelScope.launch {
+            val proyecto = _state.value.proyectos.find { it.id == proyectoId } ?: return@launch
+            proyectoUseCases.actualizarProyectoUseCase(
+                proyecto.copy(
+                    nombre = nombre,
+                    descripcion = descripcion,
+                    colorHex = String.format("#%06X", (0xFFFFFF and color.hashCode())),
+                    fechaInicio = fechaInicio,
+                    fechaFin = fechaFin
+                )
+            )
+        }
+    }
+
+    fun editarActividad(actividadId: String, nombre: String, descripcion: String, fechaInicio: Long, fechaFin: Long) {
+        viewModelScope.launch {
+            // Buscar la actividad en todas las listas del mapa
+            val actividad = _state.value.actividadesPorProyecto.values
+                .flatten()
+                .find { it.id == actividadId } ?: return@launch
+
+            actividadUseCases.actualizarActividadUseCase(
+                actividad.copy(
+                    nombre = nombre,
+                    descripcion = descripcion,
+                    fechaInicio = fechaInicio,
+                    fechaFin = fechaFin
+                )
+            )
+        }
+    }
 }
