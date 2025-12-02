@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-10-29T03:59:47.108053300Z">
+        <DropdownSelection timestamp="2025-11-24T15:42:04.704589Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="PhysicalDevice" identifier="serial=FCG4C20103000105" />
@@ -27,9 +27,9 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="loginScreen_muestra_boton_iniciar_sesion()">
+      <SelectionState runConfigName="ProyectosScreenTest">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-11-24T15:36:07.443712800Z">
+        <DropdownSelection timestamp="2025-11-24T15:41:39.861537500Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="PhysicalDevice" identifier="serial=FCG4C20103000105" />
