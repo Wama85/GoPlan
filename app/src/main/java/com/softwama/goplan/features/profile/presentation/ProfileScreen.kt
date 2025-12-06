@@ -11,9 +11,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.softwama.goplan.R
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -27,12 +29,15 @@ fun ProfileScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Perfil") },
-               navigationIcon = {
+                title = { Text(stringResource(R.string.perfil_title)) },
+                navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                       Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
-                   }
-               }
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = stringResource(R.string.volver)
+                        )
+                    }
+                }
             )
         }
     ) { padding ->
@@ -82,33 +87,32 @@ fun ProfileScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Profile Options
+            // Options
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     ProfileOption(
                         icon = Icons.Default.Edit,
-                        title = "Editar Perfil",
-                        onClick = {navController.navigate("editProfile") }
+                        title = stringResource(R.string.editar_perfil),
+                        onClick = { navController.navigate("editProfile") }
                     )
                     HorizontalDivider()
+
                     ProfileOption(
                         icon = Icons.Default.Notifications,
-                        title = "Notificaciones",
+                        title = stringResource(R.string.notificaciones),
                         onClick = { navController.navigate("notifications") }
                     )
                     HorizontalDivider()
+
                     ProfileOption(
                         icon = Icons.Default.Settings,
-                        title = "Configuración",
-                        onClick = { navController.navigate("settingsScreen")}
+                        title = stringResource(R.string.configuracion),
+                        onClick = { navController.navigate("settingsScreen") }
                     )
                 }
             }
 
             Spacer(modifier = Modifier.weight(1f))
-
-
-
         }
     }
 }

@@ -6,9 +6,11 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.softwama.goplan.R
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -22,10 +24,13 @@ fun EditProfileScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Editar Perfil") },
+                title = { Text(stringResource(R.string.editar_perfil)) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = stringResource(R.string.volver)
+                        )
                     }
                 }
             )
@@ -37,24 +42,25 @@ fun EditProfileScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+
             OutlinedTextField(
                 value = state.name,
                 onValueChange = viewModel::onNameChange,
-                label = { Text("Nombre") },
+                label = { Text(stringResource(R.string.nombre)) },
                 modifier = Modifier.fillMaxWidth()
             )
 
             OutlinedTextField(
                 value = state.email,
                 onValueChange = viewModel::onEmailChange,
-                label = { Text("Correo electrónico") },
+                label = { Text(stringResource(R.string.correo_electronico)) },
                 modifier = Modifier.fillMaxWidth()
             )
 
             OutlinedTextField(
                 value = state.password,
                 onValueChange = viewModel::onPasswordChange,
-                label = { Text("Nueva contraseña") },
+                label = { Text(stringResource(R.string.nueva_contrasena)) },
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -64,7 +70,12 @@ fun EditProfileScreen(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = !state.isSaving
             ) {
-                Text(if (state.isSaving) "Guardando..." else "Guardar cambios")
+                Text(
+                    text = if (state.isSaving)
+                        stringResource(R.string.guardando)
+                    else
+                        stringResource(R.string.guardar_cambios)
+                )
             }
 
             state.message?.let {

@@ -10,9 +10,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.softwama.goplan.R
 import com.softwama.goplan.features.tareas.domain.model.Tarea
 import org.koin.androidx.compose.koinViewModel
 import java.text.SimpleDateFormat
@@ -33,13 +35,16 @@ fun TareasScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        "Mis Tareas",
+                        stringResource(R.string.mis_tareas),
                         fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = stringResource(R.string.volver)
+                        )
                     }
                 }
             )
@@ -48,7 +53,10 @@ fun TareasScreen(
             FloatingActionButton(
                 onClick = { showAddDialog = true }
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Agregar Tarea")
+                Icon(
+                    Icons.Default.Add,
+                    contentDescription = stringResource(R.string.agregar_tarea)
+                )
             }
         }
     ) { padding ->
@@ -66,17 +74,29 @@ fun TareasScreen(
                 FilterChip(
                     selected = state.filtroActual == FiltroTarea.TODAS,
                     onClick = { viewModel.cambiarFiltro(FiltroTarea.TODAS) },
-                    label = { Text("Todas (${state.tareas.size})") }
+                    label = {
+                        Text(
+                            "${stringResource(R.string.todas)} (${state.tareas.size})"
+                        )
+                    }
                 )
                 FilterChip(
                     selected = state.filtroActual == FiltroTarea.PENDIENTES,
                     onClick = { viewModel.cambiarFiltro(FiltroTarea.PENDIENTES) },
-                    label = { Text("Pendientes (${state.tareas.count { !it.completada }})") }
+                    label = {
+                        Text(
+                            "${stringResource(R.string.pendientes)} (${state.tareas.count { !it.completada }})"
+                        )
+                    }
                 )
                 FilterChip(
                     selected = state.filtroActual == FiltroTarea.COMPLETADAS,
                     onClick = { viewModel.cambiarFiltro(FiltroTarea.COMPLETADAS) },
-                    label = { Text("Completadas (${state.tareas.count { it.completada }})") }
+                    label = {
+                        Text(
+                            "${stringResource(R.string.completadas)} (${state.tareas.count { it.completada }})"
+                        )
+                    }
                 )
             }
 
@@ -96,7 +116,7 @@ fun TareasScreen(
                             tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
                         )
                         Text(
-                            "No hay tareas",
+                            stringResource(R.string.no_hay_tareas),
                             style = MaterialTheme.typography.bodyLarge,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                         )
@@ -214,7 +234,7 @@ fun TareaItem(
             IconButton(onClick = onEditarClick) {
                 Icon(
                     Icons.Default.Edit,
-                    contentDescription = "Editar",
+                    contentDescription = stringResource(R.string.editar),
                     tint = MaterialTheme.colorScheme.primary
                 )
             }
@@ -222,7 +242,7 @@ fun TareaItem(
             IconButton(onClick = onEliminarClick) {
                 Icon(
                     Icons.Default.Delete,
-                    contentDescription = "Eliminar",
+                    contentDescription = stringResource(R.string.eliminar),
                     tint = MaterialTheme.colorScheme.error
                 )
             }
@@ -250,12 +270,16 @@ fun TareaDialog(
     val MAX_DESCRIPCION_LENGTH = 50
     val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
+    // Mensajes desde resources, pero sin cambiar firma de funciones
+    val maxCharsMessage = stringResource(R.string.max_caracteres, MAX_DESCRIPCION_LENGTH)
+    val fechaPasadaMessage = stringResource(R.string.fecha_pasada)
+
     fun validarDescripcion(texto: String): String {
         var textoValidado = texto
 
         if (textoValidado.length > MAX_DESCRIPCION_LENGTH) {
             textoValidado = textoValidado.take(MAX_DESCRIPCION_LENGTH)
-            errorDescripcion = "Máximo $MAX_DESCRIPCION_LENGTH caracteres"
+            errorDescripcion = maxCharsMessage
         } else {
             errorDescripcion = null
         }
@@ -276,7 +300,7 @@ fun TareaDialog(
         }.timeInMillis
 
         return if (fecha < hoy) {
-            "⚠️ Fecha pasada"
+            fechaPasadaMessage
         } else {
             null
         }
@@ -284,13 +308,20 @@ fun TareaDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(if (tarea == null) "Nueva Tarea" else "Editar Tarea") },
+        title = {
+            Text(
+                if (tarea == null)
+                    stringResource(R.string.nueva_tarea)
+                else
+                    stringResource(R.string.editar_tarea)
+            )
+        },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 OutlinedTextField(
                     value = titulo,
                     onValueChange = { titulo = it },
-                    label = { Text("Título") },
+                    label = { Text(stringResource(R.string.titulo)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -300,7 +331,7 @@ fun TareaDialog(
                     onValueChange = {
                         descripcion = validarDescripcion(it)
                     },
-                    label = { Text("Descripción (opcional)") },
+                    label = { Text(stringResource(R.string.descripcion_opcional)) },
                     modifier = Modifier.fillMaxWidth(),
                     maxLines = 5,
                     supportingText = {
@@ -334,8 +365,8 @@ fun TareaDialog(
                         Spacer(Modifier.width(8.dp))
                         Text(
                             fechaSeleccionada?.let {
-                                "Vence: ${dateFormat.format(Date(it))}"
-                            } ?: "Seleccionar fecha de vencimiento"
+                                "${stringResource(R.string.vence)} ${dateFormat.format(Date(it))}"
+                            } ?: stringResource(R.string.seleccionar_fecha_vencimiento)
                         )
                     }
                     advertenciaFecha?.let {
@@ -354,12 +385,17 @@ fun TareaDialog(
                 onClick = { onConfirm(titulo.trim(), descripcion.trim(), fechaSeleccionada) },
                 enabled = titulo.isNotBlank()
             ) {
-                Text(if (tarea == null) "Agregar" else "Guardar")
+                Text(
+                    if (tarea == null)
+                        stringResource(R.string.agregar)
+                    else
+                        stringResource(R.string.guardar)
+                )
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Cancelar")
+                Text(stringResource(R.string.cancelar))
             }
         }
     )
@@ -373,12 +409,12 @@ fun TareaDialog(
                     advertenciaFecha = validarFecha(fechaSeleccionada)
                     showDatePicker = false
                 }) {
-                    Text("OK")
+                    Text(stringResource(R.string.ok))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDatePicker = false }) {
-                    Text("Cancelar")
+                    Text(stringResource(R.string.cancelar))
                 }
             }
         ) {

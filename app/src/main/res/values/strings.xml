@@ -1,7 +1,83 @@
 <resources>
     <string name="app_name">GoPlan</string>
-    <string name="login_title">Login</string>
-    <string name="inicio_sesion">Iniciar Sesión</string>
+     <string name="inicio_sesion">Iniciar Sesión</string>
     <string name="default_notification_channel_id">default_notification_channel_id</string>
+    <string name="registro_title">REGISTRO</string>
+    <string name="volver">Volver</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="repetir_contrasena">Repetir contraseña</string>
+    <string name="registrarse">Registrarse</string>
+
+    <!-- LOGIN -->
+    <string name="login_image_desc">Imagen de inicio de sesión</string>
+    <string name="login_title">Inicio de sesión</string>
+    <string name="login_subtitle">Inicia sesión con tu cuenta</string>
+
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+
+    <string name="mostrar_contrasena">Mostrar contraseña</string>
+    <string name="ocultar_contrasena">Ocultar contraseña</string>
+
+    <string name="btn_iniciar_sesion">Iniciar sesión</string>
+    <string name="texto_o">O</string>
+
+    <string name="google_continuar">Continuar con Google</string>
+    <string name="google_usar_otra_cuenta">Usar otra cuenta de Google</string>
+
+    <string name="no_tienes_cuenta">¿No tienes cuenta? </string>
+    <string name="suscribete">Suscríbete</string>
+    <!-- PROFILE -->
+    <string name="perfil_title">Perfil</string>
+        <string name="editar_perfil">Editar Perfil</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="configuracion">Configuración</string>
+    <!-- EDIT PROFILE -->
+
+    <string name="nueva_contrasena">Nueva contraseña</string>
+
+    <string name="guardando">Guardando...</string>
+    <string name="guardar_cambios">Guardar cambios</string>
+    <!-- SETTINGS -->
+
+    <string name="apariencia">Apariencia</string>
+    <string name="modo_oscuro">Modo oscuro</string>
+
+    <string name="modo_oscuro_activado">El modo oscuro está activado 🌙</string>
+    <string name="modo_claro_activado">El modo claro está activado ☀️</string>
+
+    <!-- CAMPOS -->
+
+    <string name="seleccionar_fecha">Seleccionar fecha de vencimiento</string>
+    <string name="mis_tareas">Mis Tareas</string>
+    <string name="agregar_tarea">Agregar Tarea</string>
+
+    <string name="todas">Todas</string>
+    <string name="pendientes">Pendientes</string>
+    <string name="completadas">Completadas</string>
+
+    <string name="no_hay_tareas">No hay tareas</string>
+
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+
+    <string name="nueva_tarea">Nueva Tarea</string>
+    <string name="editar_tarea">Editar Tarea</string>
+
+    <string name="titulo">Título</string>
+    <string name="descripcion_opcional">Descripción (opcional)</string>
+
+    <string name="vence">Vence:</string>
+    <string name="seleccionar_fecha_vencimiento">Seleccionar fecha de vencimiento</string>
+
+    <string name="fecha_pasada">⚠️ Fecha pasada</string>
+    <string name="agregar">Agregar</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="ok">OK</string>
+    <string name="max_caracteres">Máximo %1$d caracteres</string>
 
 </resources>
