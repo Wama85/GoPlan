@@ -6,8 +6,10 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.softwama.goplan.R
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -21,23 +23,28 @@ fun SettingsScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Configuración") },
+                title = { Text(stringResource(R.string.configuracion)) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = stringResource(R.string.volver)
+                        )
                     }
                 }
             )
         }
     ) { padding ->
+
         Column(
             modifier = Modifier
                 .padding(padding)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+
             Text(
-                text = "Apariencia",
+                text = stringResource(R.string.apariencia),
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -46,17 +53,20 @@ fun SettingsScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
             ) {
-                Text("Modo oscuro")
+                Text(stringResource(R.string.modo_oscuro))
+
                 Switch(
                     checked = state.isDarkMode,
                     onCheckedChange = { viewModel.toggleTheme(it) }
                 )
             }
 
-            if (state.isDarkMode)
-                Text("El modo oscuro está activado 🌙")
-            else
-                Text("El modo claro está activado ☀️")
+            Text(
+                text = if (state.isDarkMode)
+                    stringResource(R.string.modo_oscuro_activado)
+                else
+                    stringResource(R.string.modo_claro_activado)
+            )
         }
     }
 }

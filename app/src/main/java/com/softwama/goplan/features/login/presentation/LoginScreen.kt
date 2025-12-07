@@ -27,10 +27,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.Scope
-import com.google.api.services.calendar.CalendarScopes
 import com.softwama.goplan.R
 import com.softwama.goplan.features.calendar.data.GoogleAuthManager
 import com.softwama.goplan.ui.theme.ButtonOrange
@@ -46,10 +43,10 @@ fun LoginScreen(
     val state by viewModel.state.collectAsState()
     val context = LocalContext.current
 
-    // ← Obtener GoogleAuthManager de Koin
-    val authManager = remember { org.koin.core.context.GlobalContext.get().get<GoogleAuthManager>() }
+    val authManager = remember {
+        org.koin.core.context.GlobalContext.get().get<GoogleAuthManager>()
+    }
 
-    // Launcher para Google Sign-In
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -58,14 +55,11 @@ fun LoginScreen(
             val account = task.getResult(ApiException::class.java)
             viewModel.onGoogleSignInSuccess(account)
         } catch (e: ApiException) {
-            // Error al iniciar sesión
         }
     }
 
-    LaunchedEffect(key1 = state.isLoginSuccessful) {
-        if (state.isLoginSuccessful) {
-            onLoginSuccess()
-        }
+    LaunchedEffect(state.isLoginSuccessful) {
+        if (state.isLoginSuccessful) onLoginSuccess()
     }
 
     Surface(
@@ -75,12 +69,13 @@ fun LoginScreen(
         Column {
             Image(
                 painter = painterResource(id = R.drawable.logo),
-                contentDescription = "Imagen de inicio de sesión",
+                contentDescription = stringResource(R.string.login_image_desc),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(180.dp),
                 contentScale = ContentScale.Crop
             )
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -90,12 +85,13 @@ fun LoginScreen(
             ) {
 
                 Text(
-                    text = stringResource(R.string.inicio_sesion),
+                    text = stringResource(R.string.login_title),
                     style = MaterialTheme.typography.headlineMedium,
                     modifier = Modifier.padding(bottom = 12.dp)
                 )
+
                 Text(
-                    text = "Inicia Sesión con tu cuenta",
+                    text = stringResource(R.string.login_subtitle),
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
@@ -103,8 +99,10 @@ fun LoginScreen(
                 OutlinedTextField(
                     value = state.username,
                     onValueChange = { viewModel.onEvent(LoginEvent.UsernameChanged(it)) },
-                    label = { Text("Correo electrónico") },
-                    leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Usuario") },
+                    label = { Text(stringResource(R.string.correo_electronico)) },
+                    leadingIcon = {
+                        Icon(Icons.Filled.Person, contentDescription = null)
+                    },
                     modifier = Modifier.fillMaxWidth()
                 )
 
@@ -114,18 +112,18 @@ fun LoginScreen(
                 OutlinedTextField(
                     value = state.password,
                     onValueChange = { viewModel.onEvent(LoginEvent.PasswordChanged(it)) },
-                    label = { Text("Contraseña") },
-                    leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Contraseña") },
+                    label = { Text(stringResource(R.string.contrasena)) },
+                    leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = null) },
                     modifier = Modifier.fillMaxWidth(),
                     visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                     trailingIcon = {
                         val image =
                             if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
-                        val description =
-                            if (passwordVisible) "Ocultar contraseña" else "Mostrar contraseña"
+                        val desc =
+                            if (passwordVisible) R.string.ocultar_contrasena else R.string.mostrar_contrasena
 
                         IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                            Icon(imageVector = image, contentDescription = description)
+                            Icon(imageVector = image, contentDescription = stringResource(desc))
                         }
                     }
                 )
@@ -149,13 +147,12 @@ fun LoginScreen(
                             color = MaterialTheme.colorScheme.onPrimary
                         )
                     } else {
-                        Text(stringResource(R.string.inicio_sesion))
+                        Text(stringResource(R.string.btn_iniciar_sesion))
                     }
                 }
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                // Divider con "O"
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -163,7 +160,7 @@ fun LoginScreen(
                 ) {
                     HorizontalDivider(modifier = Modifier.weight(1f))
                     Text(
-                        text = "O",
+                        text = stringResource(R.string.texto_o),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                     )
@@ -172,11 +169,9 @@ fun LoginScreen(
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                // Botón de Google Sign-In
                 OutlinedButton(
                     onClick = {
-                        val signInIntent = authManager.googleSignInClient.signInIntent
-                        launcher.launch(signInIntent)
+                        launcher.launch(authManager.googleSignInClient.signInIntent)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -196,22 +191,20 @@ fun LoginScreen(
                             modifier = Modifier.size(24.dp),
                             tint = Color.Unspecified
                         )
-                        Text("Continuar con Google")
+                        Text(stringResource(R.string.google_continuar))
                     }
                 }
 
-// Botón para cambiar de cuenta
                 TextButton(
                     onClick = {
                         authManager.googleSignInClient.signOut().addOnCompleteListener {
-                            val signInIntent = authManager.googleSignInClient.signInIntent
-                            launcher.launch(signInIntent)
+                            launcher.launch(authManager.googleSignInClient.signInIntent)
                         }
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        "Usar otra cuenta de Google",
+                        stringResource(R.string.google_usar_otra_cuenta),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.primary
                     )
@@ -219,25 +212,23 @@ fun LoginScreen(
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                val annotatedString = buildAnnotatedString {
-                    append("¿No tienes cuenta? ")
+                val annotated = buildAnnotatedString {
+                    append(stringResource(R.string.no_tienes_cuenta))
                     pushStringAnnotation(
                         tag = "SUSCRIBE",
                         annotation = "navigate_to_suscribe"
                     )
-                    withStyle(style = SpanStyle(color = ButtonOrange, fontWeight = FontWeight.Bold)) {
-                        append("Suscríbete")
+                    withStyle(SpanStyle(color = ButtonOrange, fontWeight = FontWeight.Bold)) {
+                        append(stringResource(R.string.suscribete))
                     }
                     pop()
                 }
 
-
-
                 ClickableText(
-                    text = annotatedString,
+                    text = annotated,
                     style = MaterialTheme.typography.bodyMedium.copy(color = Color.Black),
                     onClick = { offset ->
-                        annotatedString.getStringAnnotations(
+                        annotated.getStringAnnotations(
                             tag = "SUSCRIBE",
                             start = offset,
                             end = offset
@@ -248,19 +239,19 @@ fun LoginScreen(
                     modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
                 )
 
-                state.error?.let { error ->
+                state.error?.let {
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = error,
+                        text = it,
                         color = MaterialTheme.colorScheme.error,
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
 
-                state.loginMessage?.let { message ->
+                state.loginMessage?.let {
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = message,
+                        text = it,
                         color = MaterialTheme.colorScheme.primary,
                         style = MaterialTheme.typography.bodySmall
                     )

@@ -15,8 +15,8 @@ android {
         applicationId = "com.softwama.goplan"
         minSdk = 23
         targetSdk = 36
-        versionCode = 7
-        versionName = "1.0.6"
+        versionCode = 10
+        versionName = "1.0.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
