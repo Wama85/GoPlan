@@ -152,7 +152,7 @@ val appModule = module {
     factory { com.softwama.goplan.features.profile.domain.usecase.SetThemeUseCase(get()) }
 
     viewModel { com.softwama.goplan.features.profile.presentation.EditProfileViewModel(get(), get()) }
-    viewModel { com.softwama.goplan.features.profile.presentation.SettingsViewModel(get(), get()) }
+    viewModel { com.softwama.goplan.features.profile.presentation.SettingsViewModel(get(), get(),get()) }
 
     single<ActividadRepository> { ActividadRepositoryImpl(get(),null,get()) }
     factory { ObtenerActividadesUseCase(get()) }

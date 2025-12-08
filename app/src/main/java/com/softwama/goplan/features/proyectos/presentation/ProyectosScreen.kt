@@ -12,8 +12,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.softwama.goplan.R
 import androidx.navigation.NavController
 import com.softwama.goplan.features.proyectos.domain.model.Actividad
 import com.softwama.goplan.features.proyectos.domain.model.Proyecto
@@ -38,13 +40,13 @@ fun ProyectosScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        "Mis Proyectos",
+                        stringResource(R.string.mis_proyectos),
                         fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.volver))
                     }
                 }
             )
@@ -53,7 +55,7 @@ fun ProyectosScreen(
             FloatingActionButton(
                 onClick = { showAddDialog = true }
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Agregar Proyecto")
+                Icon(Icons.Default.Add, contentDescription = stringResource(R.string.agregar_proyecto))
             }
         }
     ) { padding ->
@@ -156,12 +158,12 @@ fun ProyectosScreen(
                         showDeleteConfirmation = null
                     }
                 ) {
-                    Text("Eliminar", color = MaterialTheme.colorScheme.error)
+                    Text(stringResource(R.string.eliminar), color = MaterialTheme.colorScheme.error)
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDeleteConfirmation = null }) {
-                    Text("Cancelar")
+                    Text(stringResource(R.string.cancelar))
                 }
             }
         )
@@ -261,10 +263,12 @@ fun ProyectoDialog(
     var colorSeleccionado by remember { mutableStateOf(proyecto?.colorHex ?: "#2196F3") }
     var showDatePickerInicio by remember { mutableStateOf(false) }
     var showDatePickerFin by remember { mutableStateOf(false) }
+    var errorNombre by remember { mutableStateOf<String?>(null) }
     var errorDescripcion by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaInicio by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaFin by remember { mutableStateOf<String?>(null) }
 
+    val MAX_NOMBRE_LENGTH = 20
     val MAX_DESCRIPCION_LENGTH = 50
     val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
@@ -280,6 +284,17 @@ fun ProyectoDialog(
         "#F44336" to "Rojo",
         "#00BCD4" to "Cyan"
     )
+
+    fun validarNombre(texto: String): String {
+        var textoValidado = texto
+        if (textoValidado.length > MAX_NOMBRE_LENGTH) {
+            textoValidado = textoValidado.take(MAX_NOMBRE_LENGTH)
+            errorNombre = "Máximo $MAX_NOMBRE_LENGTH caracteres"
+        } else {
+            errorNombre = null
+        }
+        return textoValidado
+    }
 
     fun validarDescripcion(texto: String): String {
         var textoValidado = texto
@@ -323,10 +338,30 @@ fun ProyectoDialog(
             ) {
                 OutlinedTextField(
                     value = nombre,
-                    onValueChange = { nombre = it },
+                    onValueChange = { nombre = validarNombre(it) },
                     label = { Text("Nombre del Proyecto") },
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    supportingText = {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = errorNombre ?: "",
+                                color = MaterialTheme.colorScheme.error
+                            )
+                            Text(
+                                text = "${nombre.length}/$MAX_NOMBRE_LENGTH",
+                                color = if (nombre.length >= MAX_NOMBRE_LENGTH) {
+                                    MaterialTheme.colorScheme.error
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                }
+                            )
+                        }
+                    },
+                    isError = errorNombre != null
                 )
 
                 OutlinedTextField(
@@ -713,16 +748,29 @@ fun ActividadDialog(
     var fechaFin by remember { mutableStateOf(actividad?.fechaFin) }
     var showDatePickerInicio by remember { mutableStateOf(false) }
     var showDatePickerFin by remember { mutableStateOf(false) }
+    var errorNombre by remember { mutableStateOf<String?>(null) }
     var errorDescripcion by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaInicio by remember { mutableStateOf<String?>(null) }
     var advertenciaFechaFin by remember { mutableStateOf<String?>(null) }
 
+    val MAX_NOMBRE_LENGTH = 20
     val MAX_DESCRIPCION_LENGTH = 20
     val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     val datePickerStateInicio = rememberDatePickerState()
     val datePickerStateFin = rememberDatePickerState()
+
+    fun validarNombre(texto: String): String {
+        var textoValidado = texto
+        if (textoValidado.length > MAX_NOMBRE_LENGTH) {
+            textoValidado = textoValidado.take(MAX_NOMBRE_LENGTH)
+            errorNombre = "Máximo $MAX_NOMBRE_LENGTH caracteres"
+        } else {
+            errorNombre = null
+        }
+        return textoValidado
+    }
 
     fun validarDescripcion(texto: String): String {
         var textoValidado = texto
@@ -763,10 +811,30 @@ fun ActividadDialog(
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(
                     value = nombre,
-                    onValueChange = { nombre = it },
+                    onValueChange = { nombre = validarNombre(it) },
                     label = { Text("Nombre de la Actividad") },
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    supportingText = {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = errorNombre ?: "",
+                                color = MaterialTheme.colorScheme.error
+                            )
+                            Text(
+                                text = "${nombre.length}/$MAX_NOMBRE_LENGTH",
+                                color = if (nombre.length >= MAX_NOMBRE_LENGTH) {
+                                    MaterialTheme.colorScheme.error
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                }
+                            )
+                        }
+                    },
+                    isError = errorNombre != null
                 )
 
                 OutlinedTextField(

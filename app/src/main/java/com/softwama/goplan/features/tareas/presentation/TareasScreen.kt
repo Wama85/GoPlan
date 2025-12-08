@@ -261,25 +261,39 @@ fun TareaDialog(
     var descripcion by remember { mutableStateOf(tarea?.descripcion ?: "") }
     var fechaSeleccionada by remember { mutableStateOf(tarea?.fechaVencimiento) }
     var showDatePicker by remember { mutableStateOf(false) }
+    var errorTitulo by remember { mutableStateOf<String?>(null) }
     var errorDescripcion by remember { mutableStateOf<String?>(null) }
     var advertenciaFecha by remember { mutableStateOf<String?>(null) }
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     val datePickerState = rememberDatePickerState()
 
+    val MAX_TITULO_LENGTH = 20
     val MAX_DESCRIPCION_LENGTH = 50
     val MAX_SALTOS_LINEA_CONSECUTIVOS = 2
 
     // Mensajes desde resources, pero sin cambiar firma de funciones
-    val maxCharsMessage = stringResource(R.string.max_caracteres, MAX_DESCRIPCION_LENGTH)
+    val maxCharsTituloMessage = stringResource(R.string.max_caracteres, MAX_TITULO_LENGTH)
+    val maxCharsDescripcionMessage = stringResource(R.string.max_caracteres, MAX_DESCRIPCION_LENGTH)
     val fechaPasadaMessage = stringResource(R.string.fecha_pasada)
+
+    fun validarTitulo(texto: String): String {
+        var textoValidado = texto
+        if (textoValidado.length > MAX_TITULO_LENGTH) {
+            textoValidado = textoValidado.take(MAX_TITULO_LENGTH)
+            errorTitulo = maxCharsTituloMessage
+        } else {
+            errorTitulo = null
+        }
+        return textoValidado
+    }
 
     fun validarDescripcion(texto: String): String {
         var textoValidado = texto
 
         if (textoValidado.length > MAX_DESCRIPCION_LENGTH) {
             textoValidado = textoValidado.take(MAX_DESCRIPCION_LENGTH)
-            errorDescripcion = maxCharsMessage
+            errorDescripcion = maxCharsDescripcionMessage
         } else {
             errorDescripcion = null
         }
@@ -320,10 +334,30 @@ fun TareaDialog(
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 OutlinedTextField(
                     value = titulo,
-                    onValueChange = { titulo = it },
+                    onValueChange = { titulo = validarTitulo(it) },
                     label = { Text(stringResource(R.string.titulo)) },
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    supportingText = {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = errorTitulo ?: "",
+                                color = MaterialTheme.colorScheme.error
+                            )
+                            Text(
+                                text = "${titulo.length}/$MAX_TITULO_LENGTH",
+                                color = if (titulo.length >= MAX_TITULO_LENGTH) {
+                                    MaterialTheme.colorScheme.error
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                }
+                            )
+                        }
+                    },
+                    isError = errorTitulo != null
                 )
 
                 OutlinedTextField(

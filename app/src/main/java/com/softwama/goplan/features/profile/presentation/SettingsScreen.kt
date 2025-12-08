@@ -43,6 +43,9 @@ fun SettingsScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
 
+            // ==========================
+            // 🔵 APARIENCIA
+            // ==========================
             Text(
                 text = stringResource(R.string.apariencia),
                 style = MaterialTheme.typography.titleMedium
@@ -66,6 +69,66 @@ fun SettingsScreen(
                     stringResource(R.string.modo_oscuro_activado)
                 else
                     stringResource(R.string.modo_claro_activado)
+            )
+
+
+            // ==========================
+            // 🟣 IDIOMA
+            // ==========================
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Text(
+                text = stringResource(R.string.idioma),
+                style = MaterialTheme.typography.titleMedium
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
+            ) {
+                Text(stringResource(R.string.seleccionar_idioma))
+
+                DropdownMenuLocale(viewModel)
+            }
+        }
+    }
+}
+
+@Composable
+fun DropdownMenuLocale(viewModel: SettingsViewModel) {
+    var expanded by remember { mutableStateOf(false) }
+    val selectedLanguage by viewModel.language.collectAsState()
+
+    Box {
+        TextButton(onClick = { expanded = true }) {
+            Text(
+                when (selectedLanguage) {
+                    "en" -> "English"
+                    else -> "Español"
+                }
+            )
+        }
+
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+
+            DropdownMenuItem(
+                text = { Text("Español") },
+                onClick = {
+                    expanded = false
+                    viewModel.changeLanguage("es")
+                }
+            )
+
+            DropdownMenuItem(
+                text = { Text("English") },
+                onClick = {
+                    expanded = false
+                    viewModel.changeLanguage("en")
+                }
             )
         }
     }

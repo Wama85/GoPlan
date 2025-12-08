@@ -17,17 +17,17 @@ import androidx.navigation.compose.composable
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.features.calendar.presentation.CalendarScreen
 import com.softwama.goplan.features.dashboard.DashboardScreen
-import com.softwama.goplan.features.login.presentation.LoginScreen
-import com.softwama.goplan.core.notifications.presentation.NotificationsScreen
 import com.softwama.goplan.features.estadisticas.presentation.EstadisticasScreen
-import com.softwama.goplan.features.profile.presentation.ProfileScreen
-import com.softwama.goplan.features.suscribe.presentation.SuscribeScreen
+import com.softwama.goplan.features.login.presentation.LoginScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceScreen
 import com.softwama.goplan.features.maintenance.presentation.MaintenanceViewModel
 import com.softwama.goplan.features.profile.presentation.EditProfileScreen
+import com.softwama.goplan.features.profile.presentation.ProfileScreen
 import com.softwama.goplan.features.profile.presentation.SettingsScreen
 import com.softwama.goplan.features.proyectos.presentation.ProyectosScreen
+import com.softwama.goplan.features.suscribe.presentation.SuscribeScreen
 import com.softwama.goplan.features.tareas.presentation.TareasScreen
+import com.softwama.goplan.core.notifications.presentation.NotificationsScreen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import org.koin.androidx.compose.koinViewModel
@@ -44,11 +44,13 @@ fun AppNavigation(
 
     var initialLoginState by remember { mutableStateOf<Boolean?>(null) }
 
+    // Cargar si está logueado
     LaunchedEffect(Unit) {
         maintenanceViewModel.checkAppStatus()
         initialLoginState = dataStore.getLoginStatus().first()
     }
 
+    // Re-check mantenimiento cuando la app vuelve al foreground
     LaunchedEffect(lifecycleOwner) {
         lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
             maintenanceViewModel.checkAppStatus()
@@ -57,6 +59,7 @@ fun AppNavigation(
 
     val isMaintenance by maintenanceViewModel.isMaintenance.collectAsState()
 
+    // Manejo de mantenimiento
     LaunchedEffect(isMaintenance) {
         if (isMaintenance == true) {
             maintenanceViewModel.startPolling()
@@ -69,9 +72,11 @@ fun AppNavigation(
         isMaintenance == null || initialLoginState == null -> {
             LoadingSplash()
         }
+
         isMaintenance == true -> {
             MaintenanceScreen()
         }
+
         else -> {
             val startDestination = if (initialLoginState == true) "dashboard" else "login"
 
@@ -80,6 +85,8 @@ fun AppNavigation(
                 startDestination = startDestination,
                 modifier = modifier
             ) {
+
+                // LOGIN
                 composable("login") {
                     LoginScreen(
                         onLoginSuccess = {
@@ -93,40 +100,53 @@ fun AppNavigation(
                     )
                 }
 
+                // SUSCRIBE
                 composable("suscribe") {
                     SuscribeScreen(navController = navController)
                 }
 
+                // DASHBOARD
                 composable("dashboard") {
                     DashboardScreen(navController = navController)
                 }
 
+                // PROFILE
                 composable("profile") {
                     ProfileScreen(navController = navController)
                 }
 
+                // CALENDARIO
                 composable("calendar") {
                     CalendarScreen(navController = navController)
                 }
 
+                // NOTIFICACIONES
                 composable("notifications") {
                     NotificationsScreen(navController = navController)
                 }
+
+                // EDITAR PERFIL
                 composable("editProfile") {
                     EditProfileScreen(navController)
                 }
+
+                // SETTINGS
                 composable("settingsScreen") {
                     SettingsScreen(navController)
                 }
-                composable(Screen.Tareas.route) {
+
+                // TAREAS
+                composable("tareas") {
                     TareasScreen(navController = navController)
                 }
 
-                composable(Screen.Proyectos.route) {
+                // PROYECTOS
+                composable("proyectos") {
                     ProyectosScreen(navController = navController)
                 }
 
-                composable(Screen.Estadisticas.route) {
+                // ESTADÍSTICAS
+                composable("estadisticas") {
                     EstadisticasScreen(navController = navController)
                 }
             }

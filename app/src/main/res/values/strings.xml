@@ -79,5 +79,22 @@
     <string name="cancelar">Cancelar</string>
     <string name="ok">OK</string>
     <string name="max_caracteres">Máximo %1$d caracteres</string>
+    <string name="idioma">Idioma</string>
+    <string name="seleccionar_idioma">Seleccionar idioma</string>
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_welcome">¡Bienvenido!</string>
+    <string name="dashboard_quick_actions">Acciones rápidas</string>
 
+    <string name="dashboard_tasks">Tareas</string>
+    <string name="dashboard_projects">Proyectos</string>
+    <string name="dashboard_calendar">Calendario</string>
+    <string name="dashboard_stats">Estadísticas</string>
+    <string name="drawer_logout">Cerrar sesión</string>
+    <string name="mis_proyectos">Mis proyectos</string>
+    <string name="agregar_proyecto">Agregar Proyecto</string>
+    <string name="mi_calendario">Mi Calendario</string>
+    <string name="agregar_actividad">Agregar Actividad</string>
+<string name="conectar_calendario">Conectado con Google Calendar</string>
+    <string name="no_hay_actividades">No hay actividades</string>
+    <string name="eliminar_proyecto">Eliminar Proyecto</string>
 </resources>

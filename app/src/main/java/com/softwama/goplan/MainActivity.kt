@@ -1,12 +1,14 @@
 package com.softwama.goplan
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.ViewTreeObserver
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -18,6 +20,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -33,11 +37,11 @@ import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
 import com.softwama.goplan.navigation.AppNavigation
 import com.softwama.goplan.navigation.NavigationDrawer
 import com.softwama.goplan.ui.theme.GoPlanTheme
-import io.sentry.Sentry
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.compose.koinInject
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
 
@@ -46,15 +50,9 @@ class MainActivity : ComponentActivity() {
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
-        if (isGranted) {
-            Log.d(TAG, "✅ Permiso de notificaciones concedido")
-            getFirebaseToken()
-        } else {
-            Log.w(TAG, "⚠️ Permiso de notificaciones denegado")
-        }
+        if (isGranted) getFirebaseToken()
+        else Log.w(TAG, "⚠️ Permiso de notificaciones denegado")
     }
-
-    private var globalLayoutListener: ViewTreeObserver.OnGlobalLayoutListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -62,44 +60,46 @@ class MainActivity : ComponentActivity() {
 
         FirebaseApp.initializeApp(this)
 
-        val contentView = findViewById<android.view.View>(android.R.id.content)
-        globalLayoutListener = ViewTreeObserver.OnGlobalLayoutListener {
-            contentView.viewTreeObserver.removeOnGlobalLayoutListener(globalLayoutListener)
-            try {
-                throw Exception("This app uses Sentry! :)")
-            } catch (e: Exception) {
-                Sentry.captureException(e)
-            }
-        }
-        contentView.viewTreeObserver.addOnGlobalLayoutListener(globalLayoutListener)
-
         askNotificationPermission()
 
         setContent {
             KoinAndroidContext {
-                val dataStore: UserPreferencesDataStore = koinInject()
-                val isDarkMode by dataStore.isDarkMode().collectAsState(initial = false)
 
-                GoPlanTheme(darkTheme = isDarkMode) {
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background
-                    ) {
-                        MainApp()
+                val language by dataStore.getLanguage().collectAsState(initial = "es")
+
+                val currentConfiguration = LocalConfiguration.current
+                
+                val (localizedContext, localizedConfig) = remember(language, currentConfiguration) {
+                    val locale = Locale(language)
+                    Locale.setDefault(locale)
+                    
+                    val config = Configuration(currentConfiguration)
+                    config.setLocale(locale)
+                    config.setLayoutDirection(locale)
+                    
+                    val context = this@MainActivity.createConfigurationContext(config)
+                    context to config
+                }
+
+                CompositionLocalProvider(
+                    LocalConfiguration provides localizedConfig,
+                    LocalContext provides localizedContext,
+                    LocalActivityResultRegistryOwner provides this@MainActivity
+                ) {
+
+                    val isDarkMode by dataStore.isDarkMode().collectAsState(initial = false)
+
+                    GoPlanTheme(darkTheme = isDarkMode) {
+                        Surface(
+                            modifier = Modifier.fillMaxSize(),
+                            color = MaterialTheme.colorScheme.background
+                        ) {
+                            MainApp()
+                        }
                     }
                 }
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        globalLayoutListener?.let {
-            findViewById<android.view.View>(android.R.id.content)
-                ?.viewTreeObserver
-                ?.removeOnGlobalLayoutListener(it)
-        }
-        Log.d(TAG, "🧹 MainActivity destruida")
     }
 
     private fun askNotificationPermission() {
@@ -108,48 +108,26 @@ class MainActivity : ComponentActivity() {
                 ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED -> {
-                    Log.d(TAG, "✅ Ya tiene permiso de notificaciones")
+                ) == PackageManager.PERMISSION_GRANTED ->
                     getFirebaseToken()
-                }
-                else -> {
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
+
+                else -> requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
-        } else {
-            Log.d(TAG, "📱 Android < 13, no se requiere permiso POST_NOTIFICATIONS")
-            getFirebaseToken()
-        }
+        } else getFirebaseToken()
     }
 
     private fun getFirebaseToken() {
-        FirebaseMessaging.getInstance().token
-            .addOnCompleteListener { task ->
-                if (!task.isSuccessful) {
-                    Log.e(TAG, "❌ Error obteniendo token FCM", task.exception)
-                    return@addOnCompleteListener
-                }
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (!task.isSuccessful) return@addOnCompleteListener
 
-                val token = task.result
-                Log.d(TAG, "🔑 Token FCM: $token")
-
-                lifecycleScope.launch {
-                    dataStore.saveFcmToken(token)
-                }
-
-                subscribeToTopics()
-            }
+            val token = task.result
+            lifecycleScope.launch { dataStore.saveFcmToken(token) }
+            subscribeToTopics()
+        }
     }
 
     private fun subscribeToTopics() {
         FirebaseMessaging.getInstance().subscribeToTopic("all_users")
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "✅ Suscrito al tema: all_users")
-                } else {
-                    Log.e(TAG, "❌ Error suscribiéndose al tema", task.exception)
-                }
-            }
     }
 
     companion object {
@@ -162,8 +140,7 @@ class MainActivity : ComponentActivity() {
 fun MainApp() {
     val navController: NavHostController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination
-    val currentRoute = currentDestination?.route
+    val currentRoute = navBackStackEntry?.destination?.route
     val dataStore: UserPreferencesDataStore = koinInject()
 
     val navigationDrawerItems = listOf(
@@ -178,7 +155,11 @@ fun MainApp() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
-    val routesWithoutDrawer = listOf("login", "suscribe", "tareas", "proyectos", "estadisticas","calendar","profile","notifications","editProfile","settingsScreen")
+    val routesWithoutDrawer = listOf(
+        "login", "suscribe", "tareas", "proyectos", "estadisticas",
+        "calendar", "profile", "notifications", "editProfile", "settingsScreen"
+    )
+
     val showDrawer = currentRoute !in routesWithoutDrawer
 
     if (showDrawer) {
@@ -194,10 +175,7 @@ fun MainApp() {
                             .padding(vertical = 32.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Image(
                                 painter = painterResource(id = R.drawable.icono),
                                 contentDescription = "Logo",
@@ -210,16 +188,16 @@ fun MainApp() {
                     Spacer(modifier = Modifier.height(16.dp))
 
                     navigationDrawerItems.forEach { item ->
-                        val isSelected = currentDestination?.route == item.route
+                        val isSelected = currentRoute == item.route
 
                         NavigationDrawerItem(
                             icon = {
                                 Icon(
                                     imageVector = if (isSelected) item.selectedIcon else item.unselectedIcon,
-                                    contentDescription = item.label
+                                    contentDescription = stringResource(item.label)
                                 )
                             },
-                            label = { Text(item.label) },
+                            label = { Text(stringResource(item.label)) },
                             selected = isSelected,
                             onClick = {
                                 if (item.route == "logout") {
@@ -234,9 +212,7 @@ fun MainApp() {
                                     navController.navigate(item.route) {
                                         launchSingleTop = true
                                     }
-                                    coroutineScope.launch {
-                                        drawerState.close()
-                                    }
+                                    coroutineScope.launch { drawerState.close() }
                                 }
                             },
                             modifier = Modifier.padding(horizontal = 12.dp)
@@ -255,24 +231,16 @@ fun MainApp() {
                         ),
                         navigationIcon = {
                             IconButton(onClick = {
-                                coroutineScope.launch {
-                                    drawerState.open()
-                                }
+                                coroutineScope.launch { drawerState.open() }
                             }) {
-                                Icon(
-                                    Icons.Default.Menu,
-                                    contentDescription = "Menu"
-                                )
+                                Icon(Icons.Default.Menu, contentDescription = "Menu")
                             }
                         },
                         actions = {
                             IconButton(onClick = {
                                 navController.navigate("profile")
                             }) {
-                                Icon(
-                                    Icons.Default.Person,
-                                    contentDescription = "Perfil"
-                                )
+                                Icon(Icons.Default.Person, contentDescription = "Perfil")
                             }
                         }
                     )

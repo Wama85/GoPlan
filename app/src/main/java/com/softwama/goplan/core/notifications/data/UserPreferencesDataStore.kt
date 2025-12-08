@@ -131,6 +131,21 @@ class UserPreferencesDataStore(private val context: Context) {
             preferences[DARK_MODE] = enabled
         }
     }
+
+    // ========== IDIOMA ==========
+    private val LANGUAGE = stringPreferencesKey("language")
+
+    suspend fun saveLanguage(language: String) {
+        context.dataStore.edit { prefs ->
+            prefs[LANGUAGE] = language
+        }
+    }
+
+    fun getLanguage(): Flow<String> {
+        return context.dataStore.data.map { prefs ->
+            prefs[LANGUAGE] ?: "es"   // Español por defecto
+        }
+    }
     // ========== PERFIL DE USUARIO ==========
     suspend fun saveUserName(name: String) {
         context.dataStore.edit { preferences ->

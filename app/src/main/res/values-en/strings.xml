@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">GoPlan</string>
+
+    <!-- AUTH -->
+    <string name="inicio_sesion">Login</string>
+    <string name="default_notification_channel_id">default_notification_channel_id</string>
+    <string name="registro_title">REGISTER</string>
+    <string name="volver">Back</string>
+    <string name="crear_cuenta">Create Account</string>
+
+    <string name="nombre">First Name</string>
+    <string name="apellido">Last Name</string>
+    <string name="repetir_contrasena">Repeat Password</string>
+    <string name="registrarse">Sign Up</string>
+
+    <!-- LOGIN -->
+    <string name="login_image_desc">Login screen image</string>
+    <string name="login_title">Login</string>
+    <string name="login_subtitle">Sign in with your account</string>
+
+    <string name="correo_electronico">Email</string>
+    <string name="contrasena">Password</string>
+
+    <string name="mostrar_contrasena">Show password</string>
+    <string name="ocultar_contrasena">Hide password</string>
+
+    <string name="btn_iniciar_sesion">Log In</string>
+    <string name="texto_o">OR</string>
+
+    <string name="google_continuar">Continue with Google</string>
+    <string name="google_usar_otra_cuenta">Use another Google account</string>
+
+    <string name="no_tienes_cuenta">Don’t have an account?</string>
+    <string name="suscribete">Sign Up</string>
+
+    <!-- PROFILE -->
+    <string name="perfil_title">Profile</string>
+    <string name="editar_perfil">Edit Profile</string>
+    <string name="notificaciones">Notifications</string>
+    <string name="configuracion">Settings</string>
+
+    <!-- EDIT PROFILE -->
+    <string name="nueva_contrasena">New password</string>
+
+    <string name="guardando">Saving...</string>
+    <string name="guardar_cambios">Save changes</string>
+
+    <!-- SETTINGS -->
+    <string name="apariencia">Appearance</string>
+    <string name="modo_oscuro">Dark mode</string>
+
+    <string name="modo_oscuro_activado">Dark mode is enabled 🌙</string>
+    <string name="modo_claro_activado">Light mode is enabled ☀️</string>
+
+    <!-- TASKS -->
+    <string name="seleccionar_fecha">Select due date</string>
+    <string name="mis_tareas">My Tasks</string>
+    <string name="agregar_tarea">Add Task</string>
+
+    <string name="todas">All</string>
+    <string name="pendientes">Pending</string>
+    <string name="completadas">Completed</string>
+
+    <string name="no_hay_tareas">No tasks available</string>
+
+    <string name="editar">Edit</string>
+    <string name="eliminar">Delete</string>
+
+    <string name="nueva_tarea">New Task</string>
+    <string name="editar_tarea">Edit Task</string>
+
+    <string name="titulo">Title</string>
+    <string name="descripcion_opcional">Description (optional)</string>
+
+    <string name="vence">Due:</string>
+    <string name="seleccionar_fecha_vencimiento">Select due date</string>
+
+    <string name="fecha_pasada">⚠️ Past date</string>
+    <string name="agregar">Add</string>
+    <string name="guardar">Save</string>
+    <string name="cancelar">Cancel</string>
+    <string name="ok">OK</string>
+
+    <string name="max_caracteres">Maximum %1$d characters</string>
+    <string name="idioma">Language</string>
+    <string name="seleccionar_idioma">Select language</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_welcome">Welcome!</string>
+    <string name="dashboard_quick_actions">Quick actions</string>
+
+    <string name="dashboard_tasks">Tasks</string>
+    <string name="dashboard_projects">Projects</string>
+    <string name="dashboard_calendar">Calendar</string>
+    <string name="dashboard_stats">Statistics</string>
+    <string name="drawer_logout">Log out</string>
+    <string name="mis_proyectos">My Projects</string>
+    <string name="agregar_proyecto">Add Project"</string>
+    <string name="mi_calendario">My Calendar</string>
+    <string name="agregar_actividad">Add Activity</string>
+    <string name="conectar_calendario">Connected with Google Calendar</string>
+    <string name="no_hay_actividades">No activities</string>
+    <string name="eliminar_proyecto">delete project</string>
+</resources>
+
