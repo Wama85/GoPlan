@@ -140,17 +140,17 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainApp() {
-    // === 1. Inyectamos el ViewModel global de mantenimiento ===
+    // Inyectamos el ViewModel global de mantenimiento
     val maintenanceViewModel: MaintenanceViewModel = koinInject()
     val isMaintenance by maintenanceViewModel.isMaintenance.collectAsState()
 
-    // === 2. Lanzamos el chequeo y polling una sola vez ===
+    // Lanzamos el chequeo y polling una sola vez
     LaunchedEffect(Unit) {
         maintenanceViewModel.checkAppStatus()
         maintenanceViewModel.startPolling()
     }
 
-    // === 3. Si está en modo mantenimiento mostramos la pantalla y salimos ===
+    // Si está en modo mantenimiento mostramos la pantalla y salimos
     if (isMaintenance == true) {
         MaintenanceScreen()
         return

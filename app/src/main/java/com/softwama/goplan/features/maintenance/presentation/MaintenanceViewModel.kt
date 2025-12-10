@@ -29,7 +29,6 @@ class MaintenanceViewModel(
             while (true) {
                 _isMaintenance.value = checkMaintenanceUseCase()
                 delay(30_000)
-
             }
         }
     }
