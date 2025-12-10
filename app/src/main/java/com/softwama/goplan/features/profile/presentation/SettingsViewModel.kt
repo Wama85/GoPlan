@@ -20,13 +20,13 @@ data class SettingsState(
 class SettingsViewModel(
     private val getThemeUseCase: GetThemeUseCase,
     private val setThemeUseCase: SetThemeUseCase,
-    private val dataStore: UserPreferencesDataStore   // 👈 necesario para idioma
+    private val dataStore: UserPreferencesDataStore
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(SettingsState())
     val state: StateFlow<SettingsState> = _state.asStateFlow()
 
-    // 👇 Flujo del idioma desde DataStore (lo verá SettingsScreen)
+    // Flujo del idioma desde DataStore (lo verá SettingsScreen)
     val language = dataStore.getLanguage()
         .stateIn(
             viewModelScope,
