@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("io.sentry.android.gradle") version "5.9.0"
     alias(libs.plugins.google.gms.google.services)
     id("com.google.devtools.ksp")
 }
@@ -15,8 +14,8 @@ android {
         applicationId = "com.softwama.goplan"
         minSdk = 23
         targetSdk = 36
-        versionCode = 14
-        versionName = "1.0.14"
+        versionCode = 17
+        versionName = "1.0.17"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,7 +30,11 @@ android {
         }
     }
 
+    // EL BLOQUE CORRECTO – YA SIN FLAGS QUE NO SOPORTA TU AGP
     packaging {
+        jniLibs {
+            useLegacyPackaging = false
+        }
         resources {
             excludes += setOf(
                 "META-INF/INDEX.LIST",
@@ -45,9 +48,6 @@ android {
                 "META-INF/ASL2.0",
                 "META-INF/*.kotlin_module"
             )
-        }
-        jniLibs {
-            useLegacyPackaging = true
         }
     }
 
@@ -104,14 +104,16 @@ dependencies {
     implementation(libs.nav.compose)
     implementation(libs.datastore)
 
-    implementation("io.sentry:sentry-android:7.14.0")
+    // SENTRY ACTUALIZADO — FIX PARA 16 KB
+
+
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.compose.material:material-icons-extended:1.5.0")
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
     implementation("androidx.core:core-splashscreen:1.2.0-alpha02")
 
-    // Firebase BoM actualizado
+    // Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
@@ -122,19 +124,22 @@ dependencies {
     implementation("io.grpc:grpc-okhttp:1.76.0")
     implementation("io.grpc:grpc-stub:1.76.0")
     implementation("io.grpc:grpc-auth:1.76.0")
-// Room
+
+    // Room
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
+
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation("com.google.apis:google-api-services-calendar:v3-rev20240705-2.0.0") {
-// Testing
+        exclude(group = "org.apache.httpcomponents", module = "httpclient")
+
+        // Testing
         testImplementation("junit:junit:4.13.2")
         testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
         testImplementation("io.mockk:mockk:1.13.8")
         testImplementation("app.cash.turbine:turbine:1.0.0")
 
-// Android Testing
         androidTestImplementation("androidx.test.ext:junit:1.1.5")
         androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
         androidTestImplementation("androidx.compose.ui:ui-test-junit4")
@@ -142,10 +147,12 @@ dependencies {
 
         exclude(group = "org.apache.httpcomponents", module = "httpclient")
     }
+
     implementation("com.google.api-client:google-api-client-android:2.6.0") {
         exclude(group = "org.apache.httpcomponents", module = "httpclient")
         exclude(group = "org.apache.httpcomponents", module = "httpcore")
     }
+
     implementation("com.google.http-client:google-http-client-gson:1.45.0") {
         exclude(group = "org.apache.httpcomponents", module = "httpclient")
     }
