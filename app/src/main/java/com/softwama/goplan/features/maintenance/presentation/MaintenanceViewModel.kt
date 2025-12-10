@@ -1,5 +1,4 @@
 package com.softwama.goplan.features.maintenance.presentation
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.softwama.goplan.features.maintenance.domain.CheckMaintenanceUseCase
@@ -28,8 +27,9 @@ class MaintenanceViewModel(
         pollingJob?.cancel()
         pollingJob = viewModelScope.launch {
             while (true) {
-                delay(30_000)
                 _isMaintenance.value = checkMaintenanceUseCase()
+                delay(30_000)
+
             }
         }
     }

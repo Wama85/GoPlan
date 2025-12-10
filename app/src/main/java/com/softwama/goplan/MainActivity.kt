@@ -34,6 +34,8 @@ import androidx.navigation.compose.rememberNavController
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.softwama.goplan.data.local.datastore.UserPreferencesDataStore
+import com.softwama.goplan.features.maintenance.presentation.MaintenanceScreen
+import com.softwama.goplan.features.maintenance.presentation.MaintenanceViewModel
 import com.softwama.goplan.navigation.AppNavigation
 import com.softwama.goplan.navigation.NavigationDrawer
 import com.softwama.goplan.ui.theme.GoPlanTheme
@@ -138,6 +140,21 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainApp() {
+    // === 1. Inyectamos el ViewModel global de mantenimiento ===
+    val maintenanceViewModel: MaintenanceViewModel = koinInject()
+    val isMaintenance by maintenanceViewModel.isMaintenance.collectAsState()
+
+    // === 2. Lanzamos el chequeo y polling una sola vez ===
+    LaunchedEffect(Unit) {
+        maintenanceViewModel.checkAppStatus()
+        maintenanceViewModel.startPolling()
+    }
+
+    // === 3. Si está en modo mantenimiento mostramos la pantalla y salimos ===
+    if (isMaintenance == true) {
+        MaintenanceScreen()
+        return
+    }
     val navController: NavHostController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
