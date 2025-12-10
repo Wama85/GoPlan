@@ -15,8 +15,8 @@ android {
         applicationId = "com.softwama.goplan"
         minSdk = 23
         targetSdk = 36
-        versionCode = 11
-        versionName = "1.0.11"
+        versionCode = 13
+        versionName = "1.0.13"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,6 +45,9 @@ android {
                 "META-INF/ASL2.0",
                 "META-INF/*.kotlin_module"
             )
+        }
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
 
@@ -149,4 +152,3 @@ dependencies {
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
-

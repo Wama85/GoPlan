@@ -22,9 +22,6 @@
       <SelectionState runConfigName="ProyectosScreenTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="LoginScreenTest">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="TareasScreenTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
